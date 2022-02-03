@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Web_Final.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+     <link href="MainStyleSheet.css" rel="stylesheet" 
+        type="text/css"/>
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="main">
+  <h2>Auto Sidebar</h2>
+
+
+
+    <div class="footer">
+  <p>Footer</p>
+</div>
+    </form>
+</body>
+</html>

@@ -96,11 +96,11 @@ CREATE TABLE prescription (
 	startDate DATE DEFAULT GETDATE(),
 	expiryDate DATE NOT NULL,
 	refillCounter TINYINT NOT NULL,
-	price DECIMAL(7,2)
+	price DECIMAL(7,2) DEFAULT 0
 );
 
 CREATE TABLE refill (
-	refillID INT NOT NULL IDENTITY(1000,1)
+	refillID INT NOT NULL IDENTITY(1,1)
 		CONSTRAINT PK_refillID PRIMARY KEY,
 	prescriptionID INT NOT NULL
 		FOREIGN KEY(prescriptionID) REFERENCES prescription(prescriptionID),
@@ -108,7 +108,7 @@ CREATE TABLE refill (
 	frequency VARCHAR(50) NOT NULL,
 	supplyDays TINYINT NOT NULL,
 	quantitySupplied TINYINT NOT NULL,
-	amountDue DECIMAL(7,2),
+	amountDue DECIMAL(7,2) DEFAULT 0,
 	dateOfRefill DATETIME DEFAULT GETDATE()
 );
 

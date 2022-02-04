@@ -64,7 +64,7 @@ ELSE
 	BEGIN
 		RETURN 0
 	END
-GO
+
 
 CREATE PROC newClientRegistration(
 	@clientID INT,
@@ -93,7 +93,7 @@ BEGIN
 				COMMIT TRANSACTION
 
 				INSERT INTO users
-				VALUES(@clientID, @clientPassword, @comPassword, @salt)
+				VALUES(@clientID, @clientPassword, @comPassword, @salt, 1)
 			END
 END
 GO
@@ -372,7 +372,7 @@ BEGIN
 				SET @employeeID = (SELECT @@IDENTITY)
 
 				INSERT INTO users
-				VALUES(@employeeID, @empPassword, @comPassword, @salt)
+				VALUES(@employeeID, @empPassword, @comPassword, @salt, 0)
 			END
 END
 GO
@@ -634,7 +634,28 @@ CREATE PROC updateRefill (
 AS
 BEGIN
 	SET NOCOUNT ON;
+	/*
+	need to check if @prescriptionID etc is the same as what is currently in the table
+	IF  @prescriptionID = SELECT (prescriptionID FROM refill WHERE @refillID = refillID)
+		begin
+			update refill
+			set prescriptionid = @prescid
+			where refillid = @refillid
+		end
+
+	if [next one]
+	*/
 	BEGIN TRANSACTION
+		IF @prescriptionID = (SELECT prescriptionID FROM refill WHERE @refillID = refillID)
+			BEGIN
+				UPDATE refill
+				SET prescriptionID = @prescriptionID
+				WHERE refillID = @refillID
+			END
+
+		IF 
+
+/*
 		UPDATE refill
 		SET prescriptionID = @prescriptionID,
 			dosage = @dosage,
@@ -642,7 +663,7 @@ BEGIN
 			supplyDays = @supplyDays,
 			quantitySupplied = @quantitySupplied
 		WHERE refillID = @refillID
-
+*/
 		IF @@ERROR <> 0
 			BEGIN
 				ROLLBACK TRANSACTION
@@ -865,67 +886,81 @@ BEGIN
 	DECLARE @changeDate DATE = GETDATE()
 
 	IF UPDATE(prescriptionID)
+	BEGIN
 		SET @fieldName = 'prescriptionID'
 		SELECT @recordID = (SELECT refillID FROM inserted)
 		SELECT @oldValue = (SELECT prescriptionID FROM deleted)
 		SELECT @newValue = (SELECT prescriptionID FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 	
 	IF UPDATE(dosage)
+	BEGIN
 		SET @fieldName = 'dosage'
 		SELECT @recordID = (SELECT refillID FROM inserted)
 		SELECT @oldValue = (SELECT dosage FROM deleted)
 		SELECT @newValue = (SELECT dosage FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(frequency)
+	BEGIN
 		SET @fieldName = 'frequency'
 		SELECT @recordID = (SELECT refillID FROM inserted)
 		SELECT @oldValue = (SELECT frequency FROM deleted)
 		SELECT @newValue = (SELECT frequency FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(supplyDays)
+	BEGIN
 		SET @fieldName = 'supplyDays'
 		SELECT @recordID = (SELECT refillID FROM inserted)
 		SELECT @oldValue = (SELECT supplyDays FROM deleted)
 		SELECT @newValue = (SELECT supplyDays FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(quantitySupplied)
+	BEGIN
 		SET @fieldName = 'quantitySupplied'
 		SELECT @recordID = (SELECT refillID FROM inserted)
 		SELECT @oldValue = (SELECT quantitySupplied FROM deleted)
 		SELECT @newValue = (SELECT quantitySupplied FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(amountDue)
+	BEGIN
 		SET @fieldName = 'amountDue'
 		SELECT @recordID = (SELECT refillID FROM inserted)
 		SELECT @oldValue = (SELECT amountDue FROM deleted)
 		SELECT @newValue = (SELECT amountDue FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(dateOfRefill)
+	BEGIN
 		SET @fieldName = 'dateOfRefill'
 		SELECT @recordID = (SELECT refillID FROM inserted)
 		SELECT @oldValue = (SELECT dateOfRefill FROM deleted)
 		SELECT @newValue = (SELECT dateOfRefill FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF @@ERROR <> 0
 	BEGIN
@@ -941,74 +976,88 @@ AFTER UPDATE
 AS
 BEGIN
 	DECLARE @tableName VARCHAR(50) = 'prescription'
-	DECLARE @fieldName VARCHAR(50) 
+	DECLARE @fieldName VARCHAR(50)
 	DECLARE @recordID INT
 	DECLARE @oldValue VARCHAR(255)
 	DECLARE @newValue VARCHAR(255)
 	DECLARE @changeDate DATE = GETDATE()
 
 	IF UPDATE(clientID)
+	BEGIN
 		SET @fieldName = 'clientID'
 		SELECT @recordID = (SELECT prescriptionID FROM inserted)
 		SELECT @oldValue = (SELECT clientID FROM deleted)
 		SELECT @newValue = (SELECT clientID FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 	
-	IF UPDATE(physicianID)
+	IF UPDATE(physicianID) 
+	BEGIN
 		SET @fieldName = 'physicianID'
 		SELECT @recordID = (SELECT prescriptionID FROM inserted)
 		SELECT @oldValue = (SELECT physicianID FROM deleted)
 		SELECT @newValue = (SELECT physicianID FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(medicineID)
+	BEGIN
 		SET @fieldName = 'medicineID'
 		SELECT @recordID = (SELECT prescriptionID FROM inserted)
 		SELECT @oldValue = (SELECT medicineID FROM deleted)
 		SELECT @newValue = (SELECT medicineID FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(startDate)
+	BEGIN
 		SET @fieldName = 'startDate'
 		SELECT @recordID = (SELECT prescriptionID FROM inserted)
 		SELECT @oldValue = (SELECT startDate FROM deleted)
 		SELECT @newValue = (SELECT startDate FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(expiryDate)
+	BEGIN
 		SET @fieldName = 'expiryDate'
 		SELECT @recordID = (SELECT prescriptionID FROM inserted)
 		SELECT @oldValue = (SELECT expiryDate FROM deleted)
 		SELECT @newValue = (SELECT expiryDate FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(refillCounter)
+	BEGIN
 		SET @fieldName = 'refillCounter'
 		SELECT @recordID = (SELECT prescriptionID FROM inserted)
 		SELECT @oldValue = (SELECT refillCounter FROM deleted)
 		SELECT @newValue = (SELECT refillCounter FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(price)
+	BEGIN
 		SET @fieldName = 'price'
 		SELECT @recordID = (SELECT prescriptionID FROM inserted)
 		SELECT @oldValue = (SELECT price FROM deleted)
 		SELECT @newValue = (SELECT price FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF @@ERROR <> 0
 	BEGIN
@@ -1031,35 +1080,40 @@ BEGIN
 	DECLARE @changeDate DATE = GETDATE()
 
 	IF UPDATE(refillID)
+	BEGIN
 		SET @fieldName = 'refillID'
 		SELECT @recordID = (SELECT paymentID FROM inserted)
 		SELECT @oldValue = (SELECT refillID FROM deleted)
 		SELECT @newValue = (SELECT refillID FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 	
 	IF UPDATE(paymentType)
+	BEGIN
 		SET @fieldName = 'paymentType'
 		SELECT @recordID = (SELECT paymentID FROM inserted)
 		SELECT @oldValue = (SELECT paymentType FROM deleted)
 		SELECT @newValue = (SELECT paymentType FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF UPDATE(dateOfPayment)
+	BEGIN
 		SET @fieldName = 'dateOfPayment'
 		SELECT @recordID = (SELECT paymentID FROM inserted)
 		SELECT @oldValue = (SELECT dateOfPayment FROM deleted)
 		SELECT @newValue = (SELECT dateOfPayment FROM inserted)
 
-		INSERT INTO auditLog(tableName, fieldName, recordID, oldValue, newValue, changeDate)
+		INSERT INTO auditLog
 		VALUES(@tableName, @fieldName, @recordID, @oldValue, @newValue, @changeDate)
+	END
 
 	IF @@ERROR <> 0
 	BEGIN
 		RAISERROR('Unable to insert record.',16,1)
 	END
 END
-GO

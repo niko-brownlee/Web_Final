@@ -1,11 +1,8 @@
 /*
 	CNSA 216 Final Project
 	Filling the Database
-
-
-	NEED TO FIX
 */
-/*
+
 USE webprog_mmn;
 
 EXEC addNewInsurance 'Green Falls Insurance',20.0,'717-555-2929','181 West Fork Drive','',
@@ -51,27 +48,27 @@ EXEC addNewMedicine 'Morphine','oral',100.00
 
 EXEC addNewMedicine 'Sophiclox','oral',50.00
 
-EXEC addNewPrescription 1,1,1,'2022/11/05',12
+EXEC addNewPrescription 1000,1,1,'2022/11/05',12
 
-EXEC addNewPrescription 1,1,2,'2022/11/05',12
+EXEC addNewPrescription 1000,1,2,'2022/11/05',12
 
-EXEC addNewPrescription 2,1,1,'2022/11/05',12
+EXEC addNewPrescription 1001,1,1,'2022/11/05',12
 
-EXEC addNewPrescription 3,1,2,'2022/10/05',12
+EXEC addNewPrescription 1002,1,2,'2022/10/05',12
 
-EXEC addNewPrescription 4,1,1,'2022/11/05',12
+EXEC addNewPrescription 1003,1,1,'2022/11/05',12
 
-EXEC addNewPrescription 5,1,2,'2022/11/05',12
+EXEC addNewPrescription 1004,1,2,'2022/11/05',12
 
-EXEC addNewPrescription 6,1,1,'2022/11/05',12
+EXEC addNewPrescription 1005,1,1,'2022/11/05',12
 
-EXEC addNewPrescription 7,1,2,'2022/11/05',12
+EXEC addNewPrescription 1006,1,2,'2022/11/05',12
 
-EXEC addNewPrescription 8,1,2,'2022/11/05',12
+EXEC addNewPrescription 1007,1,2,'2022/11/05',12
 
-EXEC addNewPrescription 9,1,1,'2022/11/05',12
+EXEC addNewPrescription 1008,1,1,'2022/11/05',12
 
-EXEC addNewPrescription 10,1,2,'2022/11/05',12
+EXEC addNewPrescription 1009,1,2,'2022/11/05',12
 
 EXEC addNewRefill 1,'50mg','Twice daily',30,60
 
@@ -98,4 +95,3 @@ EXEC addNewRefill 10,'10mg','Once daily',60,60
 EXEC newPayment 1000,'CREDIT'
 
 EXEC newPayment 1001,'CASH'
-*/

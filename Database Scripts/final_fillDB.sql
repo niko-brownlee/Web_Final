@@ -92,6 +92,6 @@ EXEC addNewRefill 9,'10mg','Once daily',60,60
 
 EXEC addNewRefill 10,'10mg','Once daily',60,60
 
-EXEC newPayment 1000,'CREDIT'
+EXEC newPayment 1,'CREDIT'
 
-EXEC newPayment 1001,'CASH'
+EXEC newPayment 2,'CASH'

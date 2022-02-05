@@ -600,13 +600,41 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 	BEGIN TRANSACTION
-		UPDATE prescription
-		SET clientID = @clientID,
-			physicianID = @physicianID,
-			medicineID = @medicineID,
-			expiryDate = @expiryDate,
-			refillCounter = @refillCounter
-		WHERE prescriptionID = @prescriptionID
+
+		IF @clientID != (SELECT clientID FROM prescription WHERE @prescriptionID = prescriptionID)
+			BEGIN
+				UPDATE prescription
+				SET clientID = @clientID
+				WHERE prescriptionID = @prescriptionID
+			END
+
+		IF @physicianID != (SELECT physicianID FROM prescription WHERE @prescriptionID = prescriptionID)
+			BEGIN
+				UPDATE prescription
+				SET physicianID = @physicianID
+				WHERE prescriptionID = @prescriptionID
+			END
+
+		IF @medicineID != (SELECT medicineID FROM prescription WHERE @prescriptionID = prescriptionID)
+			BEGIN
+				UPDATE prescription
+				SET medicineID = @clientID
+				WHERE prescriptionID = @prescriptionID
+			END
+
+		IF @expiryDate != (SELECT expiryDate FROM prescription WHERE @prescriptionID = prescriptionID)
+			BEGIN
+				UPDATE prescription
+				SET expiryDate = @expiryDate
+				WHERE prescriptionID = @prescriptionID
+			END
+
+		IF @refillCounter != (SELECT refillCounter FROM prescription WHERE @prescriptionID = prescriptionID)
+			BEGIN
+				UPDATE prescription
+				SET refillCounter = @refillCounter
+				WHERE prescriptionID = @prescriptionID
+			END
 
 		IF @@ERROR <> 0
 			BEGIN
@@ -634,36 +662,43 @@ CREATE PROC updateRefill (
 AS
 BEGIN
 	SET NOCOUNT ON;
-	/*
-	need to check if @prescriptionID etc is the same as what is currently in the table
-	IF  @prescriptionID = SELECT (prescriptionID FROM refill WHERE @refillID = refillID)
-		begin
-			update refill
-			set prescriptionid = @prescid
-			where refillid = @refillid
-		end
 
-	if [next one]
-	*/
 	BEGIN TRANSACTION
-		IF @prescriptionID = (SELECT prescriptionID FROM refill WHERE @refillID = refillID)
+		IF @prescriptionID != (SELECT prescriptionID FROM refill WHERE @refillID = refillID)
 			BEGIN
 				UPDATE refill
 				SET prescriptionID = @prescriptionID
 				WHERE refillID = @refillID
 			END
 
-		IF 
+		IF @dosage != (SELECT dosage FROM refill WHERE @refillID = refillID)
+			BEGIN
+				UPDATE refill
+				SET dosage = @dosage
+				WHERE refillID = @refillID
+			END
+		
+		IF @frequency != (SELECT frequency FROM refill WHERE @refillID = refillID)
+			BEGIN
+				UPDATE refill
+				SET frequency = @frequency
+				WHERE refillID = @refillID
+			END
+		
+		IF @supplyDays != (SELECT supplyDays FROM refill WHERE @refillID = refillID)
+			BEGIN
+				UPDATE refill
+				SET supplyDays = @supplyDays
+				WHERE refillID = @refillID
+			END
 
-/*
-		UPDATE refill
-		SET prescriptionID = @prescriptionID,
-			dosage = @dosage,
-			frequency = @frequency,
-			supplyDays = @supplyDays,
-			quantitySupplied = @quantitySupplied
-		WHERE refillID = @refillID
-*/
+		IF @quantitySupplied != (SELECT quantitySupplied FROM refill WHERE @refillID = refillID)
+			BEGIN
+				UPDATE refill
+				SET quantitySupplied = @quantitySupplied
+				WHERE refillID = @refillID
+			END
+
 		IF @@ERROR <> 0
 			BEGIN
 				ROLLBACK TRANSACTION

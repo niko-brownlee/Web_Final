@@ -1,6 +1,7 @@
 ﻿
 html, body, form {
     font-family: "Lato", sans-serif;
+    background-color: mediumpurple;
 }
 
 h2 
@@ -52,7 +53,7 @@ h2
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: red;
+    background-color: mediumpurple;
     color: white;
     text-align: center;
 }

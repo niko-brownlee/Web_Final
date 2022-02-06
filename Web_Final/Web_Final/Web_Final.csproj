@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="MainStyleSheet.css" />
     <Content Include="Web.config" />
+    <Content Include="Welcome.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterPage.Master.cs">

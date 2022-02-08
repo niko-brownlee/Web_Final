@@ -1,0 +1,38 @@
+Do I need to add these?
+
+
+
+--select client info and prescription info
+CREATE PROC selectClientPrescription (
+	@clientID INT
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT p.prescriptionID, p.clientID, c.fName + ' ' + c.lName AS 'Client Name',
+		p.physicianID, p.medicineID, p.startDate, p.expiryDate, p.refillCounter
+	FROM prescription AS p
+	INNER JOIN client AS c on c.clientID = p.clientID
+	WHERE p.clientID = @clientID
+END
+GO
+
+
+
+CREATE PROC returnClientIDByUsername(
+	@username VARCHAR(25)
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	BEGIN
+		SELECT clientID
+		FROM client
+		WHERE username = @username
+	END
+END
+GO
+
+

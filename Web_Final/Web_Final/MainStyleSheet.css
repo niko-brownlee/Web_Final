@@ -1,7 +1,9 @@
 ﻿
 html, body, form {
-    font-family: "Lato", sans-serif;
+    font-family: "Bodoni MT Condensed";
     background-color: mediumpurple;
+    font-size: xx-large;
+    font-weight: 700;
 }
 
 h2 
@@ -10,14 +12,15 @@ h2
 }
 
 .sidenav {
-    width: 130px;
+    width: 134px;
     position: fixed;
     z-index: 1;
-    top: 20px;
-    left: 10px;
+    top: 87px;
+    left: 4px;
     background: #eee;
     overflow-x: hidden;
     padding: 8px 0;
+    height: 420px;
 }
 
     .sidenav a {

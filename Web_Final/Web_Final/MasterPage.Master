@@ -3,28 +3,31 @@
 <!DOCTYPE html>
 
 <html>
-     <link href="MainStyleSheet.css" rel="stylesheet" 
-        type="text/css"/>
 <head runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="MainStyleSheet.css" rel="stylesheet" 
+        type="text/css"/>
+    <title>Master</title>
 </head>
 <body>
+    <form>
+        <div class="sidenav">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#clients">Clients</a>
+          <a href="#contact">Contact</a>
+        </div>
 
-<div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
-</div>
+        <div class="main">
+            <h2>Header</h2>
 
-<div class="main">
-  <h2>Header</h2>
+            <asp:ContentPlaceHolder ID="content1" runat="server">
 
-
-
-    <div class="footer">
-  <p>Footer</p>
-</div>
-    </form>
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="footer">
+            <p>Footer</p>
+        </div>
+   </form>
 </body>
 </html>

@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+*.cache
+*.config
+Web_Final/.vs/Web_Final/v16/.suo

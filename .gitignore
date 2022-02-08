@@ -351,3 +351,6 @@ MigrationBackup/
 *.cache
 *.config
 Web_Final/.vs/Web_Final/v16/.suo
+Web_Final/.vs/Web_Final/config/applicationhost.config
+Web_Final/Web_Final/obj/Debug/Web_Final.csproj.AssemblyReference.cache
+Web_Final/Web_Final/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache

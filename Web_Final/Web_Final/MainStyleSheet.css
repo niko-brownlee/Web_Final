@@ -7,10 +7,18 @@ html, body, form {
 
 }
 
-h2 
+h1,h2 
 {
     text-align: center;
+    font-size:32px;
 }
+
+hyperlink {
+    text-decoration: underline;
+    color: blue;
+
+}
+
 
 .sidenav {
     width: 134px;
@@ -54,7 +62,9 @@ h2
 
 p {
     text-align: center;
+    font-size: 20px;
 }
+
 
 .footer {
     position: fixed;

@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmUpdateClient.aspx.cs" Inherits="Web_Final.WebForm4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="content1" runat="server">
-
+    <table>
+            <th style="width: 605px">
    <p>Client ID</p>
+
         <asp:TextBox ID="txtClientID" runat="server"></asp:TextBox>
     <p>First Name *</p>
         <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
@@ -29,8 +31,8 @@
         <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
     <br />
     <br />
-            <asp:Button ID="btnUpdate" runat="server" Text="Register" />&nbsp
+            <asp:Button ID="btnUpdate" runat="server" Text="Update" />&nbsp
       <asp:Button ID="btnCancel" runat="server" Text="Cancel" /> <br />
-
+</table>
 
 </asp:Content>

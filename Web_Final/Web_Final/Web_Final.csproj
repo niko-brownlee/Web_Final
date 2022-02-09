@@ -120,6 +120,7 @@
     <Compile Include="frmUpdatePrescription.aspx.designer.cs">
       <DependentUpon>frmUpdatePrescription.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />

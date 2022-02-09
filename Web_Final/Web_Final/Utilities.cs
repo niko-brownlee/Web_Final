@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Security.Cryptography;
 
-namespace FinalProject
+namespace Web_Final
 {
     public static class Utilities
     {

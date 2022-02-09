@@ -19,14 +19,14 @@
         </div>
 
         <div class="main">
-            <h2>Header</h2>
+            <h2></h2>
 
             <asp:ContentPlaceHolder ID="content1" runat="server">
 
             </asp:ContentPlaceHolder>
         </div>
         <div class="footer">
-            <p>Footer</p>
+            <p></p>
         </div>
    </form>
 </body>

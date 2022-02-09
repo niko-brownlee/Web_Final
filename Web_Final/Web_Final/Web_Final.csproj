@@ -69,7 +69,10 @@
   <ItemGroup>
     <Content Include="MainStyleSheet.css" />
     <Content Include="Web.config" />
-    <Content Include="Welcome.html" />
+    <Content Include="frmRegister.aspx" />
+    <Content Include="frmLanding.aspx" />
+    <Content Include="frmClient.aspx" />
+    <Content Include="frmUpdateClient.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseConnections.cs" />
@@ -81,6 +84,34 @@
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frmRegister.aspx.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRegister.aspx.designer.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLanding.aspx.cs">
+      <DependentUpon>frmLanding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLanding.aspx.designer.cs">
+      <DependentUpon>frmLanding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmClient.aspx.cs">
+      <DependentUpon>frmClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmClient.aspx.designer.cs">
+      <DependentUpon>frmClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateClient.aspx.cs">
+      <DependentUpon>frmUpdateClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmUpdateClient.aspx.designer.cs">
+      <DependentUpon>frmUpdateClient.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />

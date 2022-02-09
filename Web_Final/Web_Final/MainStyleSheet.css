@@ -4,6 +4,7 @@ html, body, form {
     background-color: mediumpurple;
     font-size: xx-large;
     font-weight: 700;
+
 }
 
 h2 
@@ -49,6 +50,10 @@ h2
         .sidenav a {
             font-size: 18px;
         }
+}
+
+p {
+    text-align: center;
 }
 
 .footer {

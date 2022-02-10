@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmUpdatePrescription.aspx.cs" Inherits="Web_Final.WebForm5" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <tr>
-        <td>
+    <td>
     <table>
-        <td style="width: 605px" class="auto-style3">
+        <td style="width: 605px" class="auto-style5">
     <p>Prescription ID</p>
     <asp:TextBox ID="txtPrescriptionID" runat="server"></asp:TextBox>
     
@@ -27,12 +27,15 @@
 
             </td>
         </table>
-        </td>
-    </tr>
+    </td>
+</tr>
 </asp:Content>
 <asp:Content ID="Content3" runat="server" contentplaceholderid="content1">
     <style type="text/css">
-        .auto-style3 {
+    .auto-style3 {
+        text-align: center;
+    }
+        .auto-style5 {
             text-align: center;
         }
     </style>

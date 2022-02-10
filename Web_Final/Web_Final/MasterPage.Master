@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>Master</title>
+    <title>PHARMACY</title>
 <asp:ContentPlaceHolder ID="content1" runat="server"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="MainStyleSheet.css" rel="stylesheet" 
@@ -16,7 +16,12 @@
             height: 519px;
             margin-left: 140px;
         }
-        .auto-style2 {}
+        .auto-style3 {
+            text-align: center;
+        }
+        .auto-style4 {
+            font-size: small;
+        }
         </style>
 </head>
     
@@ -38,15 +43,18 @@
         
    
     <table class="auto-style1">
-        <tr>
-            
-            <td>&nbsp;</td>
-            
-            <td>&nbsp;</td>
-        </tr>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"> </asp:contentPlaceHolder>
     </table>
         </form>
+    <div class="auto-style3">
+    <td bgcolor="gainsboro" colspan="3" rowspan="1"style="text-align: center; width:10%; background-image:url(https://i.imgur.com/OaD3bWV.jpeg); height:23px;">
+        <span class="auto-style4">All data Copyright TSCT 2021 &nbsp; &nbsp; | &nbsp;
+     &nbsp;
+     <asp:HyperLink ID="hlpMail" runat="server" Target="_blank" NavigateUrl="Send.aspx">Send Comments</asp:HyperLink> ||
+     <a href="JavaScrtipt: void(0)" onclick="HelpMe()">Terms of Use</a>|| <a href="JavaScript: void(0)" onclick="ContactMe()">Contact</a>
+</td>
+        </span>
+    </div>
 </body>
          
 </html>

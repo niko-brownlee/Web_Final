@@ -4,13 +4,26 @@
 
 <html>
 <head runat="server">
+    <title>Master</title>
+<asp:ContentPlaceHolder ID="content1" runat="server"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="MainStyleSheet.css" rel="stylesheet" 
         type="text/css"/>
-    <title>Master</title>
+    
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            height: 519px;
+            margin-left: 140px;
+        }
+        .auto-style2 {}
+        </style>
 </head>
+    
 <body>
-    <form>
+    <form id="form1" runat="server">
+        
+            
         <div class="sidenav">
           <a href="#about">About</a>
           <a href="#services">Services</a>
@@ -19,15 +32,21 @@
         </div>
 
         <div class="main">
-            <h2></h2>
-
-            <asp:ContentPlaceHolder ID="content1" runat="server">
-
-            </asp:ContentPlaceHolder>
+            <h2>PHARMACY</h2>
+        
         </div>
-        <div class="footer">
-            <p></p>
-        </div>
-   </form>
+        
+   
+    <table class="auto-style1">
+        <tr>
+            
+            <td>&nbsp;</td>
+            
+            <td>&nbsp;</td>
+        </tr>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"> </asp:contentPlaceHolder>
+    </table>
+        </form>
 </body>
+         
 </html>

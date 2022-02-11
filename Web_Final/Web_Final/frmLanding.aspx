@@ -15,7 +15,7 @@
     <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
     <br />
     <p>Password:</p>
-    <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
     <br /><br />
     <asp:HyperLink ID="hplNewClientReg" runat="server">New Client Registration</asp:HyperLink>
     <br /><br />

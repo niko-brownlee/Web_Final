@@ -47,6 +47,8 @@ namespace Web_Final
 
                     //*** FOR TESTING ONLY ***
                     lblTESTING.Text = "new user success";
+
+                    //send to Message.aspx
                 }
                 else //myResult == 1
                 {
@@ -54,6 +56,7 @@ namespace Web_Final
 
                     //*** FOR TESTING ONLY ***
                     lblTESTING.Text = "new user error";
+                    throw new ArgumentException("new user error");
                 }
             }
             catch (Exception ex)
@@ -62,6 +65,7 @@ namespace Web_Final
 
                 //*** FOR TESTING ONLY ***
                 lblTESTING.Text = "parse error";
+                throw new ArgumentException(ex.Message);
             }
         }
     
@@ -98,14 +102,15 @@ namespace Web_Final
                     //this.Close();
 
                     //*** FOR TESTING ONLY ***
-                    lblTESTING.Text = "new user success";
+                    lblTESTING.Text = "new employee success";
                 }
                 else //myResult == 1
                 {
                     //MessageBox.Show("Error: Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     //*** FOR TESTING ONLY ***
-                    lblTESTING.Text = "new user error";
+                    lblTESTING.Text = "new employee error";
+                    throw new ArgumentException("New employee error");
                 }
             }
             catch (Exception ex)
@@ -113,7 +118,7 @@ namespace Web_Final
                 //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
 
                 //*** FOR TESTING ONLY ***
-                lblTESTING.Text = "parse error";
+                throw new ArgumentException(ex.Message);
             }
         }
     }

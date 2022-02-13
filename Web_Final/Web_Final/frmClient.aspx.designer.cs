@@ -11,26 +11,26 @@ namespace Web_Final
 {
 
 
-    public partial class WebForm3
+    public partial class frmClient_test
     {
 
         /// <summary>
-        /// txtChngUsername control.
+        /// txtChangeUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtChngUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtChangeUsername;
 
         /// <summary>
-        /// txtChngPassword control.
+        /// txtChangePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtChngPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtChangePassword;
 
         /// <summary>
         /// btnUpdate control.
@@ -42,12 +42,12 @@ namespace Web_Final
         protected global::System.Web.UI.WebControls.Button btnUpdate;
 
         /// <summary>
-        /// btnClose control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClose;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }

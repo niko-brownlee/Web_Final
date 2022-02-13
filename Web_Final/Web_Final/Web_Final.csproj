@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="frmClient.aspx" />
     <Content Include="frmEmployeeSearch.aspx" />
     <Content Include="frmPerscriptions.aspx" />
     <Content Include="frmRefills.aspx" />
@@ -78,11 +79,17 @@
     <Content Include="MainStyleSheet.css" />
     <Content Include="Web.config" />
     <Content Include="frmLanding.aspx" />
-    <Content Include="frmClient.aspx" />
     <Content Include="frmUpdatePrescription.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseConnections.cs" />
+    <Compile Include="frmClient.aspx.cs">
+      <DependentUpon>frmClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmClient.aspx.designer.cs">
+      <DependentUpon>frmClient.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmEmployeeSearch.aspx.cs">
       <DependentUpon>frmEmployeeSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -153,13 +160,6 @@
     </Compile>
     <Compile Include="frmLanding.aspx.designer.cs">
       <DependentUpon>frmLanding.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmClient.aspx.cs">
-      <DependentUpon>frmClient.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmClient.aspx.designer.cs">
-      <DependentUpon>frmClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmUpdatePrescription.aspx.cs">
       <DependentUpon>frmUpdatePrescription.aspx</DependentUpon>

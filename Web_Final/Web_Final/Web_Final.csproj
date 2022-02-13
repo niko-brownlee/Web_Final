@@ -70,12 +70,12 @@
     <Content Include="frmEmployeeSearch.aspx" />
     <Content Include="frmPerscriptions.aspx" />
     <Content Include="frmRefills.aspx" />
+    <Content Include="frmRegister.aspx" />
     <Content Include="frmSuccess.aspx" />
     <Content Include="frmUnscessful.aspx" />
     <Content Include="frmUpdateClient.aspx" />
     <Content Include="MainStyleSheet.css" />
     <Content Include="Web.config" />
-    <Content Include="frmRegister.aspx" />
     <Content Include="frmLanding.aspx" />
     <Content Include="frmClient.aspx" />
     <Content Include="frmUpdatePrescription.aspx" />
@@ -102,6 +102,13 @@
     </Compile>
     <Compile Include="frmRefills.aspx.designer.cs">
       <DependentUpon>frmRefills.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegister.aspx.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRegister.aspx.designer.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmSuccess.aspx.cs">
       <DependentUpon>frmSuccess.aspx</DependentUpon>
@@ -132,13 +139,6 @@
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="frmRegister.aspx.cs">
-      <DependentUpon>frmRegister.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmRegister.aspx.designer.cs">
-      <DependentUpon>frmRegister.aspx</DependentUpon>
-    </Compile>
     <Compile Include="frmLanding.aspx.cs">
       <DependentUpon>frmLanding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -2,7 +2,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
       <tr>
       <td style="width: 605px" class="auto-style3">
-          <h2>New Client Registration</h2>
+          <h1>New Client Registration</h1>
           <p>Client ID:</p>
           <asp:TextBox ID="txtClientID" runat="server"></asp:TextBox>
           <p>Create Username:</p>

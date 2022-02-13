@@ -8,43 +8,43 @@
     
         <table class="auto-style6">
             <tr>
-                <td class="auto-style11">Prescription ID</td>
+                <td class="auto-style11"><span class="auto-style13">*</span>Prescription ID:</td>
                 <td class="auto-style8">
     <asp:TextBox ID="txtPrescriptionID" runat="server"></asp:TextBox>
     
                 </td>
             </tr>
             <tr>
-                <td class="auto-style9">Client ID</td>
+                <td class="auto-style9"><span class="auto-style13">*</span>Client ID:</td>
                 <td class="auto-style12">
     <asp:TextBox ID="txtClientID" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
             <tr>
-                <td class="auto-style9">Physician ID</td>
+                <td class="auto-style9"><span class="auto-style13">*</span>Physician ID:</td>
                 <td class="auto-style12">
     <asp:TextBox ID="txtPhysicianID" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
             <tr>
-                <td class="auto-style10">Medication ID</td>
+                <td class="auto-style10"><span class="auto-style13">*</span>Medication ID:</td>
                 <td class="auto-style7">
     <asp:TextBox ID="txtMedicationID0" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
             <tr>
-                <td class="auto-style9">Expiration Date</td>
+                <td class="auto-style9">Expiration Date:</td>
                 <td class="auto-style12">
-                    <asp:TextBox ID="txtExpiryDate" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtExpriyDate" runat="server" Wrap="False"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style9">Number of Refills</td>
+                <td class="auto-style9">Number of Refills:</td>
                 <td class="auto-style12">
-    <asp:TextBox ID="txtNumberofRefills" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtNumberofRefills" runat="server" Width="55px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -59,7 +59,7 @@
 
     
             &nbsp&nbsp</td>
-       <%-- </table>--%>
+        <%-- </table>--%>
     
 </tr>
 </asp:Content>
@@ -97,6 +97,9 @@
         }
         .auto-style12 {
             text-align: left;
+        }
+        .auto-style13 {
+            color: #FF0000;
         }
     </style>
 </asp:Content>

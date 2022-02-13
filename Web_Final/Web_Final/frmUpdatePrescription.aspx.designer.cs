@@ -42,13 +42,22 @@ namespace Web_Final
         protected global::System.Web.UI.WebControls.TextBox txtPhysicianID;
 
         /// <summary>
-        /// txtMedicationID control.
+        /// txtMedicationID0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMedicationID;
+        protected global::System.Web.UI.WebControls.TextBox txtMedicationID0;
+
+        /// <summary>
+        /// txtExpiryDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExpiryDate;
 
         /// <summary>
         /// txtNumberofRefills control.
@@ -60,21 +69,21 @@ namespace Web_Final
         protected global::System.Web.UI.WebControls.TextBox txtNumberofRefills;
 
         /// <summary>
-        /// btnUpdate control.
+        /// btnUpdate0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Button btnUpdate0;
 
         /// <summary>
-        /// btnCancel control.
+        /// btnCancel0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnCancel0;
     }
 }

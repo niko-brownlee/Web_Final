@@ -12,6 +12,12 @@ h1,h2
     text-align: center;
     font-size:80px;
 }
+td
+{
+    font-size:medium;
+    font-family:'Century Gothic';
+    
+}
 
 hyperlink {
     text-decoration: underline;

@@ -67,6 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="frmEmployeeSearch.aspx" />
+    <Content Include="frmPerscriptions.aspx" />
+    <Content Include="frmRefills.aspx" />
+    <Content Include="frmSuccess.aspx" />
+    <Content Include="frmUnscessful.aspx" />
     <Content Include="MainStyleSheet.css" />
     <Content Include="Web.config" />
     <Content Include="frmRegister.aspx" />
@@ -77,6 +82,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseConnections.cs" />
+    <Compile Include="frmEmployeeSearch.aspx.cs">
+      <DependentUpon>frmEmployeeSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmEmployeeSearch.aspx.designer.cs">
+      <DependentUpon>frmEmployeeSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPerscriptions.aspx.cs">
+      <DependentUpon>frmPerscriptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPerscriptions.aspx.designer.cs">
+      <DependentUpon>frmPerscriptions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRefills.aspx.cs">
+      <DependentUpon>frmRefills.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRefills.aspx.designer.cs">
+      <DependentUpon>frmRefills.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmSuccess.aspx.cs">
+      <DependentUpon>frmSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmSuccess.aspx.designer.cs">
+      <DependentUpon>frmSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmUnscessful.aspx.cs">
+      <DependentUpon>frmUnscessful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmUnscessful.aspx.designer.cs">
+      <DependentUpon>frmUnscessful.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -74,6 +74,7 @@
     <Content Include="frmSuccess.aspx" />
     <Content Include="frmUnscessful.aspx" />
     <Content Include="frmUpdateClient.aspx" />
+    <Content Include="frmUpdateRefill.aspx" />
     <Content Include="MainStyleSheet.css" />
     <Content Include="Web.config" />
     <Content Include="frmLanding.aspx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="frmUpdateClient.aspx.designer.cs">
       <DependentUpon>frmUpdateClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateRefill.aspx.cs">
+      <DependentUpon>frmUpdateRefill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmUpdateRefill.aspx.designer.cs">
+      <DependentUpon>frmUpdateRefill.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>

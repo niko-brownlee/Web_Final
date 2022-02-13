@@ -49,6 +49,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <tr>
         <td>
+            <h1>Update Client</h1>
             <table class="auto-style5">
                         <tr>
                     <td class="auto-style6">&nbsp;</td>

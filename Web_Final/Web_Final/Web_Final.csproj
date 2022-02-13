@@ -72,12 +72,12 @@
     <Content Include="frmRefills.aspx" />
     <Content Include="frmSuccess.aspx" />
     <Content Include="frmUnscessful.aspx" />
+    <Content Include="frmUpdateClient.aspx" />
     <Content Include="MainStyleSheet.css" />
     <Content Include="Web.config" />
     <Content Include="frmRegister.aspx" />
     <Content Include="frmLanding.aspx" />
     <Content Include="frmClient.aspx" />
-    <Content Include="frmUpdateClient.aspx" />
     <Content Include="frmUpdatePrescription.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +117,13 @@
     <Compile Include="frmUnscessful.aspx.designer.cs">
       <DependentUpon>frmUnscessful.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmUpdateClient.aspx.cs">
+      <DependentUpon>frmUpdateClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmUpdateClient.aspx.designer.cs">
+      <DependentUpon>frmUpdateClient.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -145,13 +152,6 @@
     </Compile>
     <Compile Include="frmClient.aspx.designer.cs">
       <DependentUpon>frmClient.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmUpdateClient.aspx.cs">
-      <DependentUpon>frmUpdateClient.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmUpdateClient.aspx.designer.cs">
-      <DependentUpon>frmUpdateClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmUpdatePrescription.aspx.cs">
       <DependentUpon>frmUpdatePrescription.aspx</DependentUpon>

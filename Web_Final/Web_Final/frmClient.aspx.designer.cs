@@ -15,22 +15,22 @@ namespace Web_Final
     {
 
         /// <summary>
-        /// txtChangeUsername control.
+        /// txtChngUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtChangeUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtChngUsername;
 
         /// <summary>
-        /// txtChangePassword control.
+        /// txtChngPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtChangePassword;
+        protected global::System.Web.UI.WebControls.TextBox txtChngPassword;
 
         /// <summary>
         /// btnUpdate control.
@@ -42,12 +42,12 @@ namespace Web_Final
         protected global::System.Web.UI.WebControls.Button btnUpdate;
 
         /// <summary>
-        /// btnCancel control.
+        /// btnClose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnClose;
     }
 }

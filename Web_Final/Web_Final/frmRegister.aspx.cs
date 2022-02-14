@@ -80,6 +80,15 @@ namespace Web_Final
                 var hash = Utilities.Get_HASH_SHA512(clientPassword, salt);
 
                 DatabaseConnections dc = new DatabaseConnections();
+                clientid = int.Parse(txtClientID.Text.Trim());
+                clientUsername = txtCreateUsername.Text.Trim();
+                clientPassword = txtCreatePassword.Text.Trim();
+
+                //create hash
+                string myval = Utilities.SaltKey;
+                var hash = Utilities.Get_HASH_SHA512(clientPassword, salt);
+
+                DatabaseConnections dc = new DatabaseConnections();
 
                 myResult = dc.NewEmployeeRegistration(clientUsername, hash, hash, Utilities.SaltKey);
 
@@ -87,15 +96,28 @@ namespace Web_Final
 
                 if (myResult == -1)
                 {
-                    Response.Redirect("frmSuccess.aspx");
+                    //MessageBox.Show("Successfully created new user. Welcome.", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ////close form
+                    //this.Close();
+
+                    //*** FOR TESTING ONLY ***
+                    lblTESTING.Text = "new employee success";
                 }
                 else //myResult == 1
                 {
-                    Response.Redirect("frmUnscessful.aspx");
+                    //MessageBox.Show("Error: Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    //*** FOR TESTING ONLY ***
+                    lblTESTING.Text = "new employee error";
+                    throw new ArgumentException("New employee error");
                 }
             }
             catch (Exception ex)
             {
+                //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
+
+                //*** FOR TESTING ONLY ***
                 throw new ArgumentException(ex.Message);
             }
         }

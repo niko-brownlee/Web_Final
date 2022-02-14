@@ -20,11 +20,7 @@
             <br />
             Thank You!<br />
             <br />
-<<<<<<< Updated upstream
             <asp:Button ID="btnClose" runat="server" BackColor="#669999" BorderColor="#3333CC" Text="Close" OnClick="btnClose_Click" CausesValidation="False" />
-=======
-            <asp:Button ID="btnClose" runat="server" BackColor="#669999" BorderColor="#3333CC" Text="Close" OnClick="btnClose_Click" />
->>>>>>> Stashed changes
         </div>
     </form>
 </body>

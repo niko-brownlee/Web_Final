@@ -77,7 +77,10 @@ namespace Web_Final
                 dc.UpdatePrescription(prescriptionID, clientID, physicianID, 
                     medicineID, expiryDate, refillCounter);
 
+                string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
+                    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
 
             } catch (Exception ex)
             {

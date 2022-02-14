@@ -84,12 +84,6 @@ namespace Web_Final
                 clientUsername = txtCreateUsername.Text.Trim();
                 clientPassword = txtCreatePassword.Text.Trim();
 
-                //create hash
-                string myval = Utilities.SaltKey;
-                var hash = Utilities.Get_HASH_SHA512(clientPassword, salt);
-
-                DatabaseConnections dc = new DatabaseConnections();
-
                 myResult = dc.NewEmployeeRegistration(clientUsername, hash, hash, Utilities.SaltKey);
 
                 Utilities.mySalt = new byte[0];

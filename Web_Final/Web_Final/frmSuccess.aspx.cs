@@ -26,5 +26,10 @@ namespace Web_Final
         {
             Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "closeform", "window.close()", true);
         }
+
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            //check page type sent, then go back to a specific page
+        }
     }
 }

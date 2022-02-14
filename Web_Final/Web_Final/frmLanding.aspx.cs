@@ -49,6 +49,7 @@ namespace Web_Final
                             //*** FOR TESTING ONLY ***
                             //lblTESTING.Text = "Client login";
 
+<<<<<<< Updated upstream
                             //pass client ID
                             EncryptedQueryString eqs = new EncryptedQueryString();
 
@@ -56,6 +57,9 @@ namespace Web_Final
                             string url = String.Format("frmClient.aspx?eqs{0}", eqs.ToString());
 
                             Response.Redirect(url);
+=======
+                            Response.Redirect("frmClient.aspx");
+>>>>>>> Stashed changes
                         }
                         else if (user == 2) //2, employee
                         {

@@ -96,28 +96,15 @@ namespace Web_Final
 
                 if (myResult == -1)
                 {
-                    //MessageBox.Show("Successfully created new user. Welcome.", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    ////close form
-                    //this.Close();
-
-                    //*** FOR TESTING ONLY ***
-                    lblTESTING.Text = "new employee success";
+                    Response.Redirect("frmSuccess.aspx");
                 }
                 else //myResult == 1
                 {
-                    //MessageBox.Show("Error: Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    //*** FOR TESTING ONLY ***
-                    lblTESTING.Text = "new employee error";
-                    throw new ArgumentException("New employee error");
+                    Response.Redirect("frmUnscessful.aspx");
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
-
-                //*** FOR TESTING ONLY ***
                 throw new ArgumentException(ex.Message);
             }
         }

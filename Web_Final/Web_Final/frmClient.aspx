@@ -1,60 +1,53 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmClient.aspx.cs" Inherits="Web_Final.WebForm3" %>
-
-       <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-           
- 
-    
-           <td>
-               <h1 align="left">Welcome</h1>
-        <table class="auto-style5" align="center" >
-          
-            <tr>
-                <td class="auto-style9">Change Username:</td>
-                <td class="auto-style10">
-                    <asp:TextBox ID="txtChngUsername" runat="server" Width="264px"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style9">Change Password:</td>
-                <td class="auto-style10">
-                    <asp:TextBox ID="txtChngPassword" runat="server" Width="262px"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-               
-                <td class="auto-style12"></td>
-            </tr>
-            <tr>
-                <td class="auto-style5">
-                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="auto-style13" OnClick="btnUpdate_Click" />
-                </td>
-                <td class="auto-style5">
-                    <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClose_Click" />
-                </td>
-            </tr>
-           
-        </table>
-      
-   </td>  
-
-
-         </asp:Content>
-
-
-
-
-
-<asp:Content ID="Content3" runat="server" contentplaceholderid="content1">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmClient.aspx.cs" Inherits="Web_Final.frmClient_test" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="content1" runat="server">
     <style type="text/css">
         .auto-style5 {
-            width: 486px;
-            height: 144px;
+            width: 100%;
+        }
+        .auto-style6 {
+            text-align: right;
         }
     </style>
 </asp:Content>
-
-
-
-
-
-
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <tr>
+        <td>
+            <h1 align="left">Welcome</h1>
+            <table class="auto-style5">
+                <tr>
+                    <td class="auto-style6">Change Username:</td>
+                    <td>
+                        <asp:TextBox ID="txtChangeUsername" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style6">Change Password:</td>
+                    <td>
+                        <asp:TextBox ID="txtChangePassword" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style6">
+                        <asp:Button ID="btnUpdate" runat="server" Text="Update" />
+                    </td>
+                    <td>
+                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</asp:Content>

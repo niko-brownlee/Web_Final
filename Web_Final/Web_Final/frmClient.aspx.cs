@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Web_Final
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class frmClient_test : System.Web.UI.Page
     {
         private static int clientID;
 

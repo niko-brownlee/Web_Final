@@ -7,12 +7,12 @@
         <td>
             <br />
             <div class="auto-style3">
-            <asp:GridView ID="grdPerscriptions" runat="server" AutoGenerateColumns="false" CssClass="GridView" Width="100%" AllowPaging="true" AllowSorting="true"
+            <asp:GridView ID="grdPrescriptions" runat="server" AutoGenerateColumns="false" CssClass="GridView" Width="100%" AllowPaging="true" AllowSorting="true"
                            OnSelectedIndexChanged="grdEmployeeSearch_SelectedIndexChanged">
 
                 <Columns>
                         
-                        <asp:BoundField DataField="perscriptionID" HeaderText="Perscription ID" SortExpression="perscriptionID" />
+                        <asp:BoundField DataField="prescriptionID" HeaderText="Perscription ID" SortExpression="perscriptionID" />
                         <asp:BoundField DataField="clientID" HeaderText="Clinet ID" SortExpression="clientID" />
                         <asp:BoundField DataField="physicianID" HeaderText="Physician ID" SortExpression="physicianID" />
                         <asp:BoundField DataField="medicineID" HeaderText="Medicine ID" SortExpression="medicineID" />
@@ -27,7 +27,7 @@
                                    Update
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#Eval("refillID").ToString() %>' Target="_blank">
+                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#FormatURL(Eval("prescriptionID").ToString()) %>' Target="_blank">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>

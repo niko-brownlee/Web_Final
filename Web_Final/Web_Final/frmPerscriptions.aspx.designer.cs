@@ -15,12 +15,12 @@ namespace Web_Final
     {
 
         /// <summary>
-        /// grdPerscriptions control.
+        /// grdPrescriptions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdPerscriptions;
+        protected global::System.Web.UI.WebControls.GridView grdPrescriptions;
     }
 }

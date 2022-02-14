@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseConnections.cs" />
+    <Compile Include="EncryptedQueryString.cs" />
     <Compile Include="frmEmployeeSearch.aspx.cs">
       <DependentUpon>frmEmployeeSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -31,14 +31,14 @@
             <tr>
                 <td class="auto-style10"><span class="auto-style13">*</span>Medication ID:</td>
                 <td class="auto-style7">
-    <asp:TextBox ID="txtMedicationID0" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtMedicationID" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
             <tr>
                 <td class="auto-style9">Expiration Date:</td>
                 <td class="auto-style12">
-                    <asp:TextBox ID="txtExpriyDate" runat="server" Wrap="False"></asp:TextBox>
+                    <asp:TextBox ID="txtExpiryDate" runat="server" Wrap="False"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -49,8 +49,8 @@
             </tr>
             <tr>
                 <td class="auto-style9">
-            <asp:Button ID="btnUpdate0" runat="server" Text="Update" /></td>
-                <td class="auto-style12"><asp:Button ID="btnCancel0" runat="server" Text="Cancel" />
+            <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /></td>
+                <td class="auto-style12"><asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
 
                 </td>
             </tr>

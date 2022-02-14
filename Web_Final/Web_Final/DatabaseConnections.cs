@@ -683,7 +683,6 @@ namespace Web_Final
 
                 cmdString.Parameters.Add("@username", SqlDbType.NVarChar, 64).Value = username;
 
-                //cmdString.Parameters.Add("@Return", SqlDbType.Int).Direction = ParameterDirection.ReturnValue; ***Do we need this here?
                 SqlDataAdapter aAdapter = new SqlDataAdapter();
                 aAdapter.SelectCommand = cmdString;
 
@@ -773,6 +772,7 @@ namespace Web_Final
                 myConn.Close();
             }
         }
+
         public DataSet SelectClientPrescription(int clientid)
         {
             try

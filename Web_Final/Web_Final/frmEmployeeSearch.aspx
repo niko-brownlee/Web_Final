@@ -22,8 +22,8 @@
         <td>
             <table class="auto-style5">
                 <tr>
-                    <td class="auto-style3"><span class="auto-style6">Search For Client:&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style7" Width="346px"></asp:TextBox>
-                        <asp:Button ID="btnSearch" runat="server" OnClick="Button1_Click" Text="Search" />
+                    <td class="auto-style3"><span class="auto-style6">Search For Client:&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="txtSearch" runat="server" CssClass="auto-style7" Width="346px"></asp:TextBox>
+                        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
                     </td>
                 </tr>
                 <tr>
@@ -35,7 +35,7 @@
 
                                 <asp:BoundField DataField="clientID" HeaderText="Client ID" SortExpression="clientID" />
                                 <asp:BoundField DataField="fName" HeaderText="Client First Name" SortExpression="fName" />
-                                 <asp:BoundField DataField="mInitial" HeaderText="Mid.Int" SortExpression="mInitial" />
+                                <asp:BoundField DataField="mInitial" HeaderText="Mid.Int" SortExpression="mInitial" />
                                 <asp:BoundField DataField="lName" HeaderText="Last Name" SortExpression="lName" />
                                 <asp:BoundField DataField="dateOfBirth" HeaderText="Date of Birth" SortExpression="dateOfBirth" />
                                 <asp:BoundField DataField="gender" HeaderText="Gender" SortExpression="Gender" />
@@ -52,16 +52,16 @@
                                    Refill
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplRefill" runat="server" Text="View" NavigateUrl='<%#(Eval("clientID").ToString()) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplRefill" runat="server" Text="View" NavigateUrl='<%#(FormatURLPresc(Eval("clientID").ToString())) %>' Target="_blank">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>
                                 <asp:TemplateField HeaderText="View">
                                 <HeaderTemplate>
-                                   Perscriptions
+                                   Prescriptions
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplPerscription" runat="server" Text="View" NavigateUrl='<%#(Eval("clinetID").ToString()) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplPrescription" runat="server" Text="View" NavigateUrl='<%#(FormatURLRefill(Eval("clientID").ToString())) %>' Target="_blank">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>

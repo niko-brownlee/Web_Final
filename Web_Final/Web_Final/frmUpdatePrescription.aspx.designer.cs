@@ -42,22 +42,22 @@ namespace Web_Final
         protected global::System.Web.UI.WebControls.TextBox txtPhysicianID;
 
         /// <summary>
-        /// txtMedicationID0 control.
+        /// txtMedicationID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMedicationID0;
+        protected global::System.Web.UI.WebControls.TextBox txtMedicationID;
 
         /// <summary>
-        /// txtExpriyDate control.
+        /// txtExpiryDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExpriyDate;
+        protected global::System.Web.UI.WebControls.TextBox txtExpiryDate;
 
         /// <summary>
         /// txtNumberofRefills control.
@@ -69,21 +69,21 @@ namespace Web_Final
         protected global::System.Web.UI.WebControls.TextBox txtNumberofRefills;
 
         /// <summary>
-        /// btnUpdate0 control.
+        /// btnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate0;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
 
         /// <summary>
-        /// btnCancel0 control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel0;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }

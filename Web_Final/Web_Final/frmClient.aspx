@@ -26,10 +26,10 @@
             </tr>
             <tr>
                 <td class="auto-style5">
-                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="auto-style13" />
+                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="auto-style13" OnClick="btnUpdate_Click" />
                 </td>
                 <td class="auto-style5">
-                    <asp:Button ID="btnClose" runat="server" Text="Cancel" />
+                    <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClose_Click" />
                 </td>
             </tr>
            

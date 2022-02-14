@@ -46,49 +46,56 @@ namespace Web_Final
 
                         if (user == 1) //client
                         {
-                            //frmClient frmClient = new frmClient();
-                            //frmClient.loggedInUser = username;
-
-                            //ClearTextBoxes();
-                            //frmClient.ShowDialog();
-
                             //*** FOR TESTING ONLY ***
-                            lblTESTING.Text = "Client login";
+                            //lblTESTING.Text = "Client login";
+
+                            //pass client ID
+                            EncryptedQueryString eqs = new EncryptedQueryString();
+
+                            eqs["ID"] = getClientIDByUsername(username).ToString();
+                            string url = String.Format("frmClient.aspx?eqs{0}", eqs.ToString());
+
+                            Response.Redirect(url);
                         }
                         else if (user == 2) //2, employee
                         {
-                            //ClearTextBoxes();
-                            //frmEmployee frmEmp = new frmEmployee();
-                            //frmEmp.ShowDialog();
-
                             //*** FOR TESTING ONLY ***
-                            lblTESTING.Text = "employee login";
+                            //lblTESTING.Text = "employee login";
+
+                            Response.Redirect("frmEmployeeSearch.aspx");
                         }
                         else
                         {
-                            //MessageBox.Show("Unknown Username", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                             //*** FOR TESTING ONLY ***
                             lblTESTING.Text = "Error, not client or employee";
+
+                            //validation??
                         }
 
                     }
                     else //not verified
                     {
-                        //MessageBox.Show("Invalid login", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-
                         //*** FOR TESTING ONLY ***
                         lblTESTING.Text = "not verified";
+
+                        //validation, same as not client or employee 
                     }
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
-
-                //*** FOR TESTING ONLY ***
-                lblTESTING.Text = "error during login";
+                throw new ArgumentException(ex.Message);
             }
+        }
+
+        private int getClientIDByUsername(string username)
+        {
+            DatabaseConnections dc = new DatabaseConnections();
+            DataSet ds = new DataSet();
+
+            ds = dc.ReturnClientIDByUsername(username);
+
+            return int.Parse(ds.Tables[0].Rows[0]["clientID"].ToString());
         }
     }
 }

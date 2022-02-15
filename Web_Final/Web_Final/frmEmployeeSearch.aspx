@@ -20,7 +20,7 @@
 
     <tr>
         <td>
-            5<table class="auto-style5">
+            <table class="auto-style5">
                 <tr>
                     <td class="auto-style3"><span class="auto-style6">Search For Client:&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="txtSearch" runat="server" CssClass="auto-style7" Width="346px"></asp:TextBox>
                         <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
@@ -52,7 +52,7 @@
                                    Refill
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplRefill" runat="server" Text="View" NavigateUrl='<%#(FormatURLPresc(Eval("clientID").ToString())) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplRefill" runat="server" Text="View" NavigateUrl='<%#(FormatURLRefill(Eval("clientID").ToString())) %>' Target="_blank">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -61,7 +61,7 @@
                                    Prescriptions
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplPrescription" runat="server" Text="View" NavigateUrl='<%#(FormatURLRefill(Eval("clientID").ToString())) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplPrescription" runat="server" Text="View" NavigateUrl='<%#(FormatURLPresc(Eval("clientID").ToString())) %>' Target="_blank">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>

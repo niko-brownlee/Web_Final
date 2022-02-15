@@ -74,7 +74,7 @@ namespace Web_Final
 
                 txtClientID.Text = ds.Tables[0].Rows[0]["clientID"].ToString();
                 txtPhysicianID.Text = ds.Tables[0].Rows[0]["physicianID"].ToString();
-                txtMedicationID.Text = ds.Tables[0].Rows[0]["medicationID"].ToString();
+                txtMedicationID.Text = ds.Tables[0].Rows[0]["medicineID"].ToString();
 
                 DateTime dt = DateTime.Parse(ds.Tables[0].Rows[0]["expiryDate"].ToString());
                 txtExpiryDate.Text = dt.ToString("MM/dd/YYYY");

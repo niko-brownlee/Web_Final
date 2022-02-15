@@ -18,11 +18,24 @@ namespace Web_Final
 
             if(!IsPostBack)
             {
-                BindData();
+                //Cache.Remove("Data");
+                //if(Convert.ToString(Session["GRIDREFRESH"]) != " ")
+                //{
+                //    Cache.Remove("Data");
+                //    BindData();
+                //} else
+                //{
+                //    if(Cache["Data"] == null)
+                //    {
+                //        BindData();
+                //    }
+                //}
+                
+
+
             } else
             {
                 grdEmployeeSearch.Visible = false;
-                //error message
             }
         }
 
@@ -69,12 +82,32 @@ namespace Web_Final
             DatabaseConnections dc = new DatabaseConnections();
             DataSet ds = new DataSet();
 
-            int clientID = int.Parse(Convert.ToString(Session["vClientID"]));
-            
+            //int clientID = int.Parse(Convert.ToString(Session["vClientID"]));
+
+            //txtSearch.Text = clientID.ToString();
+
+            int clientID = int.Parse(txtSearch.Text);
+
             ds = dc.GetClientByID(clientID);
             grdEmployeeSearch.DataSource = ds.Tables[0];
-            grdEmployeeSearch.DataBind();
-            grdEmployeeSearch.Visible = true;
+            //grdEmployeeSearch.DataBind();
+            //grdEmployeeSearch.Visible = true;
+
+            if(Cache["Data"] == null)
+            {
+                ds = dc.GetClientByID(clientID);
+                grdEmployeeSearch.DataSource = ds.Tables[0];
+                Cache.Add("Data", new DataView(ds.Tables[0]),  //save dataset as cache
+                    null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.TimeSpan.FromMinutes(10), //cache for 10 minutes
+                    System.Web.Caching.CacheItemPriority.Default, null);
+
+                grdEmployeeSearch.DataBind();
+                grdEmployeeSearch.Visible = true;
+            } else
+            {
+                grdEmployeeSearch.DataSource = (DataView)Cache["Data"];
+                grdEmployeeSearch.DataBind();
+            }
         }
 
         protected void grdEmployeeSearch_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,11 +127,69 @@ namespace Web_Final
         protected void grdEmployeeSearch_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             //for paging
+            //Int32 pageNum = 0;
+            //pageNum = e.NewPageIndex;
+            //Paging(pageNum);
         }
+
+        //private void Paging(Int32 page)
+        //{
+        //    grdEmployeeSearch.PageIndex = page;
+        //    BindData();
+        //}
 
         protected void grdEmployeeSearch_Sorting(object sender, GridViewSortEventArgs e)
         {
-            //sorting in asc and desc order
+            //SortRecords(e.SortExpression);
         }
+
+        //private void SortRecords(string sortExp)
+        //{
+        //    string oldExp = grdEmployeeSearch.SortExpression;
+        //    string newExp = sortExp;
+        //    string lastVal, theSortField, sortExpression, theDirection, wildChar, oldSortExp, newSortExp;
+        //    DataView source;
+
+        //    theDirection = " ";
+        //    wildChar = " %";
+
+        //    lastVal = (string)ViewState["sortValue"];
+        //    sortExpression = sortExp;
+        //    oldSortExp = (string)ViewState["oldSortExpression"];
+
+        //    if (oldSortExp == sortExpression)
+        //    {
+        //        if (this.sortDir == "desc")
+        //        {
+        //            this.sortDir = "asc";
+        //        }
+        //        else if (this.sortDir == null)
+        //        {
+        //            this.sortDir = "asc";
+        //        }
+        //        else if (this.sortDir == "asc")
+        //        {
+        //            this.sortDir = "desc";
+        //        }
+        //        else
+        //        {
+        //            this.sortDir = "asc";
+        //        }
+        //    }
+
+        //    theSortField = (string)ViewState["sortField"];
+        //    source = (DataView)Cache["StudentData"];
+        //    source.Sort = (" " + sortExpression + " " + this.sortDir);
+        //    ViewState["oldSortExpression"] = sortExp;
+
+        //    grdEmployeeSearch.DataSource = source;
+        //    grdEmployeeSearch.DataBind();
+        //}
+
+        //public string sortDir
+        //{
+        //    get => (string)ViewState["sortDir"];
+        //    set => ViewState["sortDir"] = value;
+        //}
     }
 }

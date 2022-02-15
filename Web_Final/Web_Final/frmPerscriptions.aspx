@@ -8,12 +8,12 @@
             <br />
             <div class="auto-style3">
             <asp:GridView ID="grdPrescriptions" runat="server" AutoGenerateColumns="false" CssClass="GridView" Width="100%" AllowPaging="true" AllowSorting="true"
-                           OnSelectedIndexChanged="grdEmployeeSearch_SelectedIndexChanged">
+                           OnSelectedIndexChanged="grdPrescriptions_SelectedIndexChanged">
 
                 <Columns>
                         
                         <asp:BoundField DataField="prescriptionID" HeaderText="Perscription ID" SortExpression="perscriptionID" />
-                        <asp:BoundField DataField="clientID" HeaderText="Clinet ID" SortExpression="clientID" />
+                        <asp:BoundField DataField="clientID" HeaderText="Client ID" SortExpression="clientID" />
                         <asp:BoundField DataField="physicianID" HeaderText="Physician ID" SortExpression="physicianID" />
                         <asp:BoundField DataField="medicineID" HeaderText="Medicine ID" SortExpression="medicineID" />
                         <asp:BoundField DataField="startDate" HeaderText="Start Date" SortExpression="startDate" />

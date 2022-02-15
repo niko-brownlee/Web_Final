@@ -64,19 +64,23 @@ namespace Web_Final
         {
             byte[] salt = Utilities.Get_SALT();
             int myResult;
-            string clientUsername = "";
-            string clientPassword = "";
+            string empUsername = "";
+            string empPassword = "";
 
             try
-            {   //create hash
+            {
+                empUsername = txtCreateUsername.Text.Trim();
+                empPassword = txtCreatePassword.Text.Trim();
+
+                //create hash
                 string myval = Utilities.SaltKey;
-                var hash = Utilities.Get_HASH_SHA512(clientPassword, salt);
+                var hash = Utilities.Get_HASH_SHA512(empPassword, salt);
 
                 DatabaseConnections dc = new DatabaseConnections();
-                clientUsername = txtCreateUsername.Text.Trim();
-                clientPassword = txtCreatePassword.Text.Trim();
+                empUsername = txtCreateUsername.Text.Trim();
+                empPassword = txtCreatePassword.Text.Trim();
 
-                myResult = dc.NewEmployeeRegistration(clientUsername, hash, hash, Utilities.SaltKey);
+                myResult = dc.NewEmployeeRegistration(empPassword, hash, hash, Utilities.SaltKey);
 
                 Utilities.mySalt = new byte[0];
 

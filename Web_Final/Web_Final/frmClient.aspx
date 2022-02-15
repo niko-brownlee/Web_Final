@@ -24,7 +24,7 @@
                 <tr>
                     <td class="auto-style6">Change Password:</td>
                     <td>
-                        <asp:TextBox ID="txtChangePassword" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtChangePassword" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>

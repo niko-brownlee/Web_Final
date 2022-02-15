@@ -40,18 +40,17 @@ namespace Web_Final
 
                 if (myResult == -1)
                 {
-                    //*** FOR TESTING ONLY ***
-                    //lblTESTING.Text = "new user success";
+                    string url = "<script type='text/javascript'>window.open('frmSuccess.aspx', 'Successful'," +
+                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                    Response.Redirect("frmSuccess.aspx");
+                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
                 }
                 else //myResult == 1
                 {
-                    ////*** FOR TESTING ONLY ***
-                    //lblTESTING.Text = "new user error";
-                    //throw new ArgumentException("new user error");
+                    string url = "<script type='text/javascript'>window.open('frmUnscessful.aspx', 'Unsuccessful'," +
+                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                    Response.Redirect("frmUnscessful.aspx");
+                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
                 }
             }
             catch (Exception ex)
@@ -64,23 +63,16 @@ namespace Web_Final
         protected void btnTest_Click(object sender, EventArgs e)
         {
             byte[] salt = Utilities.Get_SALT();
-            int clientid;
             int myResult;
             string clientUsername = "";
             string clientPassword = "";
 
             try
-            {
-                clientid = int.Parse(txtClientID.Text.Trim());
-                clientUsername = txtCreateUsername.Text.Trim();
-                clientPassword = txtCreatePassword.Text.Trim();
-
-                //create hash
+            {   //create hash
                 string myval = Utilities.SaltKey;
                 var hash = Utilities.Get_HASH_SHA512(clientPassword, salt);
 
                 DatabaseConnections dc = new DatabaseConnections();
-                clientid = int.Parse(txtClientID.Text.Trim());
                 clientUsername = txtCreateUsername.Text.Trim();
                 clientPassword = txtCreatePassword.Text.Trim();
 
@@ -90,11 +82,19 @@ namespace Web_Final
 
                 if (myResult == -1)
                 {
-                    Response.Redirect("frmSuccess.aspx");
+                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx, 'Successful'," +
+                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+
+                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                    lblTEST.Text = "Success";
                 }
                 else //myResult == 1
                 {
-                    Response.Redirect("frmUnscessful.aspx");
+                    //string url = "<script type='text/javascript'>window.open('frmUnscessful.aspx, 'Unsuccessful'," +
+                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+
+                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                    lblTEST.Text = "Fail";
                 }
             }
             catch (Exception ex)

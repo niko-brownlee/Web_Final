@@ -54,7 +54,7 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td class="auto-style3">
-                    <asp:TextBox ID="txtCreatePassword" runat="server"></asp:TextBox></td>
+                    <asp:TextBox ID="txtCreatePassword" runat="server" TextMode="Password"></asp:TextBox></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -65,18 +65,20 @@
                  <tr>
                     <td>&nbsp;</td>
                     <td class="auto-style3">
-                        <asp:Button ID="btnRegister" runat="server" Text="Register" />&nbsp;<asp:Button ID="btnCancel" runat="server" Text="Cancel" /></td>
+                        <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
+                        &nbsp;
+                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" /></td>
                     <td>&nbsp;</td>
                 </tr>
                  <tr>
                     <td>&nbsp;</td>
-                    <td class="auto-style3"><asp:Button ID="btnTestEmployeeCreation" runat="server" Text="Test Employee Creation" /></td>
+                    <td class="auto-style3"><asp:Button ID="btnTestEmployeeCreation" runat="server" Text="Test Employee Creation" OnClick="btnTest_Click" /></td>
                     <td>&nbsp;</td>
                 </tr>
                  <tr>
                     <td>&nbsp;</td>
                     <td class="auto-style3">
-                        <asp:Label ID="lblTesingtOnly" runat="server" Text="TESTING ONLY"></asp:Label></td>
+                        <asp:Label ID="lblTEST" runat="server" Text="TESTING ONLY"></asp:Label></td>
                     <td>&nbsp;</td>
                 </tr>
             </table>

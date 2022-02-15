@@ -17,8 +17,9 @@ namespace Web_Final
             if(!IsPostBack)
             {
                 //get client id
-                EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-                clientID = int.Parse(String.Format("{0}", eqs["ID"]));
+                //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
+                //clientID = int.Parse(String.Format("{0}", eqs["ID"]));
+                clientID = int.Parse(Request.QueryString["ID"]);
             }
         }
 
@@ -31,8 +32,8 @@ namespace Web_Final
 
             try
             {
-                newUsername = txtChngUsername.Text.Trim();
-                newPassword = txtChngPassword.Text.Trim();
+                newUsername = txtChangeUsername.Text.Trim();
+                newPassword = txtChangePassword.Text.Trim();
 
                 myval = Utilities.SaltKey;
                 var hash = Utilities.Get_HASH_SHA512(newPassword, salt);
@@ -52,8 +53,8 @@ namespace Web_Final
 
         protected void btnClose_Click(object sender, EventArgs e)
         {
-            txtChngPassword.Text = string.Empty;
-            txtChngUsername.Text = string.Empty;
+            txtChangePassword.Text = string.Empty;
+            txtChangeUsername.Text = string.Empty;
         }
     }
 }

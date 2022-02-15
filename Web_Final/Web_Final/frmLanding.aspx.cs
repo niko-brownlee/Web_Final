@@ -49,17 +49,15 @@ namespace Web_Final
                             //*** FOR TESTING ONLY ***
                             //lblTESTING.Text = "Client login";
 
-<<<<<<< Updated upstream
                             //pass client ID
-                            EncryptedQueryString eqs = new EncryptedQueryString();
+                            //EncryptedQueryString eqs = new EncryptedQueryString();
 
-                            eqs["ID"] = getClientIDByUsername(username).ToString();
-                            string url = String.Format("frmClient.aspx?eqs{0}", eqs.ToString());
+                            //eqs["ID"] = getClientIDByUsername(username).ToString();
+                            //string url = String.Format("frmClient.aspx?eqs{0}", eqs.ToString());
 
-                            Response.Redirect(url);
-=======
-                            Response.Redirect("frmClient.aspx");
->>>>>>> Stashed changes
+                            string url = "frmClient.aspx?ID=" + getClientIDByUsername(username).ToString();
+                            Response.Redirect(url, false);
+                            Context.ApplicationInstance.CompleteRequest();
                         }
                         else if (user == 2) //2, employee
                         {
@@ -88,7 +86,7 @@ namespace Web_Final
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                //throw new ArgumentException(ex.Message);
             }
         }
 

@@ -20,7 +20,7 @@
 
     <tr>
         <td>
-            <table class="auto-style5">
+            5<table class="auto-style5">
                 <tr>
                     <td class="auto-style3"><span class="auto-style6">Search For Client:&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="txtSearch" runat="server" CssClass="auto-style7" Width="346px"></asp:TextBox>
                         <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />

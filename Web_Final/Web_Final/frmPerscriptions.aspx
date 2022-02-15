@@ -27,7 +27,7 @@
                                    Update
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#FormatURL(Eval("prescriptionID").ToString()) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#FormatURLEdit(Eval("prescriptionID").ToString()) %>' Target="_blank">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>

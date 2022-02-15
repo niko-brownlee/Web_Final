@@ -11,6 +11,7 @@ namespace Web_Final
     public partial class WebForm5 : System.Web.UI.Page
     {
         private static int prescriptionID;
+        private static string pageType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,13 +21,42 @@ namespace Web_Final
                 //string temp = String.Format("{0}", eqs["ID"]);
 
                 prescriptionID = int.Parse(Request.QueryString["ID"]);
+                pageType = Request.QueryString["TYPE"].ToUpper();
 
                 if(String.IsNullOrEmpty(prescriptionID.ToString()))
                 {
                     Response.Redirect("frmLanding.aspx");
                 } else
                 {
-                    GetData(prescriptionID);
+                    if(pageType == "NEW" || pageType == "EDIT")
+                    {
+                        //prescription is auto incrementing
+                        txtPrescriptionID.Enabled = false;
+                        txtClientID.Enabled = true;
+                        txtPhysicianID.Enabled = true;
+                        txtMedicationID.Enabled = true;
+                        txtExpiryDate.Enabled = true;
+                        txtNumberofRefills.Enabled = true;
+                        btnUpdate.Visible = true;
+                        btnUpdate.Text = "Save";
+
+                        if(pageType == "EDIT")
+                        {
+                            btnUpdate.Text = "Update";
+                            GetData(prescriptionID);
+                        }
+
+                    } else if(pageType == "VIEW")
+                    {
+                        txtPrescriptionID.Enabled = false;
+                        txtClientID.Enabled = false;
+                        txtPhysicianID.Enabled = false;
+                        txtMedicationID.Enabled = false;
+                        txtExpiryDate.Enabled = false;
+                        txtNumberofRefills.Enabled = false;
+                        btnUpdate.Visible = false;
+                        GetData(prescriptionID);
+                    }
                 }
             }
         }
@@ -41,7 +71,6 @@ namespace Web_Final
             if(ds.Tables[0].Rows.Count > 0)
             {
                 txtPrescriptionID.Text = ds.Tables[0].Rows[0]["prescriptionID"].ToString();
-                txtPrescriptionID.Enabled = false;
 
                 txtClientID.Text = ds.Tables[0].Rows[0]["clientID"].ToString();
                 txtPhysicianID.Text = ds.Tables[0].Rows[0]["physicianID"].ToString();
@@ -75,14 +104,36 @@ namespace Web_Final
 
                 expiryDate = DateTime.Parse(ed);
 
-                dc.UpdatePrescription(prescriptionID, clientID, physicianID, 
-                    medicineID, expiryDate, refillCounter);
+                if(pageType == "EDIT")
+                {
+                    dc.UpdatePrescription(prescriptionID, clientID, physicianID, medicineID, expiryDate, refillCounter);
 
-                string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+                    string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
+                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
 
+                    //redirect to page instead of popup
+                    //string url = "frmPrescription.aspx?ID=" + clientID.toString();
+                    //Response.Redirect(url, false);
+                    //Context.ApplicationInstance.CompleteRequest();
+
+                } else if(pageType == "NEW")
+                {
+                    //returns an int, which is the new prescription ID
+                    //not currently saving the int
+                    dc.NewPrescription(clientID, physicianID, medicineID, expiryDate, refillCounter);
+
+                    string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
+                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+
+                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+
+                    //redirect to page instead of popup
+                    //string url = "frmPerscription.aspx?ID=" + clientID.toString();
+                    //Response.Redirect(url, false);
+                    //Context.ApplicationInstance.CompleteRequest();
+                }
             } catch (Exception ex)
             {
                 throw new ArgumentException(ex.Message);
@@ -96,7 +147,7 @@ namespace Web_Final
             //eqs["ID"] = prescriptionID.ToString();
             //string url = String.Format("frmPerscriptions.aspx?eqs={0}", eqs.ToString());
 
-            string url = "frmPrescriptions.aspx?ID=" + prescriptionID.ToString();
+            string url = "frmPerscriptions.aspx?ID=" + prescriptionID.ToString();
             Response.Redirect(url);
         }
     }

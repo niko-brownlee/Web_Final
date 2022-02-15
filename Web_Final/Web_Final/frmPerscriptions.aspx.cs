@@ -48,13 +48,23 @@ namespace Web_Final
             grdPrescriptions.Visible = true;
         }
 
-        protected string FormatURL(string id)
+        protected string FormatURLEdit(string id)
         {
             //EncryptedQueryString eqs = new EncryptedQueryString();
             //eqs["ID"] = id;
             //string url = String.Format("frmUpdatePrescription.aspx?eqs={0}", eqs.ToString());
 
-            string url = "frmUpdatePrescription.aspx?ID=" + id;
+            string url = "frmUpdatePrescription.aspx?ID=" + id + "&TYPE=EDIT";
+            return url;
+        }
+
+        protected string FormatURLNew(string id)
+        {
+            //EncryptedQueryString eqs = new EncryptedQueryString();
+            //eqs["ID"] = id;
+            //string url = String.Format("frmUpdatePrescription.aspx?eqs={0}", eqs.ToString());
+
+            string url = "frmUpdatePrescription.aspx?ID=" + id + "&TYPE=NEW";
             return url;
         }
 

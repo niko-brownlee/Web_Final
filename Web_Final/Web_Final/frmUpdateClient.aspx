@@ -98,7 +98,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
-                    <td>Phone:&nbsp;<asp:TextBox Id="txtPhone" runat="server" CssClass="auto-style15"></asp:TextBox></td>
+                    <td>Phone:&nbsp;<asp:TextBox Id="txtPhone" runat="server" CssClass="auto-style15" TextMode="Phone"></asp:TextBox></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -108,7 +108,11 @@
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
-                    <td>* Gender:&nbsp;<asp:DropDownList ID="ddlGender" runat="server" CssClass="auto-style14" Height="16px" Width="121px"></asp:DropDownList></td>
+                    <td>* Gender:&nbsp;<asp:DropDownList ID="ddlGender" runat="server" CssClass="auto-style14" Height="16px" Width="121px">
+                        <asp:ListItem>Male</asp:ListItem>
+                        <asp:ListItem>Female</asp:ListItem>
+                        <asp:ListItem>Other</asp:ListItem>
+                        </asp:DropDownList></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -124,8 +128,8 @@
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
                     <td>
-            <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="auto-style18"/>&nbsp;
-                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="auto-style17" />
+            <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="auto-style18" OnClick="btnUpdate_Click"/>&nbsp;
+                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="auto-style17" OnClick="btnCancel_Click" />
                         </td>
                     <td>&nbsp;</td>
                 </tr>

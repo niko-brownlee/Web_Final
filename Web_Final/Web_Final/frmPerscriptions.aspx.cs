@@ -20,8 +20,10 @@ namespace Web_Final
 
             if (!IsPostBack)
             {
-                EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-                clientID = int.Parse(String.Format("{0}", eqs["ID"]));
+                //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
+                //clientID = int.Parse(String.Format("{0}", eqs["ID"]));
+
+                clientID = int.Parse(Request.QueryString["ID"]);
 
                 if (String.IsNullOrEmpty(clientID.ToString()))
                 {
@@ -48,9 +50,11 @@ namespace Web_Final
 
         protected string FormatURL(string id)
         {
-            EncryptedQueryString eqs = new EncryptedQueryString();
-            eqs["ID"] = id;
-            string url = String.Format("frmUpdatePrescription.aspx?eqs={0}", eqs.ToString());
+            //EncryptedQueryString eqs = new EncryptedQueryString();
+            //eqs["ID"] = id;
+            //string url = String.Format("frmUpdatePrescription.aspx?eqs={0}", eqs.ToString());
+
+            string url = "frmUpdatePrescription.aspx?ID=" + id;
             return url;
         }
 

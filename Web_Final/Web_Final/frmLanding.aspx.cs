@@ -46,9 +46,6 @@ namespace Web_Final
 
                         if (user == 1) //client
                         {
-                            //*** FOR TESTING ONLY ***
-                            //lblTESTING.Text = "Client login";
-
                             //pass client ID
                             //EncryptedQueryString eqs = new EncryptedQueryString();
 
@@ -56,22 +53,18 @@ namespace Web_Final
                             //string url = String.Format("frmClient.aspx?eqs{0}", eqs.ToString());
 
                             string url = "frmClient.aspx?ID=" + getClientIDByUsername(username).ToString();
+
                             Response.Redirect(url, false);
                             Context.ApplicationInstance.CompleteRequest();
                         }
                         else if (user == 2) //2, employee
                         {
-                            //*** FOR TESTING ONLY ***
-                            //lblTESTING.Text = "employee login";
-
-                            Response.Redirect("frmEmployeeSearch.aspx");
+                            Response.Redirect("frmEmployeeSearch.aspx", false);
+                            Context.ApplicationInstance.CompleteRequest();
                         }
                         else
                         {
-                            //*** FOR TESTING ONLY ***
-                            lblTESTING.Text = "Error, not client or employee";
-
-                            //validation??
+                            //error, verified, but not client or employee
                         }
 
                     }
@@ -86,7 +79,7 @@ namespace Web_Final
             }
             catch (Exception ex)
             {
-                //throw new ArgumentException(ex.Message);
+                throw new ArgumentException(ex.Message);
             }
         }
 

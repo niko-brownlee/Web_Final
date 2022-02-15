@@ -16,15 +16,16 @@ namespace Web_Final
         {
             if(!IsPostBack)
             {
-                EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-                string temp = String.Format("{0}", eqs["ID"]);
+                //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
+                //string temp = String.Format("{0}", eqs["ID"]);
 
-                if(String.IsNullOrEmpty(temp))
+                prescriptionID = int.Parse(Request.QueryString["ID"]);
+
+                if(String.IsNullOrEmpty(prescriptionID.ToString()))
                 {
                     Response.Redirect("frmLanding.aspx");
                 } else
                 {
-                    prescriptionID = int.Parse(temp);
                     GetData(prescriptionID);
                 }
             }
@@ -91,9 +92,11 @@ namespace Web_Final
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            EncryptedQueryString eqs = new EncryptedQueryString();
-            eqs["ID"] = prescriptionID.ToString();
-            string url = String.Format("frmPerscriptions.aspx?eqs={0}", eqs.ToString());
+            //EncryptedQueryString eqs = new EncryptedQueryString();
+            //eqs["ID"] = prescriptionID.ToString();
+            //string url = String.Format("frmPerscriptions.aspx?eqs={0}", eqs.ToString());
+
+            string url = "frmPrescriptions.aspx?ID=" + prescriptionID.ToString();
             Response.Redirect(url);
         }
     }

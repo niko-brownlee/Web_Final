@@ -19,6 +19,7 @@ namespace Web_Final
                 //get client id
                 //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
                 //clientID = int.Parse(String.Format("{0}", eqs["ID"]));
+
                 clientID = int.Parse(Request.QueryString["ID"]);
             }
         }

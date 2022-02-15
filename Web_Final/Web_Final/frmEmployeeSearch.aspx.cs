@@ -30,8 +30,6 @@ namespace Web_Final
         {
             if(txtSearch.Text.Trim().Length > 0)
             {
-                //error message
-
                 try
                 {
                     Session["vClientID"] = txtSearch.Text.Trim();
@@ -43,23 +41,26 @@ namespace Web_Final
             } else
             {
                 grdEmployeeSearch.Visible = false;
-                //error message
             }
         }
 
         protected string FormatURLPresc(string id)
         {
-            EncryptedQueryString eqs = new EncryptedQueryString();
-            eqs["ID"] = id;
-            string url = String.Format("frmPerscriptions.aspx?eqs={0}", eqs.ToString());
+            //EncryptedQueryString eqs = new EncryptedQueryString();
+            //eqs["ID"] = id;
+            //string url = String.Format("frmPerscriptions.aspx?eqs={0}", eqs.ToString());
+
+            string url = "frmPerscriptions.aspx?ID=" + id;
             return url;
         }
 
         protected string FormatURLRefill(string id)
         {
-            EncryptedQueryString eqs = new EncryptedQueryString();
-            eqs["ID"] = id;
-            string url = String.Format("frmRefills.aspx?eqs={0}", eqs.ToString());
+            //EncryptedQueryString eqs = new EncryptedQueryString();
+            //eqs["ID"] = id;
+            //string url = String.Format("frmRefills.aspx?eqs={0}", eqs.ToString());
+
+            string url = "frmRefills.aspx?ID=" + id;
             return url;
         }
 

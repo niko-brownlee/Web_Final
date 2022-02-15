@@ -269,7 +269,7 @@ namespace Web_Final
         //return -1 -> error
         //return anything else -> client ID
         public int NewClient(string fname, string initial, string lname, string street1, string street2, string city, 
-            string state, string zip, string phone, string email, string gender, DateTime DOB)
+            string state, string zip, string phone, string email, string gender, string DOB)
         {
             try
             { 
@@ -293,7 +293,8 @@ namespace Web_Final
                 cmdString.Parameters.Add("@phone", SqlDbType.VarChar, 15).Value = phone;
                 cmdString.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
                 cmdString.Parameters.Add("@gender", SqlDbType.VarChar,1 ).Value = gender;
-                cmdString.Parameters.Add("@dateOfBirth", SqlDbType.Date ).Value = DOB;
+                DateTime dt = DateTime.Parse(DOB);
+                cmdString.Parameters.Add("@dateOfBirth", SqlDbType.Date ).Value = dt;
 
                 cmdString.Parameters.Add("@Return", SqlDbType.Int).Direction = ParameterDirection.ReturnValue; 
 

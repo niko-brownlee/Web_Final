@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Web_Final
 {
+    //all prescriptions for a client
     public partial class frmPerscriptions : System.Web.UI.Page
     {
         int clientID;
@@ -40,9 +41,7 @@ namespace Web_Final
             DatabaseConnections dc = new DatabaseConnections();
             DataSet ds = new DataSet();
 
-            int clientID = int.Parse(Convert.ToString(Session["vClientID"]));
-
-            ds = dc.GetClientByID(clientID);
+            ds = dc.GetAllClientPrescriptions(clientID);
             grdPrescriptions.DataSource = ds.Tables[0];
             grdPrescriptions.DataBind();
             grdPrescriptions.Visible = true;

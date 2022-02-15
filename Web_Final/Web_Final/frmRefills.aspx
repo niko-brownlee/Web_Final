@@ -24,7 +24,7 @@
                                    Update
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#(Eval("refillID").ToString()) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#FormatURLEdit(Eval("refillID").ToString()) %>' Target="_blank">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -33,8 +33,7 @@
                                    Delete
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplDelete" runat="server" Text="View" NavigateUrl='<%#(Eval("refillID").ToString()) %>' Target="_blank">
-                                    </asp:HyperLink>
+                                    <asp:LinkButton ID="lbtnDelete" runat="server" Text="Delete" OnClick='deleteRefill(<%#Eval("refillID").ToString() %>)'</asp:LinkButton>
                                 </ItemTemplate>
 
                             </asp:TemplateField>

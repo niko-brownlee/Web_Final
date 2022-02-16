@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <tr>
         <td>
-            
+            <asp:Button ID="btnNew" runat="server" Text="New Refill" OnClick="btnNew_Click" />
                 <asp:GridView ID="grdRefill" runat="server" AutoGenerateColumns="false" CssClass="GridView" Width="100%" AllowPaging="true" AllowSorting="true"
                            OnSelectedIndexChanged="grdRefill_SelectedIndexChanged">
                     <Columns>
@@ -15,10 +15,8 @@
                         <asp:BoundField DataField="supplyDays" HeaderText="Supply Days" SortExpression="supplyDays" />
                         <asp:BoundField DataField="quantitySupplied" HeaderText="Quantity Supplied" SortExpression="quantitySupplied" />
                         <asp:BoundField DataField="amountDue" HeaderText="Amount Due" SortExpression="amountDue" />
-                        <asp:BoundField DataField="dateOfRefill" HeaderText="Date of Refill" SortExpression="dateOfRefill" />
+                        <asp:BoundField DataField="dateOfRefill" HeaderText="Date of Refill" SortExpression="dateOfRefill" DataFormatString="{0:MM/dd/yyyy}" />
                          
-                        
-
                       <asp:TemplateField HeaderText="Update">
                                 <HeaderTemplate>
                                    Update

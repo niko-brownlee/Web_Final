@@ -164,17 +164,17 @@ namespace Web_Final
 
                 } else if(pageType == "NEW")
                 {
-                    dc.NewClient(fName, mInit, lName, addr1, addr2, city, addrState, zip, phone, email, gender, dob);
+                    int newID = dc.NewClient(fName, mInit, lName, addr1, addr2, city, addrState, zip, phone, email, gender, dob);
 
-                    string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
+                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
 
                     //redirect to page instead of popup
-                    //string url = "frmEmployeeSearch.aspx?ID=" + clientID.toString();
-                    //Response.Redirect(url, false);
-                    //Context.ApplicationInstance.CompleteRequest();
+                    string url = "frmEmployeeSearch.aspx?ID=" + newID;
+                    Response.Redirect(url, false);
+                    Context.ApplicationInstance.CompleteRequest();
                 }
 
             } catch (Exception ex)

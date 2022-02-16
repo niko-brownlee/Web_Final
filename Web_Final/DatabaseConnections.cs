@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 using Microsoft.VisualBasic;
 using System.Data;
 using System.Configuration;
@@ -273,11 +269,7 @@ namespace Web_Final
         //return -1 -> error
         //return anything else -> client ID
         public int NewClient(string fname, string initial, string lname, string street1, string street2, string city, 
-<<<<<<< Updated upstream
             string state, string zip, string phone, string email, string gender, string DOB)
-=======
-            string state, string zip, string phone, string email, string gender, DateTime DOB)
->>>>>>> Stashed changes
         {
             try
             { 
@@ -301,16 +293,11 @@ namespace Web_Final
                 cmdString.Parameters.Add("@phone", SqlDbType.VarChar, 15).Value = phone;
                 cmdString.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
                 cmdString.Parameters.Add("@gender", SqlDbType.VarChar,1 ).Value = gender;
-<<<<<<< Updated upstream
+
                 DateTime dt = DateTime.Parse(DOB);
                 cmdString.Parameters.Add("@dateOfBirth", SqlDbType.Date ).Value = dt;
 
-                cmdString.Parameters.Add("@Return", SqlDbType.Int).Direction = ParameterDirection.ReturnValue; 
-=======
-                cmdString.Parameters.Add("@DateOfBirth", SqlDbType.Date ).Value = DOB;
-
                 cmdString.Parameters.Add("@Return", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
->>>>>>> Stashed changes
 
                 SqlDataAdapter aAdapter = new SqlDataAdapter();
                 aAdapter.SelectCommand = cmdString;
@@ -353,22 +340,14 @@ namespace Web_Final
                 cmdString.Parameters.Add("@phone", SqlDbType.VarChar,15).Value = phone;
                 cmdString.Parameters.Add("@email", SqlDbType.VarChar,100).Value = email;
 
-<<<<<<< Updated upstream
-                cmdString.Parameters.Add("@Return", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;    
-=======
                 cmdString.Parameters.Add("@Return", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
->>>>>>> Stashed changes
 
                 SqlDataAdapter aAdapter = new SqlDataAdapter();
                 aAdapter.SelectCommand = cmdString;
 
                 cmdString.ExecuteNonQuery();
 
-<<<<<<< Updated upstream
-                int returnVal = (int)cmdString.Parameters["@Return"].Value;  
-=======
                 int returnVal = (int)cmdString.Parameters["@Return"].Value;
->>>>>>> Stashed changes
 
                 return returnVal;
             }
@@ -384,7 +363,7 @@ namespace Web_Final
 
         //return -1 -> error
         //return anything else -> refill ID
-        public int NewRefill(int prescriptionid,string dosage, string frequency, int supplydays, int quantitysupplied)
+        public int NewRefill(int prescriptionid, string dosage, string frequency, int supplydays, int quantitysupplied)
         {
             try
             {
@@ -482,11 +461,7 @@ namespace Web_Final
                 // Define input parameter
                 cmdString.Parameters.Add("@clientID", SqlDbType.Int).Value = clientid;
                 cmdString.Parameters.Add("@fName", SqlDbType.VarChar, 25).Value = fname;
-<<<<<<< Updated upstream
                 cmdString.Parameters.Add("@mInitial", SqlDbType.Char).Value = minitial;
-=======
-                cmdString.Parameters.Add("@minitial", SqlDbType.Char).Value = minitial;
->>>>>>> Stashed changes
                 cmdString.Parameters.Add("@lName", SqlDbType.VarChar, 25).Value = lname;
                 cmdString.Parameters.Add("@street1", SqlDbType.VarChar, 100).Value = street1;
                 cmdString.Parameters.Add("@street2", SqlDbType.VarChar, 100).Value = street2;
@@ -799,7 +774,6 @@ namespace Web_Final
                 myConn.Close();
             }
         }
-<<<<<<< Updated upstream
 
         public DataSet SelectClientPrescription(int clientid)
         {
@@ -835,7 +809,5 @@ namespace Web_Final
                 myConn.Close();
             }
         }
-=======
->>>>>>> Stashed changes
     }
 }

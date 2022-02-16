@@ -11,7 +11,7 @@ namespace Web_Final
     //all prescriptions for a client
     public partial class frmPerscriptions : System.Web.UI.Page
     {
-        int clientID;
+        private int clientID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -89,6 +89,17 @@ namespace Web_Final
         protected void grdPrescriptions_Sorting(object sender, GridViewSortEventArgs e)
         {
             //sorting in asc and desc order
+        }
+
+        protected void btnNew_Click(object sender, EventArgs e)
+        {
+            //EncryptedQueryString eqs = new EncryptedQueryString();
+            //eqs["ID"] = 0;
+            //eqs["TYPE"] = "NEW";
+            //string url = String.Format("frmUpdatePrescription.aspx?eqs={0}", eqs.ToString());
+
+            string url = "frmUpdatePrescription.aspx?ID=" + 0 + "&TYPE=NEW";
+            Response.Redirect(url);
         }
     }
 }

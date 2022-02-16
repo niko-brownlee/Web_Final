@@ -10,6 +10,8 @@ namespace Web_Final
 {
     public partial class frmClientRecords : System.Web.UI.Page
     {
+        private int clientID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             grdPerscriptions.RowDataBound += new GridViewRowEventHandler(grdPerscriptions_RowDataBound);
@@ -20,21 +22,24 @@ namespace Web_Final
             grdRefills.RowDataBound += new GridViewRowEventHandler(grdRefills_RowDataBound);
             grdRefills.PageIndexChanging += new GridViewPageEventHandler(grdRefills_PageIndexChanging);
             grdRefills.Sorting += new GridViewSortEventHandler(grdRefills_Sorting);
+
             if (!IsPostBack)
             {
-                //Cache.Remove("Data");
-                //if(Convert.ToString(Session["GRIDREFRESH"]) != " ")
-                //{
-                //    Cache.Remove("Data");
-                //    BindData();
-                //} else
-                //{
-                //    if(Cache["Data"] == null)
-                //    {
-                //        BindData();
-                //    }
-                //}
+                //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
+                //clientID = int.Parse(String.Format("{0}", eqs["ID"]));
 
+                clientID = int.Parse(Request.QueryString["ID"]);
+                txtClientID.Text = clientID.ToString();
+                txtClientID.Enabled = false;
+
+                if (String.IsNullOrEmpty(clientID.ToString()))
+                {
+                    Response.Redirect("frmLanding.aspx");
+                }
+                else
+                {
+                    BindData();
+                }
             }
             else
             {
@@ -44,9 +49,50 @@ namespace Web_Final
 
         }
 
-        protected void txtClientID_TextChanged(object sender, EventArgs e)
+        private void BindData()
         {
-            txtClientID.Enabled = false;
+            DatabaseConnections dc = new DatabaseConnections();
+            DataSet dsP = new DataSet();
+            DataSet dsR = new DataSet();
+
+            if (Cache["RefillData"] == null)
+            {
+                dsR = dc.GetAllClientRefills(clientID);
+                grdRefills.DataSource = dsR.Tables[0];
+                Cache.Add("RefillData", new DataView(dsR.Tables[0]),  //save dataset as cache
+                    null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.TimeSpan.FromMinutes(10), //cache for 10 minutes
+                    System.Web.Caching.CacheItemPriority.Default, null);
+
+                grdRefills.DataBind();
+                grdRefills.Visible = true;
+            }
+            else
+            {
+                grdRefills.DataSource = (DataView)Cache["RefillData"];
+                grdRefills.DataBind();
+            }
+
+            if (Cache["PreData"] == null)
+            {
+                dsP = dc.GetAllClientPrescriptions(clientID);
+                grdPerscriptions.DataSource = dsP.Tables[0];
+                Cache.Add("PreData", new DataView(dsP.Tables[0]),  //save dataset as cache
+                    null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.TimeSpan.FromMinutes(10), //cache for 10 minutes
+                    System.Web.Caching.CacheItemPriority.Default, null);
+
+                grdPerscriptions.DataBind();
+                grdPerscriptions.Visible = true;
+            }
+            else
+            {
+                grdPerscriptions.DataSource = (DataView)Cache["PreData"];
+                grdPerscriptions.DataBind();
+            }
+        }
+
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmLanding.aspx");
         }
 
         protected void grdPerscriptions_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -77,49 +123,6 @@ namespace Web_Final
         protected void grdRefills_Sorting(object sender, GridViewSortEventArgs e)
         {
 
-        }
-
-        private void BindData()
-        {
-            DatabaseConnections dc = new DatabaseConnections();
-            DataSet ds = new DataSet();
-
-            int clientID = int.Parse(txtClientID.Text);
-
-            ds = dc.GetClientByID(clientID);
-            grdRefills.DataSource = ds.Tables[0];
-            grdPerscriptions.DataSource = ds.Tables[0];
-
-            if (Cache["Data"] == null)
-            {
-                ds = dc.GetAllClientRefills(clientID);
-                grdRefills.DataSource = ds.Tables[0];
-                Cache.Add("Data", new DataView(ds.Tables[0]),  //save dataset as cache
-                    null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.TimeSpan.FromMinutes(10), //cache for 10 minutes
-                    System.Web.Caching.CacheItemPriority.Default, null);
-                ds = dc.GetAllClientPrescriptions(clientID);
-                grdPerscriptions.DataSource = ds.Tables[0];
-                Cache.Add("Data", new DataView(ds.Tables[0]),  //save dataset as cache
-                    null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.TimeSpan.FromMinutes(10), //cache for 10 minutes
-                    System.Web.Caching.CacheItemPriority.Default, null);
-
-                grdRefills.DataBind();
-                grdPerscriptions.Visible = true;
-                grdRefills.DataBind();
-                grdPerscriptions.Visible = true;
-            }
-            else
-            {
-                grdPerscriptions.DataSource = (DataView)Cache["Data"];
-                grdPerscriptions.DataBind();
-                grdRefills.DataSource = (DataView)Cache["Data"];
-                grdRefills.DataBind();
-            }
-        }
-
-        protected void btnClose_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/frmLanding.aspx");
         }
 
         protected void grdPerscriptions_SelectedIndexChanged(object sender, EventArgs e)

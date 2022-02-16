@@ -10,6 +10,8 @@ namespace Web_Final
 {
     public partial class frmEmployeeSearch : System.Web.UI.Page
     {
+        private int newClientID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             grdEmployeeSearch.RowDataBound += new GridViewRowEventHandler(grdEmployeeSearch_RowDataBound);
@@ -18,6 +20,12 @@ namespace Web_Final
 
             if(!IsPostBack)
             {
+                if(Request.QueryString["ID"] != null)
+                {
+                    newClientID = int.Parse(Request.QueryString["ID"]);
+                    BindData();
+                }
+
                 //Cache.Remove("Data");
                 //if(Convert.ToString(Session["GRIDREFRESH"]) != " ")
                 //{
@@ -30,9 +38,6 @@ namespace Web_Final
                 //        BindData();
                 //    }
                 //}
-                
-
-
             } else
             {
                 grdEmployeeSearch.Visible = false;
@@ -55,6 +60,21 @@ namespace Web_Final
             {
                 grdEmployeeSearch.Visible = false;
             }
+        }
+
+        protected void btnAddClient_Click(object sender, EventArgs e)
+        {
+            //EncryptedQueryString eqs = new EncryptedQueryString();
+            //eqs["ID"] = "0";
+            //eqs["TYPE"] = "NEW";
+            //string url = String.Format("frmUpdateClient.aspx?eqs={0}", eqs.ToString());
+
+            Response.Redirect("frmUpdateClient.aspx?ID=0&TYPE=NEW");
+        }
+
+        protected void btnAddPhys_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmAddPhysician.aspx");
         }
 
         protected string FormatURLPresc(string id)
@@ -81,17 +101,19 @@ namespace Web_Final
         {
             DatabaseConnections dc = new DatabaseConnections();
             DataSet ds = new DataSet();
+            int clientID;
 
-            //int clientID = int.Parse(Convert.ToString(Session["vClientID"]));
+            if(txtSearch.Text.Trim().Length > 0)
+            {
+                clientID = int.Parse(txtSearch.Text);
 
-            //txtSearch.Text = clientID.ToString();
-
-            int clientID = int.Parse(txtSearch.Text);
+            } else //newly added client
+            {
+                clientID = newClientID;
+            }
 
             ds = dc.GetClientByID(clientID);
             grdEmployeeSearch.DataSource = ds.Tables[0];
-            //grdEmployeeSearch.DataBind();
-            //grdEmployeeSearch.Visible = true;
 
             if(Cache["Data"] == null)
             {

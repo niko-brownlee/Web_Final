@@ -18,16 +18,16 @@
              <h1>Update Refill</h1>
             <table class="auto-style5">
                 <tr>
-                    <td class="auto-style6">* Refill ID:</td>
+                    <td class="auto-style6"><asp:Label ID="lblRefill" runat="server" Text="* Refill ID:" ></asp:Label></td>
                     <td class="auto-style7">
                         <asp:TextBox ID="txtRefill" runat="server"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">* Perscription ID:</td>
+                    <td class="auto-style6">* Prescription ID:</td>
                     <td>
-                        <asp:TextBox ID="txtPerscription" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtPrescription" runat="server"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -80,10 +80,10 @@
                     <td>&nbsp;</td>
                 </tr>
                  <tr>
-                    <td class="auto-style6"> <asp:Button ID="btnUpdate" runat="server" Text="Update"/>
+                    <td class="auto-style6"> <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click"/>
                         </td>
                     <td>
-                       <asp:Button ID="btnCancel" runat="server" Text="Cancel"/>
+                       <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click"/>
                     </td>
                     <td>&nbsp;</td>
                 </tr>

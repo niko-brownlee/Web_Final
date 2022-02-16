@@ -58,16 +58,6 @@ namespace Web_Final
             return url;
         }
 
-        protected string FormatURLNew(string id)
-        {
-            //EncryptedQueryString eqs = new EncryptedQueryString();
-            //eqs["ID"] = id;
-            //string url = String.Format("frmUpdatePrescription.aspx?eqs={0}", eqs.ToString());
-
-            string url = "frmUpdateRefill.aspx?ID=" + id + "&TYPE=NEW";
-            return url;
-        }
-
         protected string FormatURLDelete(string id)
         {
             //EncryptedQueryString eqs = new EncryptedQueryString();
@@ -100,6 +90,17 @@ namespace Web_Final
         protected void grdRefill_Sorting(object sender, GridViewSortEventArgs e)
         {
             //sorting in asc and desc order
+        }
+
+        protected void btnNew_Click(object sender, EventArgs e)
+        {
+            //EncryptedQueryString eqs = new EncryptedQueryString();
+            //eqs["ID"] = 0;
+            //eqs["TYPE"] = NEW;
+            //string url = String.Format("frmUpdateRefill.aspx?eqs={0}", eqs.ToString());
+
+            string url = "frmUpdateRefill.aspx?ID=" + 0 + "&TYPE=NEW";
+            Response.Redirect(url);
         }
     }
 }

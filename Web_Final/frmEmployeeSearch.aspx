@@ -24,6 +24,13 @@
                 <tr>
                     <td class="auto-style3"><span class="auto-style6">Search For Client:&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="txtSearch" runat="server" CssClass="auto-style7" Width="346px"></asp:TextBox>
                         <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnAddClient" runat="server" OnClick="btnAddClient_Click" Text="Add New Client" />
+                        &nbsp;
+                        <asp:Button ID="btnAddPhys" runat="server" OnClick="btnAddPhys_Click" Text="Add New Physician" />
+                    </td>
+                    <td>
+                        
                     </td>
                 </tr>
                 <tr>
@@ -37,7 +44,7 @@
                                 <asp:BoundField DataField="fName" HeaderText="Client First Name" SortExpression="fName" />
                                 <asp:BoundField DataField="mInitial" HeaderText="Mid.Int" SortExpression="mInitial" />
                                 <asp:BoundField DataField="lName" HeaderText="Last Name" SortExpression="lName" />
-                                <asp:BoundField DataField="dateOfBirth" HeaderText="Date of Birth" SortExpression="dateOfBirth" />
+                                <asp:BoundField DataField="dateOfBirth" HeaderText="Date of Birth" SortExpression="dateOfBirth" DataFormatString="{0:MM/dd/yyyy}" />
                                 <asp:BoundField DataField="gender" HeaderText="Gender" SortExpression="Gender" />
                                 <asp:BoundField DataField="phone" HeaderText="Phone Number" SortExpression="phone" />
                                 <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" />

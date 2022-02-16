@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseConnections.cs" />
+<<<<<<< Updated upstream
     <Compile Include="EncryptedQueryString.cs" />
     <Compile Include="frmEmployeeSearch.aspx.cs">
       <DependentUpon>frmEmployeeSearch.aspx</DependentUpon>
@@ -132,6 +133,8 @@
     <Compile Include="frmUpdateClient.aspx.designer.cs">
       <DependentUpon>frmUpdateClient.aspx</DependentUpon>
     </Compile>
+=======
+>>>>>>> Stashed changes
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

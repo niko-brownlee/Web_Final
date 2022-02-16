@@ -92,10 +92,5 @@ namespace Web_Final
 
             return int.Parse(ds.Tables[0].Rows[0]["clientID"].ToString());
         }
-
-        protected void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

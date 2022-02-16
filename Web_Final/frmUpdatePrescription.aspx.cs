@@ -77,7 +77,7 @@ namespace Web_Final
                 txtMedicationID.Text = ds.Tables[0].Rows[0]["medicineID"].ToString();
 
                 DateTime dt = DateTime.Parse(ds.Tables[0].Rows[0]["expiryDate"].ToString());
-                txtExpiryDate.Text = dt.ToString("MM/dd/YYYY");
+                txtExpiryDate.Text = dt.ToString("MM/dd/yyyy");
 
                 txtNumberofRefills.Text = ds.Tables[0].Rows[0]["refillCounter"].ToString();
 

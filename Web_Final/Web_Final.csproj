@@ -67,9 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="frmAbout.aspx" />
-    <Content Include="frmAddPhysician.aspx" />
-    <Content Include="frmClientRecords.aspx" />
+    <Content Include="frmDeleteRefill.aspx" />
     <Content Include="frmEmployeeSearch.aspx" />
     <Content Include="frmPerscriptions.aspx" />
     <Content Include="frmRefills.aspx" />
@@ -77,7 +75,6 @@
     <Content Include="frmSuccess.aspx" />
     <Content Include="frmUnscessful.aspx" />
     <Content Include="frmUpdateClient.aspx" />
-    <Content Include="frmUpdateRefill.aspx" />
     <Content Include="MainStyleSheet.css" />
     <Content Include="Web.config" />
     <Content Include="frmLanding.aspx" />
@@ -87,26 +84,12 @@
   <ItemGroup>
     <Compile Include="DatabaseConnections.cs" />
     <Compile Include="EncryptedQueryString.cs" />
-    <Compile Include="frmAbout.aspx.cs">
-      <DependentUpon>frmAbout.aspx</DependentUpon>
+    <Compile Include="frmDeleteRefill.aspx.cs">
+      <DependentUpon>frmDeleteRefill.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmAbout.aspx.designer.cs">
-      <DependentUpon>frmAbout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmAddPhysician.aspx.cs">
-      <DependentUpon>frmAddPhysician.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmAddPhysician.aspx.designer.cs">
-      <DependentUpon>frmAddPhysician.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmClientRecords.aspx.cs">
-      <DependentUpon>frmClientRecords.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmClientRecords.aspx.designer.cs">
-      <DependentUpon>frmClientRecords.aspx</DependentUpon>
+    <Compile Include="frmDeleteRefill.aspx.designer.cs">
+      <DependentUpon>frmDeleteRefill.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmEmployeeSearch.aspx.cs">
       <DependentUpon>frmEmployeeSearch.aspx</DependentUpon>
@@ -156,13 +139,6 @@
     </Compile>
     <Compile Include="frmUpdateClient.aspx.designer.cs">
       <DependentUpon>frmUpdateClient.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmUpdateRefill.aspx.cs">
-      <DependentUpon>frmUpdateRefill.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmUpdateRefill.aspx.designer.cs">
-      <DependentUpon>frmUpdateRefill.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>

@@ -121,5 +121,10 @@ namespace Web_Final
         {
             Response.Redirect("~/frmLanding.aspx");
         }
+
+        protected void grdPerscriptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

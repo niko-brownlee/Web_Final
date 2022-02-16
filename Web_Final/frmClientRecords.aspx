@@ -10,7 +10,7 @@
             <br />
 
             <asp:GridView ID="grdPerscriptions" runat="server"  AutoGenerateColumns="false" CssClass="GridView" Width="100%" AllowPaging="true" AllowSorting="true"
-                            PageSize="4">
+                            PageSize="4" OnSelectedIndexChanged="grdPerscriptions_SelectedIndexChanged">
                 <Columns>
 
                     <asp:BoundField DataField="@prescriptionID" HeaderText="Perscription ID" SortExpression="prescriptionID" />

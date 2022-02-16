@@ -143,11 +143,6 @@ namespace Web_Final
             //SortRecords(e.SortExpression);
         }
 
-        protected void btnClose_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/frmLanding.aspx");
-        }
-
         //private void SortRecords(string sortExp)
         //{
         //    string oldExp = grdEmployeeSearch.SortExpression;

@@ -90,10 +90,5 @@ namespace Web_Final
         {
             //sorting in asc and desc order
         }
-
-        protected void btnClose_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/frmEmployeeSearch.aspx");
-        }
     }
 }

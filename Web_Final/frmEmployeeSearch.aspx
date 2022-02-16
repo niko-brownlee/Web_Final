@@ -11,10 +11,6 @@
         .auto-style7 {
             margin-left: 0px;
         }
-        .auto-style8 {
-            text-align: center;
-            height: 33px;
-        }
     </style>
   
 </asp:Content>
@@ -26,10 +22,8 @@
         <td>
             <table class="auto-style5">
                 <tr>
-                    <td class="auto-style8"><span class="auto-style6">Search For Client:&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="txtSearch" runat="server" CssClass="auto-style7" Width="346px"></asp:TextBox>
+                    <td class="auto-style3"><span class="auto-style6">Search For Client:&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="txtSearch" runat="server" CssClass="auto-style7" Width="346px"></asp:TextBox>
                         <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
-                    &nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnClose" runat="server" OnClick="btnClose_Click" Text="Log Off" />
                     </td>
                 </tr>
                 <tr>
@@ -58,7 +52,7 @@
                                    Refill
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplRefill" runat="server" Text="View" NavigateUrl='<%#(FormatURLRefill(Eval("clientID").ToString())) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplRefill" runat="server" Text="View" NavigateUrl='<%#(FormatURLRefill(Eval("clientID").ToString())) %>' Target="_self">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -67,7 +61,7 @@
                                    Prescriptions
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplPrescription" runat="server" Text="View" NavigateUrl='<%#(FormatURLPresc(Eval("clientID").ToString())) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplPrescription" runat="server" Text="View" NavigateUrl='<%#(FormatURLPresc(Eval("clientID").ToString())) %>' Target="_self">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>

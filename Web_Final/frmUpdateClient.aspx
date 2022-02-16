@@ -2,51 +2,46 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="content1" runat="server">
     <style type="text/css">
         .auto-style5 {
-            width: 54%;
-            height: 497px;
+            width: 100%;
         }
         .auto-style6 {
             width: 330px;
         }
+        .auto-style7 {
+            margin-left: 27px;
+        }
+        .auto-style8 {
+            margin-left: 28px;
+        }
+        .auto-style9 {
+            margin-left: 2px;
+        }
         .auto-style10 {
             margin-left: 1px;
+        }
+        .auto-style11 {
+            margin-left: 20px;
+        }
+        .auto-style12 {
+            margin-left: 62px;
+        }
+        .auto-style13 {
+            margin-left: 54px;
         }
         .auto-style14 {
             margin-left: 23px;
         }
+        .auto-style15 {
+            margin-left: 41px;
+        }
+        .auto-style16 {
+            margin-left: 45px;
+        }
+        .auto-style17 {
+            margin-left: 95px;
+        }
         .auto-style18 {
             margin-left: 50px;
-        }
-        .auto-style19 {
-            width: 330px;
-            height: 29px;
-            text-align: right;
-        }
-        .auto-style20 {
-            height: 29px;
-        }
-        .auto-style23 {
-            height: 29px;
-            text-align: left;
-        }
-        .auto-style24 {
-            text-align: left;
-        }
-        .auto-style25 {
-            width: 330px;
-            text-align: right;
-        }
-        .auto-style26 {
-            width: 330px;
-            text-align: right;
-            height: 26px;
-        }
-        .auto-style27 {
-            text-align: left;
-            height: 26px;
-        }
-        .auto-style28 {
-            height: 26px;
         }
     </style>
 </asp:Content>
@@ -54,119 +49,94 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <tr>
         <td>
-            
+            <h1>Update Client</h1>
             <table class="auto-style5">
-                <h1>Update Client</h1>
                         <tr>
-                    <td class="auto-style25">Client ID:</td>
-                    <td class="auto-style24">
-                        <asp:TextBox ID="txtClient" runat="server"></asp:TextBox>
-                            </td>
-                   
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>Client ID:&nbsp;<asp:TextBox ID="txtClient" runat="server" CssClass="auto-style7"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style25">* First Name:&nbsp;&nbsp;</td>
-                    <td class="auto-style24"><asp:TextBox ID="txtFName" runat="server" CssClass="auto-style10"></asp:TextBox></td>
-                    
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>* First Name:&nbsp;<asp:TextBox ID="txtFName" runat="server" CssClass="auto-style10"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style25">Mid. Int.:&nbsp;&nbsp;</td>
-                    <td class="auto-style24">
-                        <asp:TextBox ID="txtMidint" runat="server"></asp:TextBox>
-                    </td>
-                    
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>Mid. Int.:&nbsp;<asp:TextBox ID="txtMidint" runat="server" CssClass="auto-style8"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style25">* Last Name:</td>
-                    <td class="auto-style24">
-                        <asp:TextBox ID="txtLName" runat="server"></asp:TextBox>
-                    </td>
-                    
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>* Last Name:&nbsp;<asp:TextBox ID="txtLName" runat="server" CssClass="auto-style9"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style25">Address: &nbsp;&nbsp;</td>
-                    <td class="auto-style24">
-                        <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
-                    </td>
-                    
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>Address: &nbsp;<asp:TextBox Id="txtAddress" runat="server" CssClass="auto-style7"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style25">Address 2:&nbsp;&nbsp;</td>
-                    <td class="auto-style24">
-                        <asp:TextBox ID="txtAddress2" runat="server"></asp:TextBox>
-                    </td>
-                    
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>Address 2:&nbsp;<asp:TextBox Id="txtAddress2" runat="server" CssClass="auto-style11"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style25">City:&nbsp;&nbsp;</td>
-                    <td class="auto-style24">
-                        <asp:TextBox ID="txtCity" runat="server" OnTextChanged="TextBox5_TextChanged"></asp:TextBox>
-                    </td>
-                   
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>City:&nbsp;<asp:TextBox ID="txtCity" runat="server" CssClass="auto-style12"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style25">State:&nbsp;&nbsp;</td>
-                    <td class="auto-style24">
-                        <asp:TextBox ID="txtState" runat="server" Height="18px"></asp:TextBox>
-                    </td>
-                   
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>State:&nbsp;<asp:TextBox ID="txtState" runat="server" CssClass="auto-style13"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style25">Zip Code:&nbsp;&nbsp;</td>
-                    <td class="auto-style24">
-                        <asp:TextBox ID="txtZip" runat="server"></asp:TextBox>
-                    </td>
-                    
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>Zip Code:&nbsp;<asp:TextBox ID="txtZip" runat="server" CssClass="auto-style14"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style26">Phone:&nbsp;&nbsp;</td>
-                    <td class="auto-style27">
-                        <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
-                    </td>
-                    <td class="auto-style28"></td>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>Phone:&nbsp;<asp:TextBox Id="txtPhone" runat="server" CssClass="auto-style15" TextMode="Phone"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">Email:&nbsp;</td>
-                    <td class="auto-style23">
-                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                    </td>
-                    <td class="auto-style20"></td>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>Email:&nbsp;<asp:TextBox ID="txtEmail" runat="server" CssClass="auto-style16"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style25">* Gender:&nbsp;&nbsp;</td>
-                    <td class="auto-style24"><asp:DropDownList ID="ddlGender" runat="server" CssClass="auto-style14" Height="16px" Width="121px">
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>* Gender:&nbsp;<asp:DropDownList ID="ddlGender" runat="server" CssClass="auto-style14" Height="16px" Width="121px">
                         <asp:ListItem>Male</asp:ListItem>
                         <asp:ListItem>Female</asp:ListItem>
                         <asp:ListItem>Other</asp:ListItem>
                         </asp:DropDownList></td>
-                    <
-                </tr>
-                <tr>
-                    <td class="auto-style25">* DOB:&nbsp;&nbsp;</td>
-                    <td class="auto-style24">
-                        <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td class="auto-style25">
-            <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="auto-style18" OnClick="btnUpdate_Click"/></td>
-                    <td>
-                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
-                        </td>
-                    
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
-                    <td>
-                        &nbsp;
-                        </td>
-                    
+                    <td>* DOB:&nbsp;<asp:TextBox Id="txtDOB" runat="server" CssClass="auto-style15"></asp:TextBox></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
                     <td>&nbsp;</td>
-                    
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>
+            <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="auto-style18" OnClick="btnUpdate_Click"/>&nbsp;
+                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="auto-style17" OnClick="btnCancel_Click" />
+                        </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
                 </tr>
         
             </table>

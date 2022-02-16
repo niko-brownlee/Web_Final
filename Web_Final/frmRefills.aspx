@@ -3,15 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <tr>
-        <td class="auto-style3">
-            
-                <asp:Button ID="btnClose" runat="server" OnClick="btnClose_Click" Text="Back to Search" />
+        <td>
             
                 <asp:GridView ID="grdRefill" runat="server" AutoGenerateColumns="false" CssClass="GridView" Width="100%" AllowPaging="true" AllowSorting="true"
-                           OnSelectedIndexChanged="grdEmployeeSearch_SelectedIndexChanged">
+                           OnSelectedIndexChanged="grdRefill_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="refillID" HeaderText="Refill ID" SortExpression="refillID" />
-                        <asp:BoundField DataField="perscriptionID" HeaderText="Perscription ID" SortExpression="perscriptionID" />
+                        <asp:BoundField DataField="prescriptionID" HeaderText="Prescription ID" SortExpression="prescriptionID" />
                         <asp:BoundField DataField="dosage" HeaderText="Dosage" SortExpression="dosage" />
                         <asp:BoundField DataField="frequency" HeaderText="Frequency" SortExpression="frequency" />
                         <asp:BoundField DataField="supplyDays" HeaderText="Supply Days" SortExpression="supplyDays" />
@@ -26,7 +24,7 @@
                                    Update
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#FormatURLEdit(Eval("refillID").ToString()) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#FormatURLEdit(Eval("refillID").ToString()) %>' Target="_self">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -35,7 +33,9 @@
                                    Delete
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lbtnDelete" runat="server" Text="Delete" OnClick='deleteRefill(<%#Eval("refillID").ToString() %>)'></asp:LinkButton>
+                                    
+                                    <asp:HyperLink ID="lbtnDelete" runat="server" Text="Delete" NavigateUrl='<%#FormatURLDelete(Eval("refillID").ToString()) %>' Target="_self"></asp:HyperLink>
+                                    
                                 </ItemTemplate>
 
                             </asp:TemplateField>

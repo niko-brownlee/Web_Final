@@ -193,9 +193,5 @@ namespace Web_Final
             Response.Redirect(url);
         }
 
-        protected void TextBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

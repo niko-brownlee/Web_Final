@@ -2,77 +2,90 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="content1" runat="server">
     <style type="text/css">
         .auto-style5 {
-            width: 49%;
-            height: 402px;
+            width: 100%;
         }
         .auto-style6 {
             text-align: right;
         }
+        .auto-style7 {
+            text-align: left;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    
     <tr>
         <td>
+             <h1>Update Refill</h1>
             <table class="auto-style5">
-                <h1>
-        Refill
-    </h1>
                 <tr>
-                    <td class="auto-style6">Perscription ID:</td>
-                    <td>
-                        <asp:TextBox ID="txtPerscriptionID" runat="server"></asp:TextBox>
+                    <td class="auto-style6">* Refill ID:</td>
+                    <td class="auto-style7">
+                        <asp:TextBox ID="txtRefill" runat="server"></asp:TextBox>
                     </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style6">* Perscription ID:</td>
+                    <td>
+                        <asp:TextBox ID="txtPerscription" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style6">Dosage:</td>
                     <td>
                         <asp:TextBox ID="txtDosage" runat="server"></asp:TextBox>
                     </td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style6">Frequency:</td>
                     <td>
-                        <asp:TextBox ID="txtFrequnecy" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtFrequency" runat="server"></asp:TextBox>
                     </td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Supply in Days:</td>
+                    <td class="auto-style6">Supply (in days):</td>
                     <td>
-                        <asp:TextBox ID="txtSupplyinDays" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtSupply" runat="server"></asp:TextBox>
                     </td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Quantity Supplied:</td>
+                    <td class="auto-style6">* Quantity Supplied:</td>
                     <td>
-                        <asp:TextBox ID="txtQuantitySupplied" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
                     </td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Price:</td>
+                    <td class="auto-style6">Amount Due:</td>
                     <td>
-                        <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox>
                     </td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Payment Type:</td>
+                    <td class="auto-style6">Date of Refill:</td>
                     <td>
-                        <asp:DropDownList ID="ddlPaymentType" runat="server" Height="19px" Width="117px">
-                            <asp:ListItem></asp:ListItem>
-                            <asp:ListItem>Cash</asp:ListItem>
-                            <asp:ListItem>Check</asp:ListItem>
-                            <asp:ListItem>Credit</asp:ListItem>
-                            <asp:ListItem>Debit</asp:ListItem>
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
                     </td>
+                    
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">
-                        <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
-                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                 <tr>
+                    <td class="auto-style6"> <asp:Button ID="btnUpdate" runat="server" Text="Update"/>
+                        </td>
                     <td>
-                        <asp:Button ID="btnClose" runat="server" Text="Close" OnClick="btnClose_Click" />
+                       <asp:Button ID="btnCancel" runat="server" Text="Cancel"/>
                     </td>
+                    <td>&nbsp;</td>
                 </tr>
             </table>
         </td>

@@ -52,7 +52,7 @@
                                    Refill
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplRefill" runat="server" Text="View" NavigateUrl='<%#(FormatURLRefill(Eval("clientID").ToString())) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplRefill" runat="server" Text="View" NavigateUrl='<%#(FormatURLRefill(Eval("clientID").ToString())) %>' Target="_self">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -61,7 +61,7 @@
                                    Prescriptions
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplPrescription" runat="server" Text="View" NavigateUrl='<%#(FormatURLPresc(Eval("clientID").ToString())) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplPrescription" runat="server" Text="View" NavigateUrl='<%#(FormatURLPresc(Eval("clientID").ToString())) %>' Target="_self">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>

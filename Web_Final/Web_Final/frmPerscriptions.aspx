@@ -12,7 +12,7 @@
 
                 <Columns>
                         
-                        <asp:BoundField DataField="prescriptionID" HeaderText="Perscription ID" SortExpression="perscriptionID" />
+                        <asp:BoundField DataField="prescriptionID" HeaderText="Perscription ID" SortExpression="prescriptionID" />
                         <asp:BoundField DataField="clientID" HeaderText="Client ID" SortExpression="clientID" />
                         <asp:BoundField DataField="physicianID" HeaderText="Physician ID" SortExpression="physicianID" />
                         <asp:BoundField DataField="medicineID" HeaderText="Medicine ID" SortExpression="medicineID" />
@@ -27,7 +27,7 @@
                                    Update
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#FormatURLEdit(Eval("prescriptionID").ToString()) %>' Target="_blank">
+                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#FormatURLEdit(Eval("prescriptionID").ToString()) %>' Target="_self">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>

@@ -11,7 +11,7 @@ namespace Web_Final
 	//all refills for a client
 	public partial class frmRefills : System.Web.UI.Page
 	{
-		int clientID;
+		private int clientID;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -42,7 +42,7 @@ namespace Web_Final
             DatabaseConnections dc = new DatabaseConnections();
             DataSet ds = new DataSet();
 
-            ds = dc.GetAllClientPrescriptions(clientID);
+            ds = dc.GetAllClientRefills(clientID);
             grdRefill.DataSource = ds.Tables[0];
             grdRefill.DataBind();
             grdRefill.Visible = true;
@@ -68,12 +68,14 @@ namespace Web_Final
             return url;
         }
 
-        protected void deleteRefill(string id)
+        protected string FormatURLDelete(string id)
         {
-            DatabaseConnections dc = new DatabaseConnections();
-            int refID = int.Parse(id);
-            dc.DeleteRefill(refID);
-            BindData();
+            //EncryptedQueryString eqs = new EncryptedQueryString();
+            //eqs["ID"] = id;
+            //string url = String.Format("frmDeleteRefill.aspx?eqs={0}", eqs.ToString());
+
+            string url = "frmDeleteRefill.aspx?ID=" + id + "&cID=" + clientID;
+            return url;
         }
 
         protected void grdRefill_SelectedIndexChanged(object sender, EventArgs e)

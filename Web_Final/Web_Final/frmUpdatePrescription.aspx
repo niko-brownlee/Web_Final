@@ -10,14 +10,14 @@
             <tr>
                 <td class="auto-style11"><span class="auto-style13">*</span>Prescription ID:</td>
                 <td class="auto-style8">
-    <asp:TextBox ID="txtPrescriptionID" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPrescriptionID" runat="server"></asp:TextBox>
     
                 </td>
             </tr>
             <tr>
                 <td class="auto-style9"><span class="auto-style13">*</span>Client ID:</td>
                 <td class="auto-style12">
-    <asp:TextBox ID="txtClientID" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtClientID" runat="server"></asp:TextBox>
 
                 </td>
             </tr>

@@ -610,7 +610,7 @@ namespace Web_Final
                 cmdString.CommandTimeout = 1500;
                 cmdString.CommandText = "deleteRefill";
                 // Define input parameter
-                cmdString.Parameters.Add("@refillID", SqlDbType.VarChar, 6).Value = refillid;
+                cmdString.Parameters.Add("@refillID", SqlDbType.Int).Value = refillid;
                 // adapter and dataset
                 SqlDataAdapter aAdapter = new SqlDataAdapter();
 

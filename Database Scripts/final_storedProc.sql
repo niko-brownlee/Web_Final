@@ -618,7 +618,7 @@ BEGIN
 		IF @medicineID != (SELECT medicineID FROM prescription WHERE @prescriptionID = prescriptionID)
 			BEGIN
 				UPDATE prescription
-				SET medicineID = @clientID
+				SET medicineID = @medicineID
 				WHERE prescriptionID = @prescriptionID
 			END
 

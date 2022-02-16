@@ -11,26 +11,26 @@ namespace Web_Final
 {
 
 
-    public partial class frmUpdateRefill
+    public partial class frmDeleteRefill
     {
 
         /// <summary>
-        /// txtRefill control.
+        /// txtRefillID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRefill;
+        protected global::System.Web.UI.WebControls.TextBox txtRefillID;
 
         /// <summary>
-        /// txtPerscription control.
+        /// txtPrescriptionID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPerscription;
+        protected global::System.Web.UI.WebControls.TextBox txtPrescriptionID;
 
         /// <summary>
         /// txtDosage control.
@@ -51,49 +51,49 @@ namespace Web_Final
         protected global::System.Web.UI.WebControls.TextBox txtFrequency;
 
         /// <summary>
-        /// txtSupply control.
+        /// txtSupplyDays control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupply;
+        protected global::System.Web.UI.WebControls.TextBox txtSupplyDays;
 
         /// <summary>
-        /// txtQuantity control.
+        /// txtQuantitySupplied control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
+        protected global::System.Web.UI.WebControls.TextBox txtQuantitySupplied;
 
         /// <summary>
-        /// txtAmount control.
+        /// txtAmountDue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAmount;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountDue;
 
         /// <summary>
-        /// txtDate control.
+        /// txtDateOfRefill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDate;
+        protected global::System.Web.UI.WebControls.TextBox txtDateOfRefill;
 
         /// <summary>
-        /// btnUpdate control.
+        /// btnDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Button btnDelete;
 
         /// <summary>
         /// btnCancel control.

@@ -159,8 +159,8 @@ namespace Web_Final
 
                     //redirect to page instead of popup
                     string url = "frmEmployeeSearch.aspx?ID=" + clientID;
-                    Response.Redirect(url);
-                    //Context.ApplicationInstance.CompleteRequest();
+                    Response.Redirect(url, false);
+                    Context.ApplicationInstance.CompleteRequest();
 
                 } else if(pageType == "NEW")
                 {
@@ -173,8 +173,8 @@ namespace Web_Final
 
                     //redirect to page instead of popup
                     string url = "frmEmployeeSearch.aspx?ID=" + newID;
-                    Response.Redirect(url);
-                    //Context.ApplicationInstance.CompleteRequest();
+                    Response.Redirect(url, false);
+                    Context.ApplicationInstance.CompleteRequest();
                 }
 
             } catch (Exception ex)
@@ -190,7 +190,8 @@ namespace Web_Final
             //string url = String.Format("frmPerscriptions.aspx?eqs={0}", eqs.ToString());
 
             string url = "frmEmployeeSearch.aspx?ID=" + clientID.ToString();
-            Response.Redirect(url);
+            Response.Redirect(url, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
 
     }

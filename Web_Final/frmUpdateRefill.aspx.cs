@@ -186,7 +186,8 @@ namespace Web_Final
             //string url = String.Format("frmRefills.aspx?eqs={0}", eqs.ToString());
 
             string url = "frmRefills.aspx?ID=" + refillID;
-            Response.Redirect(url);
+            Response.Redirect(url, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }

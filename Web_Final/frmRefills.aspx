@@ -3,7 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <tr>
-        <td>
+        <td class="auto-style3">
+            <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click" />
+            &nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnNew" runat="server" Text="New Refill" OnClick="btnNew_Click" />
                 <asp:GridView ID="grdRefill" runat="server" AutoGenerateColumns="false" CssClass="GridView" Width="100%" AllowPaging="true" AllowSorting="true"
                            OnSelectedIndexChanged="grdRefill_SelectedIndexChanged">
@@ -22,7 +24,7 @@
                                    Update
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#FormatURLEdit(Eval("refillID").ToString()) %>' Target="_self">
+                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="Update" NavigateUrl='<%#FormatURLEdit(Eval("refillID").ToString()) %>' Target="_self">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>

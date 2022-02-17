@@ -7,6 +7,8 @@
         <td>
             <br />
             <div class="auto-style3">
+            <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click" />
+                &nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnNew" runat="server" Text="New Prescription" OnClick="btnNew_Click" />
             <asp:GridView ID="grdPrescriptions" runat="server" AutoGenerateColumns="false" CssClass="GridView" Width="100%" AllowPaging="true" AllowSorting="true"
                            OnSelectedIndexChanged="grdPrescriptions_SelectedIndexChanged">
@@ -28,7 +30,7 @@
                                    Update
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="View" NavigateUrl='<%#FormatURLEdit(Eval("prescriptionID").ToString()) %>' Target="_self">
+                                    <asp:HyperLink ID="hplUpdate" runat="server" Text="Update" NavigateUrl='<%#FormatURLEdit(Eval("prescriptionID").ToString()) %>' Target="_self">
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>

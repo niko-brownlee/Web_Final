@@ -19,13 +19,13 @@ namespace Web_Final
             grdPrescriptions.PageIndexChanging += new GridViewPageEventHandler(grdPrescriptions_PageIndexChanging);
             grdPrescriptions.Sorting += new GridViewSortEventHandler(grdPrescriptions_Sorting);
 
+            //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
+            //clientID = int.Parse(String.Format("{0}", eqs["ID"]));
+
+            clientID = int.Parse(Request.QueryString["ID"]);
+
             if (!IsPostBack)
             {
-                //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-                //clientID = int.Parse(String.Format("{0}", eqs["ID"]));
-
-                clientID = int.Parse(Request.QueryString["ID"]);
-
                 if (String.IsNullOrEmpty(clientID.ToString()))
                 {
                     Response.Redirect("frmLanding.aspx");
@@ -99,7 +99,15 @@ namespace Web_Final
             //string url = String.Format("frmUpdatePrescription.aspx?eqs={0}", eqs.ToString());
 
             string url = "frmUpdatePrescription.aspx?ID=" + 0 + "&TYPE=NEW";
-            Response.Redirect(url);
+            Response.Redirect(url, false);
+            Context.ApplicationInstance.CompleteRequest();
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            string url = "frmEmployeeSearch.aspx?ID=" + clientID;
+            Response.Redirect(url, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }

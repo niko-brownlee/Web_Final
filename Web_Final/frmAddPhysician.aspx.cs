@@ -16,15 +16,31 @@ namespace Web_Final
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            DatabaseConnections dc = new DatabaseConnections();
+            string fName, mInit, lName, phone, email;
 
-            ///add verification
-            Response.Redirect("~/frmLanding.aspx");
+            try
+            {
+                fName = txtFName.Text.Trim();
+                mInit = txtMidInt.Text.Trim();
+                lName = txtLName.Text.Trim();
+                phone = txtPhone.Text.Trim();
+                email = txtEmail.Text.Trim();
 
+                dc.NewPhysician(fName, mInit, lName, phone, email);
+
+            } catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+
+            //add verification
+            Response.Redirect("frmEmployeeSearch.aspx");
         }
 
         protected void btnClose_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/frmLanding.aspx");
+            Response.Redirect("frmEmployeeSearch.aspx");
         }
     }
 }

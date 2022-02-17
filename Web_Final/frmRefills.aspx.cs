@@ -100,7 +100,15 @@ namespace Web_Final
             //string url = String.Format("frmUpdateRefill.aspx?eqs={0}", eqs.ToString());
 
             string url = "frmUpdateRefill.aspx?ID=" + 0 + "&TYPE=NEW";
-            Response.Redirect(url);
+            Response.Redirect(url, false);
+            Context.ApplicationInstance.CompleteRequest();
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            string url = "frmEmployeeSearch.aspx?ID=" + clientID;
+            Response.Redirect(url, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }

@@ -114,7 +114,7 @@ namespace Web_Final
                     //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
 
                     //redirect to page instead of popup
-                    string url = "frmPrescription.aspx?ID=" + clientID;
+                    string url = "frmPerscriptions.aspx?ID=" + clientID;
                     Response.Redirect(url, false);
                     Context.ApplicationInstance.CompleteRequest();
 
@@ -130,7 +130,7 @@ namespace Web_Final
                     //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
 
                     //redirect to page instead of popup
-                    string url = "frmPerscription.aspx?ID=" + clientID;
+                    string url = "frmPerscriptions.aspx?ID=" + clientID;
                     Response.Redirect(url, false);
                     Context.ApplicationInstance.CompleteRequest();
                 }
@@ -148,7 +148,8 @@ namespace Web_Final
             //string url = String.Format("frmPerscriptions.aspx?eqs={0}", eqs.ToString());
 
             string url = "frmPerscriptions.aspx?ID=" + prescriptionID.ToString();
-            Response.Redirect(url);
+            Response.Redirect(url, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }

@@ -15,14 +15,14 @@ namespace Web_Final
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
+            //string temp = String.Format("{0}", eqs["ID"]);
+
+            refillID = int.Parse(Request.QueryString["ID"]);
+            pageType = Request.QueryString["TYPE"].ToUpper();
+
             if (!IsPostBack)
             {
-                //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-                //string temp = String.Format("{0}", eqs["ID"]);
-
-                refillID = int.Parse(Request.QueryString["ID"]);
-                pageType = Request.QueryString["TYPE"].ToUpper();
-
                 if (String.IsNullOrEmpty(refillID.ToString()))
                 {
                     Response.Redirect("frmLanding.aspx");
@@ -33,13 +33,21 @@ namespace Web_Final
                     {
                         //prescription is auto incrementing
                         txtRefill.Enabled = false;
-                        txtDate.Enabled = false;
+                        
                         txtAmount.Enabled = false;
+                        txtAmount.Visible = true;
+                        lblAmount.Visible = true;
+                        
                         txtPrescription.Enabled = true;
                         txtDosage.Enabled = true;
                         txtFrequency.Enabled = true;
                         txtSupply.Enabled = true;
                         txtQuantity.Enabled = true;
+                        
+                        txtDate.Enabled = true;
+                        txtDate.Visible = true;
+                        lblDate.Visible = true;
+
                         btnUpdate.Visible = true;
                         btnUpdate.Text = "Save";
 
@@ -52,6 +60,12 @@ namespace Web_Final
                         {
                             txtRefill.Visible = false;
                             lblRefill.Visible = false;
+
+                            txtAmount.Visible = false;
+                            lblAmount.Visible = false;
+                            
+                            txtDate.Visible = false;
+                            lblDate.Visible = false;
                         }
 
                     }
@@ -63,8 +77,15 @@ namespace Web_Final
                         txtFrequency.Enabled = false;
                         txtSupply.Enabled = false;
                         txtQuantity.Enabled = false;
+
                         txtAmount.Enabled = false;
+                        txtAmount.Visible = true;
+                        lblAmount.Visible = true;
+                        
                         txtDate.Enabled = false;
+                        txtDate.Visible = true;
+                        lblDate.Visible = true;
+                        
                         btnUpdate.Visible = false;
                         GetData(refillID);
                     }
@@ -116,15 +137,19 @@ namespace Web_Final
                 {
                     dc.UpdateRefill(refillID, prescriptionID, dosage, frequency, supply, quantity);
 
-                    string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
+                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+
+                    DataSet ds = new DataSet();
+                    ds = dc.SelectClientByRefill(refillID);
+                    int returnClientID = int.Parse(ds.Tables[0].Rows[0]["clientID"].ToString());
 
                     //redirect to page instead of popup
-                    //string url = "frmRefills.aspx?ID=" + refillID.toString();
-                    //Response.Redirect(url, false);
-                    //Context.ApplicationInstance.CompleteRequest();
+                    string url = "frmRefills.aspx?ID=" + returnClientID;
+                    Response.Redirect(url, false);
+                    Context.ApplicationInstance.CompleteRequest();
 
                 }
                 else if (pageType == "NEW")
@@ -137,10 +162,14 @@ namespace Web_Final
 
                     //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
 
+                    DataSet ds = new DataSet();
+                    ds = dc.SelectClientByRefill(newRefillID);
+                    int returnClientID = int.Parse(ds.Tables[0].Rows[0]["clientID"].ToString());
+
                     //redirect to page instead of popup
-                    string url = "frmRefills.aspx?ID=" + newRefillID;
-                    Response.Redirect(url);
-                    //Context.ApplicationInstance.CompleteRequest();
+                    string url = "frmRefills.aspx?ID=" + returnClientID;
+                    Response.Redirect(url, false);
+                    Context.ApplicationInstance.CompleteRequest();
                 }
             }
             catch (Exception ex)
@@ -156,7 +185,7 @@ namespace Web_Final
             //eqs["ID"] = refillID.ToString();
             //string url = String.Format("frmRefills.aspx?eqs={0}", eqs.ToString());
 
-            string url = "frmRefills.aspx?ID=" + refillID.ToString();
+            string url = "frmRefills.aspx?ID=" + refillID;
             Response.Redirect(url);
         }
     }

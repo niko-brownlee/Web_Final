@@ -15,14 +15,14 @@ namespace Web_Final
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
+            //string temp = String.Format("{0}", eqs["ID"]);
+
+            prescriptionID = int.Parse(Request.QueryString["ID"]);
+            pageType = Request.QueryString["TYPE"].ToUpper();
+
+            if (!IsPostBack)
             {
-                //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-                //string temp = String.Format("{0}", eqs["ID"]);
-
-                prescriptionID = int.Parse(Request.QueryString["ID"]);
-                pageType = Request.QueryString["TYPE"].ToUpper();
-
                 if(String.IsNullOrEmpty(prescriptionID.ToString()))
                 {
                     Response.Redirect("frmLanding.aspx");
@@ -108,15 +108,15 @@ namespace Web_Final
                 {
                     dc.UpdatePrescription(prescriptionID, clientID, physicianID, medicineID, expiryDate, refillCounter);
 
-                    string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
+                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
 
                     //redirect to page instead of popup
-                    //string url = "frmPrescription.aspx?ID=" + clientID.toString();
-                    //Response.Redirect(url, false);
-                    //Context.ApplicationInstance.CompleteRequest();
+                    string url = "frmPrescription.aspx?ID=" + clientID;
+                    Response.Redirect(url, false);
+                    Context.ApplicationInstance.CompleteRequest();
 
                 } else if(pageType == "NEW")
                 {
@@ -124,15 +124,15 @@ namespace Web_Final
                     //not currently saving the int
                     dc.NewPrescription(clientID, physicianID, medicineID, expiryDate, refillCounter);
 
-                    string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
+                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
 
                     //redirect to page instead of popup
-                    //string url = "frmPerscription.aspx?ID=" + clientID.toString();
-                    //Response.Redirect(url, false);
-                    //Context.ApplicationInstance.CompleteRequest();
+                    string url = "frmPerscription.aspx?ID=" + clientID;
+                    Response.Redirect(url, false);
+                    Context.ApplicationInstance.CompleteRequest();
                 }
             } catch (Exception ex)
             {

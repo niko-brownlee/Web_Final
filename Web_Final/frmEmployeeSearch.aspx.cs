@@ -20,24 +20,15 @@ namespace Web_Final
 
             if(!IsPostBack)
             {
-                if(Request.QueryString["ID"] != null)
+                if(Request.QueryString["ID"] == null)
+                {
+                    BindData();
+                } else
                 {
                     newClientID = int.Parse(Request.QueryString["ID"]);
                     BindData();
                 }
 
-                //Cache.Remove("Data");
-                //if(Convert.ToString(Session["GRIDREFRESH"]) != " ")
-                //{
-                //    Cache.Remove("Data");
-                //    BindData();
-                //} else
-                //{
-                //    if(Cache["Data"] == null)
-                //    {
-                //        BindData();
-                //    }
-                //}
             } else
             {
                 grdEmployeeSearch.Visible = false;
@@ -50,7 +41,7 @@ namespace Web_Final
             {
                 try
                 {
-                    Session["vClientID"] = txtSearch.Text.Trim();
+                    //Session["vClientID"] = txtSearch.Text.Trim();
                     BindData();
                 } catch (Exception ex)
                 {
@@ -75,6 +66,17 @@ namespace Web_Final
         protected void btnAddPhys_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmAddPhysician.aspx");
+        }
+
+        protected string FormatURLClient(string id)
+        {
+            //EncryptedQueryString eqs = new EncryptedQueryString();
+            //eqs["ID"] = id;
+            //eqs["TYPE"] = "EDIT";
+            //string url = String.Format("frmUpdateClient.aspx?eqs={0}", eqs.ToString());
+
+            string url = "frmUpdateClient.aspx?ID=" + id + "&TYPE=EDIT";
+            return url;
         }
 
         protected string FormatURLPresc(string id)
@@ -103,33 +105,37 @@ namespace Web_Final
             DataSet ds = new DataSet();
             int clientID;
 
+            //Cache.Remove("Data");
+
             if(txtSearch.Text.Trim().Length > 0)
             {
                 clientID = int.Parse(txtSearch.Text);
 
-            } else //newly added client
+            } else
             {
                 clientID = newClientID;
             }
 
             ds = dc.GetClientByID(clientID);
             grdEmployeeSearch.DataSource = ds.Tables[0];
+            grdEmployeeSearch.DataBind();
+            grdEmployeeSearch.Visible = true;
 
-            if(Cache["Data"] == null)
-            {
-                ds = dc.GetClientByID(clientID);
-                grdEmployeeSearch.DataSource = ds.Tables[0];
-                Cache.Add("Data", new DataView(ds.Tables[0]),  //save dataset as cache
-                    null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.TimeSpan.FromMinutes(10), //cache for 10 minutes
-                    System.Web.Caching.CacheItemPriority.Default, null);
+            //if(Cache["Data"] == null)
+            //{
+            //    ds = dc.GetClientByID(clientID);
+            //    grdEmployeeSearch.DataSource = ds.Tables[0];
+            //    Cache.Add("Data", new DataView(ds.Tables[0]),  //save dataset as cache
+            //        null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.TimeSpan.FromMinutes(10), //cache for 10 minutes
+            //        System.Web.Caching.CacheItemPriority.Default, null);
 
-                grdEmployeeSearch.DataBind();
-                grdEmployeeSearch.Visible = true;
-            } else
-            {
-                grdEmployeeSearch.DataSource = (DataView)Cache["Data"];
-                grdEmployeeSearch.DataBind();
-            }
+            //    grdEmployeeSearch.DataBind();
+            //    grdEmployeeSearch.Visible = true;
+            //} else
+            //{
+            //    grdEmployeeSearch.DataSource = (DataView)Cache["Data"];
+            //    grdEmployeeSearch.DataBind();
+            //}
         }
 
         protected void grdEmployeeSearch_SelectedIndexChanged(object sender, EventArgs e)

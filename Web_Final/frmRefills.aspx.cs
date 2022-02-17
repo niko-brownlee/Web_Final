@@ -19,13 +19,13 @@ namespace Web_Final
             grdRefill.PageIndexChanging += new GridViewPageEventHandler(grdRefill_PageIndexChanging);
             grdRefill.Sorting += new GridViewSortEventHandler(grdRefill_Sorting);
 
+            //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
+            //clientID = int.Parse(String.Format("{0}", eqs["ID"]));
+
+            clientID = int.Parse(Request.QueryString["ID"]);
+
             if (!IsPostBack)
             {
-                //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-                //clientID = int.Parse(String.Format("{0}", eqs["ID"]));
-
-                clientID = int.Parse(Request.QueryString["ID"]);
-
                 if (String.IsNullOrEmpty(clientID.ToString()))
                 {
                     Response.Redirect("frmLanding.aspx");

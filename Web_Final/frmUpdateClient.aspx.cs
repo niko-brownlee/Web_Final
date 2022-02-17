@@ -93,7 +93,7 @@ namespace Web_Final
                 txtAddress.Text = ds.Tables[0].Rows[0]["street1"].ToString();
                 txtAddress2.Text = ds.Tables[0].Rows[0]["street2"].ToString();
                 txtCity.Text = ds.Tables[0].Rows[0]["city"].ToString();
-                txtState.Text = ds.Tables[0].Rows[0]["state"].ToString();
+                txtState.Text = ds.Tables[0].Rows[0]["addr_state"].ToString();
                 txtZip.Text = ds.Tables[0].Rows[0]["zip"].ToString();
                 txtPhone.Text = ds.Tables[0].Rows[0]["phone"].ToString();
                 txtEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
@@ -152,14 +152,14 @@ namespace Web_Final
                 {
                     dc.UpdateClient(clientID, fName, mInit, lName, addr1, addr2, city, addrState, zip, phone, email, gender, dob);
 
-                    string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
+                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
 
                     //redirect to page instead of popup
-                    //string url = "frmEmployeeSearch.aspx?ID=" + clientID.toString();
-                    //Response.Redirect(url, false);
+                    string url = "frmEmployeeSearch.aspx?ID=" + clientID;
+                    Response.Redirect(url);
                     //Context.ApplicationInstance.CompleteRequest();
 
                 } else if(pageType == "NEW")
@@ -173,8 +173,8 @@ namespace Web_Final
 
                     //redirect to page instead of popup
                     string url = "frmEmployeeSearch.aspx?ID=" + newID;
-                    Response.Redirect(url, false);
-                    Context.ApplicationInstance.CompleteRequest();
+                    Response.Redirect(url);
+                    //Context.ApplicationInstance.CompleteRequest();
                 }
 
             } catch (Exception ex)

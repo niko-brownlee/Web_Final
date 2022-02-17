@@ -13,7 +13,7 @@
 
                 <Columns>
                         
-                        <asp:BoundField DataField="prescriptionID" HeaderText="Perscription ID" SortExpression="prescriptionID" />
+                        <asp:BoundField DataField="prescriptionID" HeaderText="Prescription ID" SortExpression="prescriptionID" />
                         <asp:BoundField DataField="clientID" HeaderText="Client ID" SortExpression="clientID" />
                         <asp:BoundField DataField="physicianID" HeaderText="Physician ID" SortExpression="physicianID" />
                         <asp:BoundField DataField="medicineID" HeaderText="Medicine ID" SortExpression="medicineID" />

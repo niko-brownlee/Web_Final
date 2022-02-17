@@ -809,5 +809,40 @@ namespace Web_Final
                 myConn.Close();
             }
         }
+
+        public DataSet SelectClientByRefill(int refillid)
+        {
+            try
+            {
+                myConn.Open();
+                cmdString.Parameters.Clear();
+                cmdString.Connection = myConn;
+
+                //stored procedure -> selectPrescriptionPerClient, takes @clientID
+                cmdString.CommandType = CommandType.StoredProcedure;
+                cmdString.CommandTimeout = 1500;
+                cmdString.CommandText = "selectClientByRefill";
+
+                //paramenters
+                cmdString.Parameters.Add("@refillID", SqlDbType.Int).Value = refillid;
+
+                SqlDataAdapter aAdapter = new SqlDataAdapter();
+                aAdapter.SelectCommand = cmdString;
+
+                DataSet aDataSet = new DataSet();
+                aAdapter.Fill(aDataSet);
+
+                return aDataSet;
+
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
     }
 }

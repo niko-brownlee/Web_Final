@@ -32,21 +32,21 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Dosage:</td>
+                    <td class="auto-style6">* Dosage:</td>
                     <td>
                         <asp:TextBox ID="txtDosage" runat="server"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Frequency:</td>
+                    <td class="auto-style6">* Frequency:</td>
                     <td>
                         <asp:TextBox ID="txtFrequency" runat="server"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Supply (in days):</td>
+                    <td class="auto-style6">* Supply (in days):</td>
                     <td>
                         <asp:TextBox ID="txtSupply" runat="server"></asp:TextBox>
                     </td>
@@ -60,14 +60,14 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Amount Due:</td>
+                    <td class="auto-style6"><asp:Label ID="lblAmount" runat="server" Text="Amount due:" ></asp:Label></td>
                     <td>
                         <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Date of Refill:</td>
+                    <td class="auto-style6"><asp:Label ID="lblDate" runat="server" Text="Date of Refill:" ></asp:Label></td>
                     <td>
                         <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
                     </td>

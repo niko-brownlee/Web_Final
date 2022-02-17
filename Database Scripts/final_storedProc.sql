@@ -51,7 +51,7 @@ BEGIN
 				COMMIT TRANSACTION
 
 				--get the just inserted client id
-				SET @RESULT = @@IDENTITY
+				SET @RESULT = (SELECT IDENT_CURRENT('client'))
 
 				--create record for clientInsurance
 				INSERT INTO clientInsurance(clientID, insuranceID, clientInsuranceNum)
@@ -200,7 +200,7 @@ BEGIN
 		ELSE
 			BEGIN
 				COMMIT TRANSACTION
-				SET @RESULT = @@IDENTITY
+				SET @RESULT = (SELECT IDENT_CURRENT('physician'))
 				RETURN @RESULT
 			END
 END
@@ -277,7 +277,7 @@ BEGIN
 		ELSE
 			BEGIN
 				COMMIT TRANSACTION
-				SET @RESULT = @@IDENTITY
+				SET @RESULT = (SELECT IDENT_CURRENT('prescription'))
 				RETURN @RESULT
 			END
 END
@@ -311,7 +311,7 @@ BEGIN
 		ELSE
 			BEGIN
 				COMMIT TRANSACTION
-				SET @RESULT = @@IDENTITY
+				SET @RESULT = (SELECT IDENT_CURRENT('refill'))
 				RETURN @RESULT
 			END
 END
@@ -436,6 +436,20 @@ BEGIN
 	FROM prescription AS p
 	INNER JOIN client AS c on c.clientID = p.clientID
 	WHERE p.clientID = @clientID
+END
+GO
+
+CREATE PROC selectClientByRefill (
+	@refillID INT
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT p.clientID 
+	FROM prescription AS p
+	INNER JOIN refill AS r ON p.prescriptionID = r.prescriptionID
+	WHERE r.refillID = @refillID
 END
 GO
 

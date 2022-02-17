@@ -70,7 +70,7 @@
                         <asp:Button ID="btnCancel" runat="server" Text="Cancel" /></td>
                     <td>&nbsp;</td>
                 </tr>
-                 <tr>
+                 <!--<tr>
                     <td>&nbsp;</td>
                     <td class="auto-style3"><asp:Button ID="btnTestEmployeeCreation" runat="server" Text="Test Employee Creation" OnClick="btnTest_Click" /></td>
                     <td>&nbsp;</td>
@@ -80,7 +80,7 @@
                     <td class="auto-style3">
                         <asp:Label ID="lblTEST" runat="server" Text="TESTING ONLY"></asp:Label></td>
                     <td>&nbsp;</td>
-                </tr>
+                </tr>-->
             </table>
         </td>
     </tr>

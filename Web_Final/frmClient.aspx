@@ -39,6 +39,8 @@
                     </td>
                     <td>
                         <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnClose_Click" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnShowClientRecords" runat="server" OnClick="btnShowClientRecords_Click" Text="Show Client Records" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>

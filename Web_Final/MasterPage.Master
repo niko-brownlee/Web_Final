@@ -30,10 +30,10 @@
         
             
         <div class="sidenav">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#clients">Clients</a>
-          <a href="#contact">Contact</a>
+         <a href="frmAbout.aspx" >About</a>
+          <a href="frmLanding.aspx">Login</a>
+      
+          <a href="ContactUs.aspx">Contact</a>
         </div>
 
         <div class="main">

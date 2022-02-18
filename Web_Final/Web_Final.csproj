@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ContactUs.aspx" />
     <Content Include="frmAbout.aspx" />
     <Content Include="frmAddPhysician.aspx" />
     <Content Include="frmClientRecords.aspx" />
@@ -83,6 +84,13 @@
     <Content Include="frmUpdatePrescription.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseConnections.cs" />
     <Compile Include="EncryptedQueryString.cs" />
     <Compile Include="frmAbout.aspx.cs">

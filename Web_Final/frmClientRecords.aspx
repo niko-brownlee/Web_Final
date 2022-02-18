@@ -5,7 +5,7 @@
     <tr>
         <td class="auto-style3">
            <td class="auto-style3"><span class="auto-style6"> Client ID:&nbsp;&nbsp;</span>
-               <asp:TextBox ID="txtClientID" runat="server" CssClass="auto-style7" Width="154px" ></asp:TextBox>&nbsp;&nbsp;
+               <asp:TextBox ID="txtClientID" runat="server" CssClass="auto-style7" Width="154px" OnTextChanged="txtClientID_TextChanged" ></asp:TextBox>&nbsp;&nbsp;
                <asp:Button ID="btnClose" runat="server" OnClick="btnClose_Click" Text="Close" />
             <br />
             <br />

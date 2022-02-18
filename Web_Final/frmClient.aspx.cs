@@ -57,5 +57,12 @@ namespace Web_Final
             txtChangePassword.Text = string.Empty;
             txtChangeUsername.Text = string.Empty;
         }
+
+        protected void btnShowClientRecords_Click(object sender, EventArgs e)
+        {
+            string url = "frmClientRecords.aspx?ID=" + clientID;
+            Response.Redirect(url, false);
+            Context.ApplicationInstance.CompleteRequest();
+        }
     }
 }

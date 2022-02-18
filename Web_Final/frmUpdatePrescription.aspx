@@ -8,7 +8,9 @@
     
         <table class="auto-style6">
             <tr>
-                <td class="auto-style11"><span class="auto-style13">*</span>Prescription ID:</td>
+                <td class="auto-style11"><span class="auto-style13">*</span>
+                    <asp:Label ID="lblPrescID" runat="server" Text="Prescription ID:"></asp:Label>
+                </td>
                 <td class="auto-style8">
                 <asp:TextBox ID="txtPrescriptionID" runat="server"></asp:TextBox>
     

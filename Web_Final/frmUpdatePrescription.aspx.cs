@@ -32,6 +32,8 @@ namespace Web_Final
                     {
                         //prescription is auto incrementing
                         txtPrescriptionID.Enabled = false;
+                        txtPrescriptionID.Visible = true;
+                        lblPrescID.Visible = true;
                         txtClientID.Enabled = true;
                         txtPhysicianID.Enabled = true;
                         txtMedicationID.Enabled = true;
@@ -44,11 +46,18 @@ namespace Web_Final
                         {
                             btnUpdate.Text = "Update";
                             GetData(prescriptionID);
+
+                        } else //new
+                        {
+                            txtPrescriptionID.Visible = false;
+                            lblPrescID.Visible = false;
                         }
 
                     } else if(pageType == "VIEW")
                     {
                         txtPrescriptionID.Enabled = false;
+                        txtPrescriptionID.Visible = true;
+                        lblPrescID.Visible = true;
                         txtClientID.Enabled = false;
                         txtPhysicianID.Enabled = false;
                         txtMedicationID.Enabled = false;

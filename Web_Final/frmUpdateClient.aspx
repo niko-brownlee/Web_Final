@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmUpdateClient.aspx.cs" Inherits="Web_Final.frmUpdateClient_test" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="content1" runat="server">
     <style type="text/css">
         .auto-style5 {
@@ -117,7 +119,13 @@
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
-                    <td>* DOB:&nbsp;<asp:TextBox Id="txtDOB" runat="server" CssClass="auto-style15"></asp:TextBox></td>
+                        <asp:TextBox Id="TextBox1" runat="server" CssClass="auto-style15"></asp:TextBox></td>
+                    <td>* DOB:&nbsp;
+                        <asp:ScriptManager ID="ScriptManager1" runat="server">
+                        </asp:ScriptManager>
+                        <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="txtDOB" Format="MMMM dd, yyyy" PopupPosition="BottomLeft"/>
+                        <asp:TextBox Id="txtDOB" runat="server" CssClass="auto-style15"></asp:TextBox>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>

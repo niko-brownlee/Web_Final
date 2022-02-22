@@ -47,11 +47,13 @@ namespace Web_Final
                         txtDOB.Enabled = true;
                         btnUpdate.Visible = true;
                         btnUpdate.Text = "Save";
+                        lblHeader.Text = "New Client";
 
                         if (pageType == "EDIT")
                         {
                             //function to fill text fields
                             btnUpdate.Text = "Update";
+                            lblHeader.Text = "Update Client";
                             GetData(clientID);
                         }
                     }
@@ -71,6 +73,7 @@ namespace Web_Final
                         ddlGender.Enabled = false;
                         txtDOB.Enabled = false;
                         btnUpdate.Visible = false;
+                        lblHeader.Text = "View Client";
                         GetData(clientID);
                     }
                 }

@@ -119,7 +119,6 @@
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
-                        <asp:TextBox Id="TextBox1" runat="server" CssClass="auto-style15"></asp:TextBox></td>
                     <td>* DOB:&nbsp;
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>

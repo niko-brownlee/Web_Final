@@ -17,11 +17,11 @@
     <p>Password:</p>
     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
     <br /><br />
-    <asp:HyperLink ID="hplNewClientReg" runat="server" NavigateUrl="~/frmRegister.aspx">New Client Registration</asp:HyperLink>
+    <!--<asp:HyperLink ID="hplNewClientReg" runat="server" NavigateUrl="~/frmRegister.aspx">New Client Registration</asp:HyperLink>-->
     <br /><br />
     <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /> <br /><br />
 
-    <asp:Label ID="lblTESTING" runat="server" Text="TESTING ONLY"></asp:Label>
+    <!--<asp:Label ID="lblTESTING" runat="server" Text="TESTING ONLY"></asp:Label>-->
                
  </table>
         </td>

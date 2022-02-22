@@ -41,6 +41,10 @@
             <tr>
                 <td class="auto-style9">Expiration Date:</td>
                 <td class="auto-style12">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                        </asp:ScriptManager>
+                        <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="txtExpiryDate" Format="MMMM dd, yyyy" PopupPosition="BottomLeft"/>
+                        
                     <asp:TextBox ID="txtExpiryDate" runat="server" Wrap="False"></asp:TextBox>
                 </td>
             </tr>

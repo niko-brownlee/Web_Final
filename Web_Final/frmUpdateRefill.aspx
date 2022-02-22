@@ -69,6 +69,9 @@
                 <tr>
                     <td class="auto-style6"><asp:Label ID="lblDate" runat="server" Text="Date of Refill:" ></asp:Label></td>
                     <td>
+                        <asp:ScriptManager ID="ScriptManager1" runat="server">
+                        </asp:ScriptManager>
+                        <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="txtDate" Format="MMMM dd, yyyy" PopupPosition="BottomLeft"/>
                         <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
                     </td>
                     

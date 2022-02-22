@@ -4,6 +4,7 @@
     
     <%--<table>--%>
         <td class="auto-style5">
+            <h1><asp:Label ID="lblHeader" runat="server" Text="Update Prescription"></asp:Label></h1>
     
     
         <table class="auto-style6">

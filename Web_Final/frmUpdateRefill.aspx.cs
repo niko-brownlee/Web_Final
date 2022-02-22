@@ -50,10 +50,12 @@ namespace Web_Final
 
                         btnUpdate.Visible = true;
                         btnUpdate.Text = "Save";
+                        lblHeader.Text = "New Refill";
 
                         if (pageType == "EDIT")
                         {
                             btnUpdate.Text = "Update";
+                            lblHeader.Text = "Update Refill";
                             GetData(refillID);
 
                         } else //new
@@ -87,6 +89,7 @@ namespace Web_Final
                         lblDate.Visible = true;
                         
                         btnUpdate.Visible = false;
+                        lblHeader.Text = "View Refill";
                         GetData(refillID);
                     }
                 }

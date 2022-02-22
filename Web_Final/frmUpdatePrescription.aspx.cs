@@ -41,10 +41,12 @@ namespace Web_Final
                         txtNumberofRefills.Enabled = true;
                         btnUpdate.Visible = true;
                         btnUpdate.Text = "Save";
+                        lblHeader.Text = "New Prescription";
 
                         if(pageType == "EDIT")
                         {
                             btnUpdate.Text = "Update";
+                            lblHeader.Text = "Update Prescription";
                             GetData(prescriptionID);
 
                         } else //new
@@ -64,6 +66,7 @@ namespace Web_Final
                         txtExpiryDate.Enabled = false;
                         txtNumberofRefills.Enabled = false;
                         btnUpdate.Visible = false;
+                        lblHeader.Text = "View Prescription";
                         GetData(prescriptionID);
                     }
                 }

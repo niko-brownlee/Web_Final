@@ -18,7 +18,7 @@
             Success!<br />
             <br />
             <br />
-            Thank You!<br />
+            <asp:Label ID="lblSuccess" runat="server" Text="Thank you!"></asp:Label>
             <br />
             <asp:Button ID="btnClose" runat="server" BackColor="#669999" BorderColor="#3333CC" Text="Close" OnClick="btnClose_Click" CausesValidation="False" />
         </div>

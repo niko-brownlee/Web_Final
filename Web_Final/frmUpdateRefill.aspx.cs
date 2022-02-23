@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -160,24 +161,28 @@ namespace Web_Final
                     //returns an int, which is the new refill id
                     int newRefillID = dc.NewRefill(prescriptionID, dosage, frequency, supply, quantity);
 
-                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+                    if(newRefillID == 0)
+                    {
+                        string errorUrl = "<script type='text/javascript'>window.open('frmUnScessful.aspx?TYPE=REFILL' , 'Unsuccessful'," +
+                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", errorUrl);
+                    } else
+                    {
+                        DataSet ds = new DataSet();
+                        ds = dc.SelectClientByRefill(newRefillID);
+                        int returnClientID = int.Parse(ds.Tables[0].Rows[0]["clientID"].ToString());
 
-                    DataSet ds = new DataSet();
-                    ds = dc.SelectClientByRefill(newRefillID);
-                    int returnClientID = int.Parse(ds.Tables[0].Rows[0]["clientID"].ToString());
-
-                    //redirect to page instead of popup
-                    string url = "frmRefills.aspx?ID=" + returnClientID;
-                    Response.Redirect(url, false);
-                    Context.ApplicationInstance.CompleteRequest();
+                        //redirect to page instead of popup
+                        string url = "frmRefills.aspx?ID=" + returnClientID;
+                        Response.Redirect(url, false);
+                        Context.ApplicationInstance.CompleteRequest();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+               throw new ArgumentException(ex.Message);
             }
 
         }

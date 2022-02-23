@@ -34,8 +34,12 @@ namespace Web_Final
                 throw new ArgumentException(ex.Message);
             }
 
-            //add verification
-            Response.Redirect("frmEmployeeSearch.aspx");
+            string url = "<script type='text/javascript'>window.open('frmSuccess.aspx?TYPE=PHYS' , 'Success'," +
+                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+
+            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+
+            //Response.Redirect("frmEmployeeSearch.aspx");
         }
 
         protected void btnClose_Click(object sender, EventArgs e)

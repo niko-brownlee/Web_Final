@@ -9,9 +9,16 @@ namespace Web_Final
 {
     public partial class frmSuccess : System.Web.UI.Page
     {
+        private static string pageType;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            pageType = Request.QueryString["TYPE"].ToUpper();
+
+            if (pageType == "PHYS")
+            {
+                lblSuccess.Text = "New Physician successfully added!";
+            }
         }
 
         protected void btnClose_Click(object sender, EventArgs e)

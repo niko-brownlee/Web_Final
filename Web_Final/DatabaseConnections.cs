@@ -395,7 +395,9 @@ namespace Web_Final
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return 0;
+
+                //throw new ArgumentException(ex.Message);
             }
             finally
             {

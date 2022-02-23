@@ -19,8 +19,7 @@
     <form id="form1" runat="server">
         <div class="auto-style1">
             <br />
-            Im sorry, this task has been deemed <span class="auto-style2">unsuccessful!</span><br />
-            Please try again!<br />
+            <asp:Label ID="lblFail" runat="server" Text="Unsuccessful"></asp:Label>
             <br />
             <br />
             <asp:Button ID="btnClose" runat="server" BackColor="#669999" BorderColor="#3333CC" Text="Close" OnClick="btnClose_Click" />

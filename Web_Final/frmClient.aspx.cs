@@ -16,10 +16,6 @@ namespace Web_Final
         {
             if(!IsPostBack)
             {
-                //get client id
-                //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-                //clientID = int.Parse(String.Format("{0}", eqs["ID"]));
-
                 clientID = int.Parse(Request.QueryString["ID"]);
             }
         }
@@ -41,10 +37,13 @@ namespace Web_Final
 
                 dc.UpdateClientLogin(clientID, newUsername, hash, hash, Utilities.SaltKey);
 
-                string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
-                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                txtChangePassword.Text = string.Empty;
+                txtChangeUsername.Text = string.Empty;
 
+                string url = "<script type='text/javascript'>window.open('frmSuccess.aspx?TYPE=CLIENT' , 'Success'," +
+                    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
             }
             catch (Exception ex)
             {
@@ -52,10 +51,13 @@ namespace Web_Final
             }
         }
 
-        protected void btnClose_Click(object sender, EventArgs e)
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
             txtChangePassword.Text = string.Empty;
             txtChangeUsername.Text = string.Empty;
+
+            Response.Redirect("frmLanding.aspx", false);
+            Context.ApplicationInstance.CompleteRequest();
         }
 
         protected void btnShowClientRecords_Click(object sender, EventArgs e)

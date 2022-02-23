@@ -18,10 +18,10 @@
     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
     <br /><br />
     <!--<asp:HyperLink ID="hplNewClientReg" runat="server" NavigateUrl="~/frmRegister.aspx">New Client Registration</asp:HyperLink>-->
-    <br /><br />
-    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /> <br /><br />
+    <br />
+    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /> <br /><br /><br />
 
-    <!--<asp:Label ID="lblTESTING" runat="server" Text="TESTING ONLY"></asp:Label>-->
+    <asp:Label ID="lblError" runat="server" Text="Login Error: Username/password is incorrect" Visible="false"></asp:Label>
                
  </table>
         </td>

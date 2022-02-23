@@ -11,21 +11,17 @@ namespace Web_Final
 {
     public partial class frmUpdateRefill : System.Web.UI.Page
     {
-        //if page type == new, refillID is actually clientID
-        private int refillID;
+        private int incomingID;
         private string pageType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-            //string temp = String.Format("{0}", eqs["ID"]);
-
-            refillID = int.Parse(Request.QueryString["ID"]);
+            incomingID = int.Parse(Request.QueryString["ID"]);
             pageType = Request.QueryString["TYPE"].ToUpper();
 
             if (!IsPostBack)
             {
-                if (String.IsNullOrEmpty(refillID.ToString()))
+                if (String.IsNullOrEmpty(incomingID.ToString()))
                 {
                     Response.Redirect("frmLanding.aspx");
                 }
@@ -35,20 +31,22 @@ namespace Web_Final
                     {
                         //prescription is auto incrementing
                         txtRefill.Enabled = false;
-                        
                         txtAmount.Enabled = false;
-                        txtAmount.Visible = true;
-                        lblAmount.Visible = true;
-                        
                         txtPrescription.Enabled = true;
                         txtDosage.Enabled = true;
                         txtFrequency.Enabled = true;
                         txtSupply.Enabled = true;
                         txtQuantity.Enabled = true;
-                        
                         txtDate.Enabled = true;
-                        txtDate.Visible = true;
-                        lblDate.Visible = true;
+
+                        txtRefill.Visible = false;
+                        lblRefill.Visible = false;
+
+                        txtAmount.Visible = false;
+                        lblAmount.Visible = false;
+
+                        txtDate.Visible = false;
+                        lblDate.Visible = false;
 
                         btnUpdate.Visible = true;
                         btnUpdate.Text = "Save";
@@ -58,20 +56,17 @@ namespace Web_Final
                         {
                             btnUpdate.Text = "Update";
                             lblHeader.Text = "Update Refill";
-                            GetData(refillID);
+                            GetData(incomingID);
 
-                        } else //new
-                        {
-                            txtRefill.Visible = false;
-                            lblRefill.Visible = false;
+                            txtRefill.Visible = true;
+                            lblRefill.Visible = true;
 
-                            txtAmount.Visible = false;
-                            lblAmount.Visible = false;
-                            
-                            txtDate.Visible = false;
-                            lblDate.Visible = false;
+                            txtAmount.Visible = true;
+                            lblAmount.Visible = true;
+
+                            txtDate.Visible = true;
+                            lblDate.Visible = true;
                         }
-
                     }
                     else if (pageType == "VIEW")
                     {
@@ -81,18 +76,21 @@ namespace Web_Final
                         txtFrequency.Enabled = false;
                         txtSupply.Enabled = false;
                         txtQuantity.Enabled = false;
-
                         txtAmount.Enabled = false;
+                        txtDate.Enabled = false;
+
+                        txtRefill.Visible = true;
+                        lblRefill.Visible = true;
+
                         txtAmount.Visible = true;
                         lblAmount.Visible = true;
-                        
-                        txtDate.Enabled = false;
+
                         txtDate.Visible = true;
                         lblDate.Visible = true;
-                        
+
                         btnUpdate.Visible = false;
                         lblHeader.Text = "View Refill";
-                        GetData(refillID);
+                        GetData(incomingID);
                     }
                 }
             }
@@ -118,10 +116,6 @@ namespace Web_Final
                 DateTime dt = DateTime.Parse(ds.Tables[0].Rows[0]["dateOfRefill"].ToString());
                 txtDate.Text = dt.ToString("MM/dd/yyyy");
             }
-            else
-            {
-                //error
-            }
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -140,15 +134,10 @@ namespace Web_Final
 
                 if (pageType == "EDIT")
                 {
-                    dc.UpdateRefill(refillID, prescriptionID, dosage, frequency, supply, quantity);
-
-                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
-
-                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
+                    dc.UpdateRefill(incomingID, prescriptionID, dosage, frequency, supply, quantity);
 
                     DataSet ds = new DataSet();
-                    ds = dc.SelectClientByRefill(refillID);
+                    ds = dc.SelectClientByRefill(incomingID);
                     int returnClientID = int.Parse(ds.Tables[0].Rows[0]["clientID"].ToString());
 
                     //redirect to page instead of popup
@@ -194,14 +183,14 @@ namespace Web_Final
 
             if(pageType == "NEW")
             {
-                url = "frmRefills.aspx?ID=" + refillID;
+                url = "frmRefills.aspx?ID=" + incomingID;
                 Response.Redirect(url, false);
                 Context.ApplicationInstance.CompleteRequest();
             } else
             {
                 DatabaseConnections dc = new DatabaseConnections();
                 DataSet ds = new DataSet();
-                ds = dc.SelectClientByRefill(refillID);
+                ds = dc.SelectClientByRefill(incomingID);
                 int clientID = int.Parse(ds.Tables[0].Rows[0]["clientID"].ToString());
 
                 url = "frmRefills.aspx?ID=" + clientID;

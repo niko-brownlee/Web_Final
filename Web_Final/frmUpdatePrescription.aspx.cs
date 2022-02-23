@@ -11,20 +11,17 @@ namespace Web_Final
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
-        private static int prescriptionID;
+        private static int incomingID;
         private static string pageType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-            //string temp = String.Format("{0}", eqs["ID"]);
-
-            prescriptionID = int.Parse(Request.QueryString["ID"]);
+            incomingID = int.Parse(Request.QueryString["ID"]);
             pageType = Request.QueryString["TYPE"].ToUpper();
 
             if (!IsPostBack)
             {
-                if(String.IsNullOrEmpty(prescriptionID.ToString()))
+                if(String.IsNullOrEmpty(incomingID.ToString()))
                 {
                     Response.Redirect("frmLanding.aspx");
                 } else
@@ -33,8 +30,8 @@ namespace Web_Final
                     {
                         //prescription is auto incrementing
                         txtPrescriptionID.Enabled = false;
-                        txtPrescriptionID.Visible = true;
-                        lblPrescID.Visible = true;
+                        txtPrescriptionID.Visible = false;
+                        lblPrescID.Visible = false;
                         txtClientID.Enabled = true;
                         txtPhysicianID.Enabled = true;
                         txtMedicationID.Enabled = true;
@@ -48,12 +45,12 @@ namespace Web_Final
                         {
                             btnUpdate.Text = "Update";
                             lblHeader.Text = "Update Prescription";
-                            GetData(prescriptionID);
-
-                        } else //new
+                            txtPrescriptionID.Visible = true;
+                            lblPrescID.Visible = true;
+                            GetData(incomingID);
+                        } else
                         {
-                            txtPrescriptionID.Visible = false;
-                            lblPrescID.Visible = false;
+                            txtClientID.Text = incomingID.ToString();
                         }
 
                     } else if(pageType == "VIEW")
@@ -68,7 +65,7 @@ namespace Web_Final
                         txtNumberofRefills.Enabled = false;
                         btnUpdate.Visible = false;
                         lblHeader.Text = "View Prescription";
-                        GetData(prescriptionID);
+                        GetData(incomingID);
                     }
                 }
             }
@@ -93,10 +90,6 @@ namespace Web_Final
                 txtExpiryDate.Text = dt.ToString("MM/dd/yyyy");
 
                 txtNumberofRefills.Text = ds.Tables[0].Rows[0]["refillCounter"].ToString();
-
-            } else
-            {
-                //error
             }
         }
 
@@ -119,48 +112,40 @@ namespace Web_Final
 
                 if(pageType == "EDIT")
                 {
-                    dc.UpdatePrescription(prescriptionID, clientID, physicianID, medicineID, expiryDate, refillCounter);
+                    dc.UpdatePrescription(incomingID, clientID, physicianID, medicineID, expiryDate, refillCounter);
 
-                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
-
-                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
-
-                    //redirect to page instead of popup
                     string url = "frmPerscriptions.aspx?ID=" + clientID;
                     Response.Redirect(url, false);
                     Context.ApplicationInstance.CompleteRequest();
 
                 } else if(pageType == "NEW")
                 {
-                    //returns an int, which is the new prescription ID
-                    //not currently saving the int
-                    dc.NewPrescription(clientID, physicianID, medicineID, expiryDate, refillCounter);
+                    int newID = dc.NewPrescription(clientID, physicianID, medicineID, expiryDate, refillCounter);
 
-                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+                    if(newID == 0)
+                    {
+                        //failed insert
+                        string errorUrl = "<script type='text/javascript'>window.open('frmUnScessful.aspx?TYPE=PRESC' , 'Unsuccessful'," +
+                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
-
-                    //redirect to page instead of popup
-                    string url = "frmPerscriptions.aspx?ID=" + clientID;
-                    Response.Redirect(url, false);
-                    Context.ApplicationInstance.CompleteRequest();
+                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", errorUrl);
+                    } else
+                    {
+                        string url = "frmPerscriptions.aspx?ID=" + clientID;
+                        Response.Redirect(url, false);
+                        Context.ApplicationInstance.CompleteRequest();
+                    }
                 }
             } catch (Exception ex)
             {
                 throw new ArgumentException(ex.Message);
             }
-            
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            //EncryptedQueryString eqs = new EncryptedQueryString();
-            //eqs["ID"] = prescriptionID.ToString();
-            //string url = String.Format("frmPerscriptions.aspx?eqs={0}", eqs.ToString());
-
-            string url = "frmPerscriptions.aspx?ID=" + prescriptionID.ToString();
+            string clientID = txtClientID.Text;
+            string url = "frmPerscriptions.aspx?ID=" + clientID;
             Response.Redirect(url, false);
             Context.ApplicationInstance.CompleteRequest();
         }

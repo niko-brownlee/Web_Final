@@ -39,7 +39,11 @@ namespace Web_Final
 
             Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
 
-            //Response.Redirect("frmEmployeeSearch.aspx");
+            txtFName.Text = string.Empty;
+            txtMidInt.Text = string.Empty;
+            txtLName.Text = string.Empty;
+            txtPhone.Text = string.Empty;
+            txtEmail.Text = string.Empty;
         }
 
         protected void btnClose_Click(object sender, EventArgs e)

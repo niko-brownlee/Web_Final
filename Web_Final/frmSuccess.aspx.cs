@@ -18,6 +18,10 @@ namespace Web_Final
             if (pageType == "PHYS")
             {
                 lblSuccess.Text = "New Physician successfully added!";
+
+            } else if(pageType == "CLIENT")
+            {
+                lblSuccess.Text = "Username/Password successfully changed!";
             }
         }
 

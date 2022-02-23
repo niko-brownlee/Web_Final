@@ -17,9 +17,6 @@ namespace Web_Final
         {
             if (!IsPostBack)
             {
-                //EncryptedQueryString eqs = new EncryptedQueryString(Request.QueryString["eqs"]);
-                //string temp = String.Format("{0}", eqs["ID"]);
-
                 clientID = int.Parse(Request.QueryString["ID"]);
                 pageType = Request.QueryString["TYPE"].ToUpper();
 
@@ -32,6 +29,9 @@ namespace Web_Final
                     if (pageType == "NEW" || pageType == "EDIT")
                     {
                         //clientID is auto incrementing
+                        txtClient.Visible = false;
+                        lblClient.Visible = false;
+
                         txtClient.Enabled = false;
                         txtFName.Enabled = true;
                         txtMidint.Enabled = true;
@@ -51,7 +51,8 @@ namespace Web_Final
 
                         if (pageType == "EDIT")
                         {
-                            //function to fill text fields
+                            txtClient.Visible = true;
+                            lblClient.Visible = true;
                             btnUpdate.Text = "Update";
                             lblHeader.Text = "Update Client";
                             GetData(clientID);
@@ -59,6 +60,9 @@ namespace Web_Final
                     }
                     else if (pageType == "VIEW")
                     {
+                        txtClient.Visible = true;
+                        lblClient.Visible = true;
+
                         txtClient.Enabled = false;
                         txtFName.Enabled = false;
                         txtMidint.Enabled = false;
@@ -113,16 +117,12 @@ namespace Web_Final
                     ddlGender.SelectedValue = "Other";
                 }
             }
-            else
-            {
-                //error
-            }
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             DatabaseConnections dc = new DatabaseConnections();
-            string fName, mInit, lName, addr1, addr2, city, addrState, zip, phone, email, gender, dob;
+            string fName, mInit, lName, addr1, addr2, city, addrState, zip, phone, email, gender, dob, url;
 
             try
             {
@@ -155,13 +155,7 @@ namespace Web_Final
                 {
                     dc.UpdateClient(clientID, fName, mInit, lName, addr1, addr2, city, addrState, zip, phone, email, gender, dob);
 
-                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
-
-                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
-
-                    //redirect to page instead of popup
-                    string url = "frmEmployeeSearch.aspx?ID=" + clientID;
+                    url = "frmEmployeeSearch.aspx?ID=" + clientID;
                     Response.Redirect(url, false);
                     Context.ApplicationInstance.CompleteRequest();
 
@@ -169,15 +163,19 @@ namespace Web_Final
                 {
                     int newID = dc.NewClient(fName, mInit, lName, addr1, addr2, city, addrState, zip, phone, email, gender, dob);
 
-                    //string url = "<script type='text/javascript'>window.open('frmSuccess.aspx' , 'Success'," +
-                    //    "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
+                    if(newID == 0)
+                    {
+                        //failed to insert
+                        string errorUrl = "<script type='text/javascript'>window.open('frmUnScessful.aspx?TYPE=CLIENT' , 'Unsuccessful'," +
+                        "'width=525, height=525, menubar=no, resizable=yes, left=50, right=50, scrollbars=yes');</script>";
 
-                    //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", url);
-
-                    //redirect to page instead of popup
-                    string url = "frmEmployeeSearch.aspx?ID=" + newID;
-                    Response.Redirect(url, false);
-                    Context.ApplicationInstance.CompleteRequest();
+                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "PopupScript", errorUrl);
+                    } else
+                    {
+                        url = "frmEmployeeSearch.aspx?ID=" + newID;
+                        Response.Redirect(url, false);
+                        Context.ApplicationInstance.CompleteRequest();
+                    }
                 }
 
             } catch (Exception ex)
@@ -188,10 +186,6 @@ namespace Web_Final
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            //EncryptedQueryString eqs = new EncryptedQueryString();
-            //eqs["ID"] = clientID.ToString();
-            //string url = String.Format("frmPerscriptions.aspx?eqs={0}", eqs.ToString());
-
             string url = "frmEmployeeSearch.aspx?ID=" + clientID.ToString();
             Response.Redirect(url, false);
             Context.ApplicationInstance.CompleteRequest();

@@ -1,0 +1,58 @@
+--------------------------
+Error checking
+--------------------------
+frmLanding
+	# login failure
+
+frmClient
+	# fix success page
+
+frmClientRecords
+	# back button goes to correct client
+
+frmEmployeeSearch
+	# Invalid client/client does not exist (grid visible = false, clear textbox)
+	# switch refill and prescription
+	# remove sort stuff
+
+frmUpdateClient
+	Error updating client (validation)
+	# error saving new cient
+	# if edit, cancel goes back to employeeSearch with clientID
+	# hide client id stuff if new
+
+frmAddPhysician
+	if empty, don't let save (validation)
+
+frmUpdatePrescription
+	New:
+	# autofill client ID
+	# On save/cancel, return back to client id
+	edit:
+	# on update/cancel, return back to client id
+
+frmUpdateRefill
+	New:
+	# on save/cancel, return back with clientid	
+
+--------------------------
+Validation
+--------------------------
+frmEmployeeSearch
+	int only text box
+
+frmUpdateClient
+	Can't be empty: fName, lName, gender, DOB
+	Middle initial - range validator, 1 character max
+
+frmAddPhysician
+	Can't be empty: fName, lName
+	Middle initial - range validator, 1 character max
+
+frmUpdatePrescription
+	can't be empty: clientID, physID, medID, expiry date, refills
+	int only: clientID, physID, medID, refillCounter
+
+frmUpdateRefill
+	can't be empty: all
+	int only: ID, supply, quantity

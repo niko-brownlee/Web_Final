@@ -18,6 +18,12 @@ namespace Web_Final
             if(pageType == "REFILL")
             {
                 lblFail.Text = "Cannot make a new refill. Prescription has run out of refills.";
+            } else if(pageType == "CLIENT")
+            {
+                lblFail.Text = "Error: New client record failed.";
+            } else if(pageType == "PRESC")
+            {
+                lblFail.Text = "Error: New prescription failed.";
             }
         }
 

@@ -55,7 +55,7 @@
             <table class="auto-style5">
                         <tr>
                     <td class="auto-style6">&nbsp;</td>
-                    <td>Client ID:&nbsp;<asp:TextBox ID="txtClient" runat="server" CssClass="auto-style7"></asp:TextBox></td>
+                    <td><asp:Label ID="lblClient" runat="server" Text="Client ID"></asp:Label>&nbsp;<asp:TextBox ID="txtClient" runat="server" CssClass="auto-style7"></asp:TextBox></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>

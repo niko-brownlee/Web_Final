@@ -10,19 +10,18 @@
             <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click" />
                 &nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnNew" runat="server" Text="New Prescription" OnClick="btnNew_Click" />
-            <asp:GridView ID="grdPrescriptions" runat="server" AutoGenerateColumns="false" CssClass="GridView" Width="100%" AllowPaging="true" AllowSorting="true"
-                           OnSelectedIndexChanged="grdPrescriptions_SelectedIndexChanged">
+            <asp:GridView ID="grdPrescriptions" runat="server" AutoGenerateColumns="false" CssClass="GridView" Width="100%" AllowPaging="true" AllowSorting="true">
 
                 <Columns>
                         
-                        <asp:BoundField DataField="prescriptionID" HeaderText="Prescription ID" SortExpression="prescriptionID" />
-                        <asp:BoundField DataField="clientID" HeaderText="Client ID" SortExpression="clientID" />
-                        <asp:BoundField DataField="physicianID" HeaderText="Physician ID" SortExpression="physicianID" />
-                        <asp:BoundField DataField="medicineID" HeaderText="Medicine ID" SortExpression="medicineID" />
-                        <asp:BoundField DataField="startDate" HeaderText="Start Date" SortExpression="startDate" DataFormatString="{0:MM/dd/yyyy}"/>
-                        <asp:BoundField DataField="expiryDate" HeaderText="Expiry Date" SortExpression="expiryDate" DataFormatString="{0:MM/dd/yyyy}"/>
-                        <asp:BoundField DataField="refillCounter" HeaderText="Refill Remaining" SortExpression="refillCounter" />
-                        <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" />
+                        <asp:BoundField DataField="prescriptionID" HeaderText="Prescription ID" />
+                        <asp:BoundField DataField="clientID" HeaderText="Client ID"  />
+                        <asp:BoundField DataField="physicianID" HeaderText="Physician ID" />
+                        <asp:BoundField DataField="medicineID" HeaderText="Medicine ID"  />
+                        <asp:BoundField DataField="startDate" HeaderText="Start Date" DataFormatString="{0:MM/dd/yyyy}"/>
+                        <asp:BoundField DataField="expiryDate" HeaderText="Expiry Date"  DataFormatString="{0:MM/dd/yyyy}"/>
+                        <asp:BoundField DataField="refillCounter" HeaderText="Refill Remaining" />
+                        <asp:BoundField DataField="price" HeaderText="Price"  />
                          
 
                    <asp:TemplateField HeaderText="Update">

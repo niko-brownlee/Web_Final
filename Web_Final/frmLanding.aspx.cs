@@ -12,8 +12,7 @@ namespace Web_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //*** FOR TESTING ONLY ***
-            lblTESTING.Text = "";
+            lblError.Visible = false;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -30,52 +29,48 @@ namespace Web_Final
                 DataSet ds = new DataSet();
                 ds = dc.GetLoginInfo(username);
 
-                if (ds.Tables[0].Rows.Count > 0)
+                if(ds.Tables.Count > 0) //if username exists
                 {
-                    var val = ds.Tables[0].Rows[0]["salt"].ToString();
-                    var myval = Utilities.returnSaltBytes(val);
-                    var hash = Utilities.Return_HASH_SHA512(password, myval);
-
-                    bool isVerified = ds.Tables[0].Rows[0]["userPassword"].ToString().Equals(hash);
-
-                    if (isVerified)
+                    if (ds.Tables[0].Rows.Count > 0)
                     {
-                        //successful login
-                        //find if employee or client
-                        int user = dc.FindUsername(username);
+                        var val = ds.Tables[0].Rows[0]["salt"].ToString();
+                        var myval = Utilities.returnSaltBytes(val);
+                        var hash = Utilities.Return_HASH_SHA512(password, myval);
 
-                        if (user == 1) //client
+                        bool isVerified = ds.Tables[0].Rows[0]["userPassword"].ToString().Equals(hash);
+
+                        if (isVerified)
                         {
-                            //pass client ID
-                            //EncryptedQueryString eqs = new EncryptedQueryString();
+                            //find if employee or client
+                            int user = dc.FindUsername(username);
 
-                            //eqs["ID"] = getClientIDByUsername(username).ToString();
-                            //string url = String.Format("frmClient.aspx?eqs{0}", eqs.ToString());
+                            if (user == 1) //client
+                            {
+                                string url = "frmClient.aspx?ID=" + getClientIDByUsername(username).ToString();
 
-                            string url = "frmClient.aspx?ID=" + getClientIDByUsername(username).ToString();
+                                Response.Redirect(url, false);
+                                Context.ApplicationInstance.CompleteRequest();
+                            }
+                            else if (user == 2) //2, employee
+                            {
+                                Response.Redirect("frmEmployeeSearch.aspx", false);
+                                Context.ApplicationInstance.CompleteRequest();
+                            }
 
-                            Response.Redirect(url, false);
-                            Context.ApplicationInstance.CompleteRequest();
                         }
-                        else if (user == 2) //2, employee
+                        else //not verified
                         {
-                            Response.Redirect("frmEmployeeSearch.aspx", false);
-                            Context.ApplicationInstance.CompleteRequest();
+                            lblError.Visible = true;
+                            txtPassword.Text = string.Empty;
                         }
-                        else
-                        {
-                            //error, verified, but not client or employee
-                        }
-
                     }
-                    else //not verified
-                    {
-                        //*** FOR TESTING ONLY ***
-                        lblTESTING.Text = "not verified";
-
-                        //validation, same as not client or employee 
-                    }
+                } else //username does not exist
+                {
+                    lblError.Visible = true;
+                    txtPassword.Text = string.Empty;
                 }
+
+                
             }
             catch (Exception ex)
             {

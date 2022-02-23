@@ -24,6 +24,15 @@ namespace Web_Final
         protected global::System.Web.UI.WebControls.Label lblHeader;
 
         /// <summary>
+        /// lblClient control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblClient;
+
+        /// <summary>
         /// txtClient control.
         /// </summary>
         /// <remarks>

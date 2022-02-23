@@ -48,10 +48,10 @@
         </form>
     <div class="auto-style3">
     <td bgcolor="gainsboro" colspan="3" rowspan="1"style="text-align: center; width:10%; background-image:url(https://i.imgur.com/OaD3bWV.jpeg); height:23px;">
-        <span class="auto-style4">All data Copyright TSCT 2021 &nbsp; &nbsp; | &nbsp;
+        <span class="auto-style4">All data Copyright TSCT 2022 &nbsp; &nbsp; | &nbsp;
      &nbsp;
-     <asp:HyperLink ID="hlpMail" runat="server" Target="_blank" NavigateUrl="Send.aspx">Send Comments</asp:HyperLink> ||
-     <a href="JavaScrtipt: void(0)" onclick="HelpMe()">Terms of Use</a>|| <a href="JavaScript: void(0)" onclick="ContactMe()">Contact</a>
+     <asp:HyperLink ID="comments" runat="server" Target="_blank" NavigateUrl="frmAbout.aspx">About</asp:HyperLink>
+     || <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" NavigateUrl="ContactUs.aspx">Contact Us</asp:HyperLink>
 </td>
         </span>
     </div>

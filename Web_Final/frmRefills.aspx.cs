@@ -99,7 +99,7 @@ namespace Web_Final
             //eqs["TYPE"] = NEW;
             //string url = String.Format("frmUpdateRefill.aspx?eqs={0}", eqs.ToString());
 
-            string url = "frmUpdateRefill.aspx?ID=" + 0 + "&TYPE=NEW";
+            string url = "frmUpdateRefill.aspx?ID=" + clientID + "&TYPE=NEW";
             Response.Redirect(url, false);
             Context.ApplicationInstance.CompleteRequest();
         }

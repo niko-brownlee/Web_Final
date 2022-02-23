@@ -11,6 +11,7 @@ namespace Web_Final
 {
     public partial class frmUpdateRefill : System.Web.UI.Page
     {
+        //if page type == new, refillID is actually clientID
         private int refillID;
         private string pageType;
 
@@ -189,13 +190,24 @@ namespace Web_Final
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            //EncryptedQueryString eqs = new EncryptedQueryString();
-            //eqs["ID"] = refillID.ToString();
-            //string url = String.Format("frmRefills.aspx?eqs={0}", eqs.ToString());
+            string url = "";
 
-            string url = "frmRefills.aspx?ID=" + refillID;
-            Response.Redirect(url, false);
-            Context.ApplicationInstance.CompleteRequest();
+            if(pageType == "NEW")
+            {
+                url = "frmRefills.aspx?ID=" + refillID;
+                Response.Redirect(url, false);
+                Context.ApplicationInstance.CompleteRequest();
+            } else
+            {
+                DatabaseConnections dc = new DatabaseConnections();
+                DataSet ds = new DataSet();
+                ds = dc.SelectClientByRefill(refillID);
+                int clientID = int.Parse(ds.Tables[0].Rows[0]["clientID"].ToString());
+
+                url = "frmRefills.aspx?ID=" + clientID;
+                Response.Redirect(url, false);
+                Context.ApplicationInstance.CompleteRequest();
+            }
         }
     }
 }

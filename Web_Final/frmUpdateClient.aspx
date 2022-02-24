@@ -150,7 +150,7 @@
                     <td class="auto-style6">&nbsp;</td>
                     <td>
             <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="auto-style18" OnClick="btnUpdate_Click"/>&nbsp;
-                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="auto-style17" OnClick="btnCancel_Click" />
+                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="auto-style17" OnClick="btnCancel_Click" CausesValidation="False" />
                         </td>
                     <td>&nbsp;</td>
                 </tr>

@@ -63,7 +63,7 @@
                         <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
                     </td>
                     <td>
-                        <asp:Button ID="btnClose" runat="server" Text="Close" OnClick="btnClose_Click" />
+                        <asp:Button ID="btnClose" runat="server" Text="Close" OnClick="btnClose_Click" CausesValidation="False" />
                     </td>
                 </tr>
             </table>

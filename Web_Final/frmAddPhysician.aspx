@@ -30,6 +30,7 @@
                     <td class="auto-style9"><span class="auto-style6">*</span>First Name:</td>
                     <td class="auto-style7">
                         <asp:TextBox ID="txtFName" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="Do not leave empty" ControlToValidate="txtFName"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -42,6 +43,7 @@
                     <td class="auto-style8"><span class="auto-style6">*</span>Last Name:</td>
                     <td>
                         <asp:TextBox ID="txtLName" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Text="Do not leave empty" ControlToValidate="txtLName"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>

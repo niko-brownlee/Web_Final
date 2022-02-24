@@ -99,5 +99,10 @@ namespace Web_Final
             grdEmployeeSearch.DataBind();
             grdEmployeeSearch.Visible = true;
         }
+
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

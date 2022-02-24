@@ -20,8 +20,10 @@
         <td>
             <table class="auto-style5">
                 <tr>
-                    <td class="auto-style3"><span class="auto-style6">Search For Client:&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="txtSearch" runat="server" CssClass="auto-style7" Width="346px"></asp:TextBox>
+                    <td class="auto-style3"><span class="auto-style6">Search For Client:&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="txtSearch" runat="server" CssClass="auto-style7" Width="346px" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                         <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
+                         <asp:CompareValidator ID="cv" runat="server" ControlToValidate="txtSearch" Type="Integer"
+                         Operator="DataTypeCheck" ErrorMessage="Value must be an integer!" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnAddClient" runat="server" OnClick="btnAddClient_Click" Text="Add New Client" />
                         &nbsp;

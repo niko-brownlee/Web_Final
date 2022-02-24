@@ -45,6 +45,13 @@
         .auto-style18 {
             margin-left: 50px;
         }
+        .auto-style19 {
+            width: 330px;
+            height: 30px;
+        }
+        .auto-style20 {
+            height: 30px;
+        }
     </style>
 </asp:Content>
 
@@ -60,28 +67,34 @@
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
-                    <td>* First Name:&nbsp;<asp:TextBox ID="txtFName" runat="server" CssClass="auto-style10"></asp:TextBox></td>
+                    <td>* First Name:&nbsp;<asp:TextBox ID="txtFName" runat="server" CssClass="auto-style10"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="Do not leave empty" ControlToValidate="txtFName"></asp:RequiredFieldValidator>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
-                    <td>Mid. Int.:&nbsp;<asp:TextBox ID="txtMidint" runat="server" CssClass="auto-style8"></asp:TextBox></td>
+                    <td>Mid. Int.:&nbsp;<asp:TextBox ID="txtMidint" runat="server" CssClass="auto-style8"></asp:TextBox>
+                        
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
-                    <td>* Last Name:&nbsp;<asp:TextBox ID="txtLName" runat="server" CssClass="auto-style9"></asp:TextBox></td>
+                    <td>* Last Name:&nbsp;<asp:TextBox ID="txtLName" runat="server" CssClass="auto-style9"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Text="Do not leave empty" ControlToValidate="txtFName"></asp:RequiredFieldValidator>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
-                    <td>Address: &nbsp;<asp:TextBox Id="txtAddress" runat="server" CssClass="auto-style7"></asp:TextBox></td>
+                    <td>Address: &nbsp;<asp:TextBox Id="txtAddress" runat="server" CssClass="auto-style7" OnTextChanged="txtAddress_TextChanged"></asp:TextBox></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td>Address 2:&nbsp;<asp:TextBox Id="txtAddress2" runat="server" CssClass="auto-style11"></asp:TextBox></td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style19"></td>
+                    <td class="auto-style20">Address 2:&nbsp;<asp:TextBox Id="txtAddress2" runat="server" CssClass="auto-style11"></asp:TextBox></td>
+                    <td class="auto-style20"></td>
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
@@ -124,6 +137,7 @@
                         </asp:ScriptManager>
                         <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="txtDOB" Format="MMMM dd, yyyy" PopupPosition="BottomLeft"/>
                         <asp:TextBox Id="txtDOB" runat="server" CssClass="auto-style15"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Text="Do not leave empty" ControlToValidate="txtDOB"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>

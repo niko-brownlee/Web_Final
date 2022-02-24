@@ -33,6 +33,15 @@ namespace Web_Final
         protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
+        /// cv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cv;
+
+        /// <summary>
         /// btnAddClient control.
         /// </summary>
         /// <remarks>

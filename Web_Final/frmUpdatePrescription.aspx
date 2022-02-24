@@ -14,6 +14,8 @@
                 </td>
                 <td class="auto-style8">
                 <asp:TextBox ID="txtPrescriptionID" runat="server"></asp:TextBox>
+                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="Do not leave empty" ControlToValidate="txtPrescriptionID"></asp:RequiredFieldValidator>--%>
+                    
     
                 </td>
             </tr>
@@ -21,6 +23,9 @@
                 <td class="auto-style9"><span class="auto-style13">*</span>Client ID:</td>
                 <td class="auto-style12">
                 <asp:TextBox ID="txtClientID" runat="server"></asp:TextBox>
+                    <asp:CompareValidator ID="cv" runat="server" ControlToValidate="txtClientID" Type="Integer"
+                         Operator="DataTypeCheck" ErrorMessage="Value must be an integer!" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="Do not leave empty" ControlToValidate="txtClientID"></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -28,6 +33,9 @@
                 <td class="auto-style9"><span class="auto-style13">*</span>Physician ID:</td>
                 <td class="auto-style12">
     <asp:TextBox ID="txtPhysicianID" runat="server"></asp:TextBox>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtPhysicianID" Type="Integer"
+                         Operator="DataTypeCheck" ErrorMessage="Value must be an integer!" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Text="Do not leave empty" ControlToValidate="txtPhysicianID"></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -35,7 +43,9 @@
                 <td class="auto-style10"><span class="auto-style13">*</span>Medication ID:</td>
                 <td class="auto-style7">
     <asp:TextBox ID="txtMedicationID" runat="server"></asp:TextBox>
-
+                    <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="txtMedicationID" Type="Integer"
+                         Operator="DataTypeCheck" ErrorMessage="Value must be an integer!" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Text="Do not leave empty" ControlToValidate="txtMedicationID"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -46,12 +56,16 @@
                         <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="txtExpiryDate" Format="MMMM dd, yyyy" PopupPosition="BottomLeft"/>
                         
                     <asp:TextBox ID="txtExpiryDate" runat="server" Wrap="False"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Text="Do not leave empty" ControlToValidate="txtExpiryDate"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style9">Number of Refills:</td>
                 <td class="auto-style12">
     <asp:TextBox ID="txtNumberofRefills" runat="server" Width="55px"></asp:TextBox>
+                    <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="txtNumberofRefills" Type="Integer"
+                         Operator="DataTypeCheck" ErrorMessage="Value must be an integer!" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Text="Do not leave empty" ControlToValidate="txtNumberofRefills"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>

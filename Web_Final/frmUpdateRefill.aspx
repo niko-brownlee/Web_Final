@@ -21,6 +21,8 @@
                     <td class="auto-style6"><asp:Label ID="lblRefill" runat="server" Text="* Refill ID:" ></asp:Label></td>
                     <td class="auto-style7">
                         <asp:TextBox ID="txtRefill" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="Do not leave empty"
+                            ControlToValidate="txtRefill"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -28,6 +30,10 @@
                     <td class="auto-style6">* Prescription ID:</td>
                     <td>
                         <asp:TextBox ID="txtPrescription" runat="server"></asp:TextBox>
+                        <asp:CompareValidator ID="cv" runat="server" ControlToValidate="txtPrescription" Type="Integer"
+                         Operator="DataTypeCheck" ErrorMessage="Value must be an integer!" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Text="Do not leave empty"
+                            ControlToValidate="txtPrescription"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -35,6 +41,8 @@
                     <td class="auto-style6">* Dosage:</td>
                     <td>
                         <asp:TextBox ID="txtDosage" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Text="Do not leave empty"
+                            ControlToValidate="txtDosage"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -42,6 +50,8 @@
                     <td class="auto-style6">* Frequency:</td>
                     <td>
                         <asp:TextBox ID="txtFrequency" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Text="Do not leave empty"
+                            ControlToValidate="txtDosage"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -49,6 +59,10 @@
                     <td class="auto-style6">* Supply (in days):</td>
                     <td>
                         <asp:TextBox ID="txtSupply" runat="server"></asp:TextBox>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtSupply" Type="Integer"
+                         Operator="DataTypeCheck" ErrorMessage="Value must be an integer!" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Text="Do not leave empty"
+                            ControlToValidate="txtSupply"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -56,6 +70,10 @@
                     <td class="auto-style6">* Quantity Supplied:</td>
                     <td>
                         <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+                        <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="txtQuantity" Type="Integer"
+                         Operator="DataTypeCheck" ErrorMessage="Value must be an integer!" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" Text="Do not leave empty"
+                            ControlToValidate="txtQuantity"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -73,6 +91,8 @@
                         </asp:ScriptManager>
                         <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="txtDate" Format="MMMM dd, yyyy" PopupPosition="BottomLeft"/>
                         <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" Text="Do not leave empty"
+                            ControlToValidate="txtDate"></asp:RequiredFieldValidator>
                     </td>
                     
                     <td>&nbsp;</td>

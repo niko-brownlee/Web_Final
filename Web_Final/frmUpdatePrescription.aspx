@@ -14,8 +14,9 @@
                 </td>
                 <td class="auto-style8">
                 <asp:TextBox ID="txtPrescriptionID" runat="server"></asp:TextBox>
-                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="Do not leave empty" ControlToValidate="txtPrescriptionID"></asp:RequiredFieldValidator>--%>
-                    
+                   <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="txtPrescriptionID" Type="Integer"
+                         Operator="DataTypeCheck" ErrorMessage="Value must be an integer!" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" Text="Do not leave empty" ControlToValidate="txtPrescriptionID"></asp:RequiredFieldValidator>
     
                 </td>
             </tr>

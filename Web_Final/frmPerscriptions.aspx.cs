@@ -15,14 +15,14 @@ namespace Web_Final
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            clientID = int.Parse(Request.QueryString["ID"]);
-
-            if (!IsPostBack)
+            if(String.IsNullOrEmpty(Request.QueryString["ID"]))
             {
-                if (String.IsNullOrEmpty(clientID.ToString()))
-                {
-                    Response.Redirect("frmLanding.aspx");
-                } else
+                Response.Redirect("frmEmployeeSearch.aspx");
+            } else
+            {
+                clientID = int.Parse(Request.QueryString["ID"]);
+
+                if (!IsPostBack)
                 {
                     BindData();
                 }

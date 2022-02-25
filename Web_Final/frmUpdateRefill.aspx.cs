@@ -16,17 +16,17 @@ namespace Web_Final
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            incomingID = int.Parse(Request.QueryString["ID"]);
-            pageType = Request.QueryString["TYPE"].ToUpper();
-
             if (!IsPostBack)
             {
-                if (String.IsNullOrEmpty(incomingID.ToString()))
+                if (String.IsNullOrEmpty(Request.QueryString["ID"]))
                 {
                     Response.Redirect("frmLanding.aspx");
                 }
                 else
                 {
+                    incomingID = int.Parse(Request.QueryString["ID"]);
+                    pageType = Request.QueryString["TYPE"].ToUpper();
+
                     if (pageType == "NEW" || pageType == "EDIT")
                     {
                         //prescription is auto incrementing

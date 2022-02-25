@@ -17,15 +17,15 @@ namespace Web_Final
         {
             if (!IsPostBack)
             {
-                clientID = int.Parse(Request.QueryString["ID"]);
-                pageType = Request.QueryString["TYPE"].ToUpper();
-
-                if (String.IsNullOrEmpty(clientID.ToString()))
+                if (String.IsNullOrEmpty(Request.QueryString["ID"]))
                 {
                     Response.Redirect("frmLanding.aspx");
                 }
                 else
                 {
+                    clientID = int.Parse(Request.QueryString["ID"]);
+                    pageType = Request.QueryString["TYPE"].ToUpper();
+
                     if (pageType == "NEW" || pageType == "EDIT")
                     {
                         //clientID is auto incrementing
